@@ -452,6 +452,8 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) OTPublishers
 
 
 
+
+
 @class UIViewController;
 enum OTUIType : NSInteger;
 
@@ -487,7 +489,7 @@ enum OTUIType : NSInteger;
 /// Public method to get consent javascript for webview
 /// To avoid reconsent in webview, inject this javascript before launching the webview
 - (NSString * _Nullable)getOTConsentJSForWebView SWIFT_WARN_UNUSED_RESULT;
-/// Dismisses the OT SDK UI if SDK UI is in the view heirarchy.
+/// Dismisses the OT SDK UI if SDK UI is in the view hierarchy.
 - (void)dismissUI;
 @end
 
@@ -539,7 +541,9 @@ enum VendorListMode : NSInteger;
 ///
 /// \param consentValue Boolean value specifying updated consent value. Permissible values : true or false
 ///
-- (void)updatePurposeConsentForGroup:(NSString * _Nonnull)groupId consentValue:(BOOL)consentValue;
+/// \param updateHierarchy Updates the hierarchy the group ID belongs to. This value will be false by default.
+///
+- (void)updatePurposeConsentForGroup:(NSString * _Nonnull)groupId consentValue:(BOOL)consentValue updateHierarchy:(BOOL)updateHierarchy;
 /// Function to update legitimate interest value for specified group Identifier.
 /// \param groupId String Category Id for which legitimate interest value has to be updated.
 ///
