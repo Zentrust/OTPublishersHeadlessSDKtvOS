@@ -1,0 +1,11 @@
+framework module OTPublishersHeadlessSDKtvOS {
+  umbrella header "OTPublishersHeadlessSDKtvOS.h"
+
+  export *
+  module * { export * }
+}
+
+module OTPublishersHeadlessSDKtvOS.Swift {
+    header "OTPublishersHeadlessSDKtvOS-Swift.h"
+    requires objc
+}
