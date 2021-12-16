@@ -357,6 +357,7 @@ extension BannerUIDataModel {
 @objc public enum VendorListMode : Swift.Int {
   case google
   case iab
+  case general
   public typealias RawValue = Swift.Int
   public init?(rawValue: Swift.Int)
   public var rawValue: Swift.Int {

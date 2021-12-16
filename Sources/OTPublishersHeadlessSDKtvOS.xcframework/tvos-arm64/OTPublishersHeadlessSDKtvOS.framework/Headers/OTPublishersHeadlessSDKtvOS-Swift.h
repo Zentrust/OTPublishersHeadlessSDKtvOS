@@ -814,6 +814,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _No
 
 
 
+
 enum VendorListJourneyType : NSInteger;
 
 /// Conform to this protocol to perform customizations on OT SDK UI.
@@ -890,6 +891,8 @@ typedef SWIFT_ENUM(NSInteger, VendorListMode, open) {
   VendorListModeGoogle = 0,
 /// IAB Vendor List.
   VendorListModeIab = 1,
+/// General Vendor List.
+  VendorListModeGeneral = 2,
 };
 
 #if __has_attribute(external_source_symbol)
