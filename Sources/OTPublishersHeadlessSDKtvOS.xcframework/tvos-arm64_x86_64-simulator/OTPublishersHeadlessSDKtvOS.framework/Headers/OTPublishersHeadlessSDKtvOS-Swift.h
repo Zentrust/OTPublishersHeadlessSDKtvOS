@@ -292,6 +292,7 @@ typedef SWIFT_ENUM(NSInteger, OTCCPAGeolocation, open) {
   OTCCPAGeolocationCA = 2,
 };
 
+enum VendorListMode : NSInteger;
 
 /// Conform to this protocol in order to receive various events triggered by OT SDK.
 SWIFT_PROTOCOL("_TtP27OTPublishersHeadlessSDKtvOS15OTEventListener_")
@@ -335,10 +336,12 @@ SWIFT_PROTOCOL("_TtP27OTPublishersHeadlessSDKtvOS15OTEventListener_")
 - (void)onPreferenceCenterPurposeConsentChangedWithPurposeId:(NSString * _Nonnull)purposeId consentStatus:(int8_t)consentStatus;
 /// Conform to this method to get notified when a purpose legitimate interest has changed from Preference Center.
 - (void)onPreferenceCenterPurposeLegitimateInterestChangedWithPurposeId:(NSString * _Nonnull)purposeId legitInterest:(int8_t)legitInterest;
-/// Conform to this method to get notified when a purpose consent has changed from Vendor List View.
-- (void)onVendorListVendorConsentChangedWithVendorId:(NSString * _Nonnull)vendorId consentStatus:(int8_t)consentStatus;
-/// Conform to this method to get notified when a purpose legitimate interest has changed from Vendor List View.
+/// Conform to this method to get notified when a vendor consent has changed from Vendor List View.
+- (void)onVendorListVendorConsentChangedWithVendorId:(NSString * _Nonnull)vendorId consentStatus:(int8_t)consentStatus SWIFT_DEPRECATED_MSG("This API will be removed in a couple of releases. Please use the new onVendorListVendorConsentChanged(vendorID:consentStatus:for:) API where vendorId is a String argument.", "onVendorListVendorConsentChangedWithVendorID:consentStatus:for:");
+/// Conform to this method to get notified when a vendor legitimate interest has changed from Vendor List View.
 - (void)onVendorListVendorLegitimateInterestChangedWithVendorId:(NSString * _Nonnull)vendorId legitInterest:(int8_t)legitInterest;
+/// Conform to this method to get notified when a vendor consent has changed from Vendor List View.
+- (void)onVendorListVendorConsentChangedWithVendorID:(NSString * _Nonnull)vendorID consentStatus:(int8_t)consentStatus for:(enum VendorListMode)mode;
 @end
 
 
@@ -497,7 +500,6 @@ enum OTUIType : NSInteger;
 
 @class OTSdkParams;
 @class OTResponse;
-enum VendorListMode : NSInteger;
 
 @interface OTPublishersHeadlessSDK (SWIFT_EXTENSION(OTPublishersHeadlessSDKtvOS))
 /// Starts the OT SDK, fetches and returns the response required to create OT SDK UI.
@@ -619,7 +621,7 @@ enum VendorListMode : NSInteger;
 ///
 /// \param mode The mode of the Vendor List. If no mode is passed, we will consider it as IAB by default.
 ///
-- (void)updateVendorConsentWithVendorId:(NSInteger)vendorId consentStatus:(BOOL)consentStatus for:(enum VendorListMode)mode;
+- (void)updateVendorConsentWithVendorId:(NSInteger)vendorId consentStatus:(BOOL)consentStatus for:(enum VendorListMode)mode SWIFT_DEPRECATED_MSG("This API will be removed in a couple of releases. Please use the new updateVendorConsent(vendorID:consentStatus:for:) API where vendorID is a String argument.", "updateVendorConsentWithVendorID:consentStatus:for:");
 /// Public function to update consent value for vendor LegitInterest.
 /// note:
 /// Legit interest is supported only for IAB vendors.
@@ -629,7 +631,25 @@ enum VendorListMode : NSInteger;
 ///
 /// \param mode The mode of the Vendor List. If no mode is passed, we will consider it as IAB by default.
 ///
-- (void)updateVendorLegitInterestWithVendorId:(NSInteger)vendorId legIntStatus:(BOOL)legIntStatus for:(enum VendorListMode)mode;
+- (void)updateVendorLegitInterestWithVendorId:(NSInteger)vendorId legIntStatus:(BOOL)legIntStatus for:(enum VendorListMode)mode SWIFT_DEPRECATED_MSG("This API will be removed in a couple of releases. Please use the new updateVendorLegitInterest(vendorID:legIntStatus:for:) API where vendorId is a String argument.", "updateVendorLegitInterestWithVendorID:legIntStatus:for:");
+/// Public function to update consent status for a specific vendor.
+/// \param vendorID vendor ID as String.
+///
+/// \param consentStatus Updated consent status.
+///
+/// \param mode The mode of the Vendor List. If no mode is passed, we will consider it as IAB by default.
+///
+- (void)updateVendorConsentWithVendorID:(NSString * _Nonnull)vendorID consentStatus:(BOOL)consentStatus for:(enum VendorListMode)mode;
+/// Public function to update consent value for vendor LegitInterest.
+/// note:
+/// Legit interest is supported only for IAB vendors.
+/// \param vendorID vendor ID as String.
+///
+/// \param legIntStatus Updated legitimate interest status.
+///
+/// \param mode The mode of the Vendor List. If no mode is passed, we will consider it as IAB by default.
+///
+- (void)updateVendorLegitInterestWithVendorID:(NSString * _Nonnull)vendorID legIntStatus:(BOOL)legIntStatus for:(enum VendorListMode)mode;
 /// This method returns all the active vendors associated to the mode passed.
 /// \param mode The mode of the Vendor List. If no mode is passed, we will consider it as IAB by default.
 ///
@@ -660,7 +680,16 @@ enum VendorListMode : NSInteger;
 ///
 /// returns:
 /// if vendor is available then this function will return a dictionary for given Vendor Id otherwise this function will return nil
-- (NSDictionary<NSString *, id> * _Nullable)getVendorDetailsWithVendorId:(NSInteger)vendorId for:(enum VendorListMode)mode SWIFT_WARN_UNUSED_RESULT;
+- (NSDictionary<NSString *, id> * _Nullable)getVendorDetailsWithVendorId:(NSInteger)vendorId for:(enum VendorListMode)mode SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_MSG("This API will be removed in a couple of releases. Please use the new getVendorDetails(vendorID:for:) API where vendorID is a String argument.", "getVendorDetailsWithVendorID:for:");
+/// Public function to get vendor details for given vendor id
+/// \param vendorID vendor id as String value
+///
+/// \param mode The mode of the Vendor List. If no mode is passed, we will consider it as IAB by default.
+///
+///
+/// returns:
+/// if vendor is available then this function will return a dictionary for given Vendor Id otherwise this function will return nil
+- (NSDictionary<NSString *, id> * _Nullable)getVendorDetailsWithVendorID:(NSString * _Nonnull)vendorID for:(enum VendorListMode)mode SWIFT_WARN_UNUSED_RESULT;
 /// Public method to return dictionary to construct banner user interface
 ///
 /// returns:
@@ -1196,6 +1225,7 @@ typedef SWIFT_ENUM(NSInteger, OTCCPAGeolocation, open) {
   OTCCPAGeolocationCA = 2,
 };
 
+enum VendorListMode : NSInteger;
 
 /// Conform to this protocol in order to receive various events triggered by OT SDK.
 SWIFT_PROTOCOL("_TtP27OTPublishersHeadlessSDKtvOS15OTEventListener_")
@@ -1239,10 +1269,12 @@ SWIFT_PROTOCOL("_TtP27OTPublishersHeadlessSDKtvOS15OTEventListener_")
 - (void)onPreferenceCenterPurposeConsentChangedWithPurposeId:(NSString * _Nonnull)purposeId consentStatus:(int8_t)consentStatus;
 /// Conform to this method to get notified when a purpose legitimate interest has changed from Preference Center.
 - (void)onPreferenceCenterPurposeLegitimateInterestChangedWithPurposeId:(NSString * _Nonnull)purposeId legitInterest:(int8_t)legitInterest;
-/// Conform to this method to get notified when a purpose consent has changed from Vendor List View.
-- (void)onVendorListVendorConsentChangedWithVendorId:(NSString * _Nonnull)vendorId consentStatus:(int8_t)consentStatus;
-/// Conform to this method to get notified when a purpose legitimate interest has changed from Vendor List View.
+/// Conform to this method to get notified when a vendor consent has changed from Vendor List View.
+- (void)onVendorListVendorConsentChangedWithVendorId:(NSString * _Nonnull)vendorId consentStatus:(int8_t)consentStatus SWIFT_DEPRECATED_MSG("This API will be removed in a couple of releases. Please use the new onVendorListVendorConsentChanged(vendorID:consentStatus:for:) API where vendorId is a String argument.", "onVendorListVendorConsentChangedWithVendorID:consentStatus:for:");
+/// Conform to this method to get notified when a vendor legitimate interest has changed from Vendor List View.
 - (void)onVendorListVendorLegitimateInterestChangedWithVendorId:(NSString * _Nonnull)vendorId legitInterest:(int8_t)legitInterest;
+/// Conform to this method to get notified when a vendor consent has changed from Vendor List View.
+- (void)onVendorListVendorConsentChangedWithVendorID:(NSString * _Nonnull)vendorID consentStatus:(int8_t)consentStatus for:(enum VendorListMode)mode;
 @end
 
 
@@ -1401,7 +1433,6 @@ enum OTUIType : NSInteger;
 
 @class OTSdkParams;
 @class OTResponse;
-enum VendorListMode : NSInteger;
 
 @interface OTPublishersHeadlessSDK (SWIFT_EXTENSION(OTPublishersHeadlessSDKtvOS))
 /// Starts the OT SDK, fetches and returns the response required to create OT SDK UI.
@@ -1523,7 +1554,7 @@ enum VendorListMode : NSInteger;
 ///
 /// \param mode The mode of the Vendor List. If no mode is passed, we will consider it as IAB by default.
 ///
-- (void)updateVendorConsentWithVendorId:(NSInteger)vendorId consentStatus:(BOOL)consentStatus for:(enum VendorListMode)mode;
+- (void)updateVendorConsentWithVendorId:(NSInteger)vendorId consentStatus:(BOOL)consentStatus for:(enum VendorListMode)mode SWIFT_DEPRECATED_MSG("This API will be removed in a couple of releases. Please use the new updateVendorConsent(vendorID:consentStatus:for:) API where vendorID is a String argument.", "updateVendorConsentWithVendorID:consentStatus:for:");
 /// Public function to update consent value for vendor LegitInterest.
 /// note:
 /// Legit interest is supported only for IAB vendors.
@@ -1533,7 +1564,25 @@ enum VendorListMode : NSInteger;
 ///
 /// \param mode The mode of the Vendor List. If no mode is passed, we will consider it as IAB by default.
 ///
-- (void)updateVendorLegitInterestWithVendorId:(NSInteger)vendorId legIntStatus:(BOOL)legIntStatus for:(enum VendorListMode)mode;
+- (void)updateVendorLegitInterestWithVendorId:(NSInteger)vendorId legIntStatus:(BOOL)legIntStatus for:(enum VendorListMode)mode SWIFT_DEPRECATED_MSG("This API will be removed in a couple of releases. Please use the new updateVendorLegitInterest(vendorID:legIntStatus:for:) API where vendorId is a String argument.", "updateVendorLegitInterestWithVendorID:legIntStatus:for:");
+/// Public function to update consent status for a specific vendor.
+/// \param vendorID vendor ID as String.
+///
+/// \param consentStatus Updated consent status.
+///
+/// \param mode The mode of the Vendor List. If no mode is passed, we will consider it as IAB by default.
+///
+- (void)updateVendorConsentWithVendorID:(NSString * _Nonnull)vendorID consentStatus:(BOOL)consentStatus for:(enum VendorListMode)mode;
+/// Public function to update consent value for vendor LegitInterest.
+/// note:
+/// Legit interest is supported only for IAB vendors.
+/// \param vendorID vendor ID as String.
+///
+/// \param legIntStatus Updated legitimate interest status.
+///
+/// \param mode The mode of the Vendor List. If no mode is passed, we will consider it as IAB by default.
+///
+- (void)updateVendorLegitInterestWithVendorID:(NSString * _Nonnull)vendorID legIntStatus:(BOOL)legIntStatus for:(enum VendorListMode)mode;
 /// This method returns all the active vendors associated to the mode passed.
 /// \param mode The mode of the Vendor List. If no mode is passed, we will consider it as IAB by default.
 ///
@@ -1564,7 +1613,16 @@ enum VendorListMode : NSInteger;
 ///
 /// returns:
 /// if vendor is available then this function will return a dictionary for given Vendor Id otherwise this function will return nil
-- (NSDictionary<NSString *, id> * _Nullable)getVendorDetailsWithVendorId:(NSInteger)vendorId for:(enum VendorListMode)mode SWIFT_WARN_UNUSED_RESULT;
+- (NSDictionary<NSString *, id> * _Nullable)getVendorDetailsWithVendorId:(NSInteger)vendorId for:(enum VendorListMode)mode SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_MSG("This API will be removed in a couple of releases. Please use the new getVendorDetails(vendorID:for:) API where vendorID is a String argument.", "getVendorDetailsWithVendorID:for:");
+/// Public function to get vendor details for given vendor id
+/// \param vendorID vendor id as String value
+///
+/// \param mode The mode of the Vendor List. If no mode is passed, we will consider it as IAB by default.
+///
+///
+/// returns:
+/// if vendor is available then this function will return a dictionary for given Vendor Id otherwise this function will return nil
+- (NSDictionary<NSString *, id> * _Nullable)getVendorDetailsWithVendorID:(NSString * _Nonnull)vendorID for:(enum VendorListMode)mode SWIFT_WARN_UNUSED_RESULT;
 /// Public method to return dictionary to construct banner user interface
 ///
 /// returns:

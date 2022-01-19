@@ -154,6 +154,8 @@ extension DynamicColor {
   public static let dynamicBlack: OTPublishersHeadlessSDKtvOS.DynamicColor
   public static let dynamicBlue: OTPublishersHeadlessSDKtvOS.DynamicColor
   public static let dynamicGray: OTPublishersHeadlessSDKtvOS.DynamicColor
+  public static let lightGrayBackground: OTPublishersHeadlessSDKtvOS.DynamicColor
+  public static let separator: OTPublishersHeadlessSDKtvOS.DynamicColor
   public static let dynamicDarkGray: OTPublishersHeadlessSDKtvOS.DynamicColor
   public static let dynamicWhite: OTPublishersHeadlessSDKtvOS.DynamicColor
   public static let dynamicOTButton: OTPublishersHeadlessSDKtvOS.DynamicColor
@@ -211,8 +213,10 @@ public enum SDKViewMode {
   @objc optional func onHideVendorList()
   @objc optional func onPreferenceCenterPurposeConsentChanged(purposeId: Swift.String, consentStatus: Swift.Int8)
   @objc optional func onPreferenceCenterPurposeLegitimateInterestChanged(purposeId: Swift.String, legitInterest: Swift.Int8)
+  @available(*, deprecated, renamed: "onVendorListVendorConsentChanged(vendorID:consentStatus:for:)", message: "This API will be removed in a couple of releases. Please use the new onVendorListVendorConsentChanged(vendorID:consentStatus:for:) API where vendorId is a String argument.")
   @objc optional func onVendorListVendorConsentChanged(vendorId: Swift.String, consentStatus: Swift.Int8)
   @objc optional func onVendorListVendorLegitimateInterestChanged(vendorId: Swift.String, legitInterest: Swift.Int8)
+  @objc optional func onVendorListVendorConsentChanged(vendorID: Swift.String, consentStatus: Swift.Int8, for mode: OTPublishersHeadlessSDKtvOS.VendorListMode)
 }
 @_hasMissingDesignatedInitializers public class CloseButtonData {
   public var buttonData: OTPublishersHeadlessSDKtvOS.UIButtonData {
@@ -243,11 +247,17 @@ public enum SDKViewMode {
   @objc dynamic public func resetUpdatedConsent()
   @objc dynamic public func setEnviroment(_ environment: Swift.String)
   @objc dynamic public func updateAllVendorsConsentLocal(_ isSelected: Swift.Bool, for mode: OTPublishersHeadlessSDKtvOS.VendorListMode = .iab)
-  @objc dynamic public func updateVendorConsent(vendorId: Swift.Int, consentStatus: Swift.Bool, for mode: OTPublishersHeadlessSDKtvOS.VendorListMode = .iab)
-  @objc dynamic public func updateVendorLegitInterest(vendorId: Swift.Int, legIntStatus: Swift.Bool, for mode: OTPublishersHeadlessSDKtvOS.VendorListMode = .iab)
+  @objc @available(*, deprecated, renamed: "updateVendorConsent(vendorID:consentStatus:for:)", message: "This API will be removed in a couple of releases. Please use the new updateVendorConsent(vendorID:consentStatus:for:) API where vendorID is a String argument.")
+  dynamic public func updateVendorConsent(vendorId: Swift.Int, consentStatus: Swift.Bool, for mode: OTPublishersHeadlessSDKtvOS.VendorListMode = .iab)
+  @objc @available(*, deprecated, renamed: "updateVendorLegitInterest(vendorID:legIntStatus:for:)", message: "This API will be removed in a couple of releases. Please use the new updateVendorLegitInterest(vendorID:legIntStatus:for:) API where vendorId is a String argument.")
+  dynamic public func updateVendorLegitInterest(vendorId: Swift.Int, legIntStatus: Swift.Bool, for mode: OTPublishersHeadlessSDKtvOS.VendorListMode = .iab)
+  @objc dynamic public func updateVendorConsent(vendorID: Swift.String, consentStatus: Swift.Bool, for mode: OTPublishersHeadlessSDKtvOS.VendorListMode = .iab)
+  @objc dynamic public func updateVendorLegitInterest(vendorID: Swift.String, legIntStatus: Swift.Bool, for mode: OTPublishersHeadlessSDKtvOS.VendorListMode = .iab)
   @objc dynamic public func getVendorListData(for mode: OTPublishersHeadlessSDKtvOS.VendorListMode = .iab) -> [Swift.String : Any]?
   @objc dynamic public func getVendorListUI(for mode: OTPublishersHeadlessSDKtvOS.VendorListMode = .iab) -> [Swift.String : Any]?
-  @objc dynamic public func getVendorDetails(vendorId: Swift.Int, for mode: OTPublishersHeadlessSDKtvOS.VendorListMode = .iab) -> [Swift.String : Any]?
+  @objc @available(*, deprecated, renamed: "getVendorDetails(vendorID:for:)", message: "This API will be removed in a couple of releases. Please use the new getVendorDetails(vendorID:for:) API where vendorID is a String argument.")
+  dynamic public func getVendorDetails(vendorId: Swift.Int, for mode: OTPublishersHeadlessSDKtvOS.VendorListMode = .iab) -> [Swift.String : Any]?
+  @objc dynamic public func getVendorDetails(vendorID: Swift.String, for mode: OTPublishersHeadlessSDKtvOS.VendorListMode = .iab) -> [Swift.String : Any]?
   @objc dynamic public func getBannerData() -> [Swift.String : Any]?
   @objc dynamic public func getPreferenceCenterData() -> [Swift.String : Any]?
   @objc dynamic public func optOutOfSaleOfData()
@@ -358,6 +368,9 @@ extension BannerUIDataModel {
   case google
   case iab
   case general
+  public var description: Swift.String {
+    get
+  }
   public typealias RawValue = Swift.Int
   public init?(rawValue: Swift.Int)
   public var rawValue: Swift.Int {
