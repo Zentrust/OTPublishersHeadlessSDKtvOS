@@ -613,6 +613,9 @@ public struct OTUIKeys {
   }
 }
 extension String {
+  public var asUTCDate: Foundation.Date? {
+    get
+  }
   public var booleanValue: Swift.Bool? {
     get
   }
