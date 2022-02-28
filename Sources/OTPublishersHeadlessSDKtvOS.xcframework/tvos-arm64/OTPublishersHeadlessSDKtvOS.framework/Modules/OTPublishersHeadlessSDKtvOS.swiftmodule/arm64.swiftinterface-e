@@ -113,14 +113,16 @@ public struct OTCoreConstants {
   @objc public static var domainData: Swift.String {
     @objc get
   }
+  @objc deinit
+  @objc override dynamic public init()
+}
+extension OTUserDefaultKeys {
   @objc public static var profileData: Swift.String {
     @objc get
   }
   @objc public static var userConsentStatus: Swift.String {
     @objc get
   }
-  @objc deinit
-  @objc override dynamic public init()
 }
 @propertyWrapper public struct DynamicColor {
   public var lightHex: Swift.String {
@@ -296,6 +298,7 @@ extension BannerUIDataModel {
 @objc(OTConsentInteractionType) public enum ConsentInteractionType : Swift.Int {
   case bannerAllowAll = 1
   case bannerRejectAll
+  case bannerContinueWithoutAccepting
   case bannerClose
   case preferenceCenterAllowAll
   case preferenceCenterRejectAll
@@ -478,10 +481,10 @@ extension Thread {
   case debug = 4
   case verbose = 5
   public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
   public var rawValue: Swift.Int {
     get
   }
-  public init?(rawValue: Swift.Int)
 }
 public struct OTUIKeys {
   public struct BannerKeys {

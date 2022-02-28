@@ -224,47 +224,50 @@ typedef SWIFT_ENUM_NAMED(NSInteger, OTConsentInteractionType, "ConsentInteractio
 /// The user has consented by clicking reject all button in Banner view.
 /// Passing this will reject all consent values.
   OTConsentInteractionTypeBannerRejectAll = 2,
+/// The user has consented by clicking on continue without accepting button in Banner view.
+/// Passing this implies continue without accepting and will set the default consent values.
+  OTConsentInteractionTypeBannerContinueWithoutAccepting = 3,
 /// The user has clicked on cancel  button in Banner view.
 /// Passing this will set the default consent values.
-  OTConsentInteractionTypeBannerClose = 3,
+  OTConsentInteractionTypeBannerClose = 4,
 /// The user has consented by clicking allow all button from Preference Center.
 /// Passing this will accept all consent values.
-  OTConsentInteractionTypePreferenceCenterAllowAll = 4,
+  OTConsentInteractionTypePreferenceCenterAllowAll = 5,
 /// The user has consented by clicking reject all button from Preference Center.
 /// Passing this will reject all consent values.
-  OTConsentInteractionTypePreferenceCenterRejectAll = 5,
+  OTConsentInteractionTypePreferenceCenterRejectAll = 6,
 /// The user has consented by clicking confirm button from Preference Center.
 /// Passing this will set the confirmed consent values.
-  OTConsentInteractionTypePreferenceCenterConfirm = 6,
+  OTConsentInteractionTypePreferenceCenterConfirm = 7,
 /// The user has clicked on cancel  button in Preference Center.
 /// note:
 /// Consent will not be logged to server when this interaction type is passed.
-  OTConsentInteractionTypePreferenceCenterClose = 7,
+  OTConsentInteractionTypePreferenceCenterClose = 8,
 /// The user has clicked on save choices button in uc Purposes Preference Center.
 /// note:
 /// Consent will be logged to server when this interaction type is passed.
-  OTConsentInteractionTypeConsentPurposesConfim = 8,
+  OTConsentInteractionTypeConsentPurposesConfim = 9,
 /// The user has clicked on cancel button in uc Purposes Preference Center.
 /// note:
 /// Consent will not be logged to server when this interaction type is passed.
-  OTConsentInteractionTypeConsentPurposesClose = 9,
+  OTConsentInteractionTypeConsentPurposesClose = 10,
 /// The user has consented by clicking confirm button from Vendor List View.
 /// Passing this will set the confirmed consent values.
-  OTConsentInteractionTypeVendorListConfirm = 10,
+  OTConsentInteractionTypeVendorListConfirm = 11,
 /// The user has clicked on Allow  button in ATT View.
-  OTConsentInteractionTypeAppTrackingConfirm = 11,
+  OTConsentInteractionTypeAppTrackingConfirm = 12,
 /// The user has clicked on Ask app not to track  button in ATT View.
-  OTConsentInteractionTypeAppTrackingOptOut = 12,
+  OTConsentInteractionTypeAppTrackingOptOut = 13,
 /// The user has consented by clicking allow all button from Vendor List View.
 /// Passing this will accept all consent values.
-  OTConsentInteractionTypeVendorListAllowAll = 13,
+  OTConsentInteractionTypeVendorListAllowAll = 14,
 /// The user has consented by clicking reject all button from Vendor List View.
 /// Passing this will reject all consent values.
-  OTConsentInteractionTypeVendorListRejectAll = 14,
+  OTConsentInteractionTypeVendorListRejectAll = 15,
 /// The user has clicked on cancel  button in Vendor List View.
 /// note:
 /// Consent will not be logged to server when this interaction type is passed.
-  OTConsentInteractionTypeVendorListClose = 15,
+  OTConsentInteractionTypeVendorListClose = 16,
 };
 
 /// Enum for IAB CCPA expected values
@@ -822,12 +825,6 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _No
 /// Key for storing domain data.
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull domainData;)
 + (NSString * _Nonnull)domainData SWIFT_WARN_UNUSED_RESULT;
-/// Key for storing profile data.
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull profileData;)
-+ (NSString * _Nonnull)profileData SWIFT_WARN_UNUSED_RESULT;
-/// key to check whether consent is given or not
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull userConsentStatus;)
-+ (NSString * _Nonnull)userConsentStatus SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -835,6 +832,16 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _No
 
 
 
+
+
+@interface OTUserDefaultKeys (SWIFT_EXTENSION(OTPublishersHeadlessSDKtvOS))
+/// Key for storing profile data.
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull profileData;)
++ (NSString * _Nonnull)profileData SWIFT_WARN_UNUSED_RESULT;
+/// key to check whether consent is given or not
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull userConsentStatus;)
++ (NSString * _Nonnull)userConsentStatus SWIFT_WARN_UNUSED_RESULT;
+@end
 
 
 
@@ -1157,47 +1164,50 @@ typedef SWIFT_ENUM_NAMED(NSInteger, OTConsentInteractionType, "ConsentInteractio
 /// The user has consented by clicking reject all button in Banner view.
 /// Passing this will reject all consent values.
   OTConsentInteractionTypeBannerRejectAll = 2,
+/// The user has consented by clicking on continue without accepting button in Banner view.
+/// Passing this implies continue without accepting and will set the default consent values.
+  OTConsentInteractionTypeBannerContinueWithoutAccepting = 3,
 /// The user has clicked on cancel  button in Banner view.
 /// Passing this will set the default consent values.
-  OTConsentInteractionTypeBannerClose = 3,
+  OTConsentInteractionTypeBannerClose = 4,
 /// The user has consented by clicking allow all button from Preference Center.
 /// Passing this will accept all consent values.
-  OTConsentInteractionTypePreferenceCenterAllowAll = 4,
+  OTConsentInteractionTypePreferenceCenterAllowAll = 5,
 /// The user has consented by clicking reject all button from Preference Center.
 /// Passing this will reject all consent values.
-  OTConsentInteractionTypePreferenceCenterRejectAll = 5,
+  OTConsentInteractionTypePreferenceCenterRejectAll = 6,
 /// The user has consented by clicking confirm button from Preference Center.
 /// Passing this will set the confirmed consent values.
-  OTConsentInteractionTypePreferenceCenterConfirm = 6,
+  OTConsentInteractionTypePreferenceCenterConfirm = 7,
 /// The user has clicked on cancel  button in Preference Center.
 /// note:
 /// Consent will not be logged to server when this interaction type is passed.
-  OTConsentInteractionTypePreferenceCenterClose = 7,
+  OTConsentInteractionTypePreferenceCenterClose = 8,
 /// The user has clicked on save choices button in uc Purposes Preference Center.
 /// note:
 /// Consent will be logged to server when this interaction type is passed.
-  OTConsentInteractionTypeConsentPurposesConfim = 8,
+  OTConsentInteractionTypeConsentPurposesConfim = 9,
 /// The user has clicked on cancel button in uc Purposes Preference Center.
 /// note:
 /// Consent will not be logged to server when this interaction type is passed.
-  OTConsentInteractionTypeConsentPurposesClose = 9,
+  OTConsentInteractionTypeConsentPurposesClose = 10,
 /// The user has consented by clicking confirm button from Vendor List View.
 /// Passing this will set the confirmed consent values.
-  OTConsentInteractionTypeVendorListConfirm = 10,
+  OTConsentInteractionTypeVendorListConfirm = 11,
 /// The user has clicked on Allow  button in ATT View.
-  OTConsentInteractionTypeAppTrackingConfirm = 11,
+  OTConsentInteractionTypeAppTrackingConfirm = 12,
 /// The user has clicked on Ask app not to track  button in ATT View.
-  OTConsentInteractionTypeAppTrackingOptOut = 12,
+  OTConsentInteractionTypeAppTrackingOptOut = 13,
 /// The user has consented by clicking allow all button from Vendor List View.
 /// Passing this will accept all consent values.
-  OTConsentInteractionTypeVendorListAllowAll = 13,
+  OTConsentInteractionTypeVendorListAllowAll = 14,
 /// The user has consented by clicking reject all button from Vendor List View.
 /// Passing this will reject all consent values.
-  OTConsentInteractionTypeVendorListRejectAll = 14,
+  OTConsentInteractionTypeVendorListRejectAll = 15,
 /// The user has clicked on cancel  button in Vendor List View.
 /// note:
 /// Consent will not be logged to server when this interaction type is passed.
-  OTConsentInteractionTypeVendorListClose = 15,
+  OTConsentInteractionTypeVendorListClose = 16,
 };
 
 /// Enum for IAB CCPA expected values
@@ -1755,12 +1765,6 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _No
 /// Key for storing domain data.
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull domainData;)
 + (NSString * _Nonnull)domainData SWIFT_WARN_UNUSED_RESULT;
-/// Key for storing profile data.
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull profileData;)
-+ (NSString * _Nonnull)profileData SWIFT_WARN_UNUSED_RESULT;
-/// key to check whether consent is given or not
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull userConsentStatus;)
-+ (NSString * _Nonnull)userConsentStatus SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -1768,6 +1772,16 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _No
 
 
 
+
+
+@interface OTUserDefaultKeys (SWIFT_EXTENSION(OTPublishersHeadlessSDKtvOS))
+/// Key for storing profile data.
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull profileData;)
++ (NSString * _Nonnull)profileData SWIFT_WARN_UNUSED_RESULT;
+/// key to check whether consent is given or not
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull userConsentStatus;)
++ (NSString * _Nonnull)userConsentStatus SWIFT_WARN_UNUSED_RESULT;
+@end
 
 
 
