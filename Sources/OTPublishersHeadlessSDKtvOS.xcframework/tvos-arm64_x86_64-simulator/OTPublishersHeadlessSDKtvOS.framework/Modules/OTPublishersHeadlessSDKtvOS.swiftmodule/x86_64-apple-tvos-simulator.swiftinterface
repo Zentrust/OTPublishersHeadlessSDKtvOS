@@ -56,6 +56,14 @@ public struct PageHeaderTheme : TextTheme {
     get
   }
 }
+extension OTPublishersHeadlessSDK {
+  public var currentActiveProfile: Swift.String {
+    get
+  }
+  public func deleteProfile(_ profileID: Swift.String, completion: @escaping (Swift.Error?) -> Swift.Void)
+  public func renameProfile(from currentProfileID: Swift.String? = nil, to newProfileID: Swift.String, completion: @escaping (Swift.Bool) -> Swift.Void)
+  public func switchProfile(to profileID: Swift.String, completion: @escaping (Swift.Error?) -> Swift.Void)
+}
 @objc public class OTSdkParams : ObjectiveC.NSObject {
   @objc public init(countryCode: Swift.String?, regionCode: Swift.String?)
   @objc public func setSDKVersion(_ sdkVersion: Swift.String)
@@ -102,9 +110,6 @@ public struct OTCoreConstants {
     public static let consentParsedPurposeConsents: Swift.String
     public static let consentParsedVendorConsents: Swift.String
   }
-  public struct IAB_CCPA_Keys {
-    public static let consentString: Swift.String
-  }
 }
 @_inheritsConvenienceInitializers @objc public class OTUserDefaultKeys : ObjectiveC.NSObject {
   @objc public static var cultureData: Swift.String {
@@ -122,6 +127,13 @@ extension OTUserDefaultKeys {
   }
   @objc public static var userConsentStatus: Swift.String {
     @objc get
+  }
+}
+extension OTCoreConstants {
+  public struct IAB_CCPA_Keys {
+    public static var consentString: Swift.String {
+      get
+    }
   }
 }
 @propertyWrapper public struct DynamicColor {
@@ -243,7 +255,8 @@ public enum SDKViewMode {
   @objc dynamic public func getConsentStatus(forSDKId sdkId: Swift.String) -> Swift.Int8
   @objc dynamic public func getLastDataDownloadedLocation() -> OTGeolocationModel
   @objc dynamic public func getLastUserConsentedLocation() -> OTGeolocationModel?
-  @objc dynamic public func overrideDataSubjectIdentifier(_ identifier: Swift.String)
+  @objc @available(*, deprecated, message: "This API will be removed in a couple of releases (6.36.0). Please use OTPublisherHeadlessSDK.shared.renameProfile(from:to:) for overrding the data subject identifier.")
+  dynamic public func overrideDataSubjectIdentifier(_ identifier: Swift.String)
   @objc dynamic public func enableOTSDKLog(_ level: OTLoggerConstant)
   @objc dynamic public func clearOTSDKData()
   @objc dynamic public func resetUpdatedConsent()
@@ -338,32 +351,77 @@ extension BannerUIDataModel {
   }
 }
 @_inheritsConvenienceInitializers @objc public class Cache : ObjectiveC.NSObject {
+  @available(*, deprecated, message: "This variable will be removed in a couple of releases (6.36.0). Please use OTPublisherHeadlessSDK.shared.renameProfile(from:to:) for overrding the data subject identifier and use OTPublisherHeadlessSDK.shared.currentActiveProfile for retrieving the current active data subject/profile identifier.")
   public var dataSubjectIdentifier: Swift.String? {
     get
-    set(identifier)
+    set
   }
   @objc deinit
   @objc override dynamic public init()
 }
+extension FileManager {
+  public var preferencesDirectory: Foundation.URL {
+    get
+  }
+  public var preferencesDirContent: [Swift.String]? {
+    get
+  }
+}
 @_inheritsConvenienceInitializers @objc public class OTIABTCFKeys : ObjectiveC.NSObject {
-  @objc public static let iabTcf2CmpSdkId: Swift.String
-  @objc public static let iabTcf2CmpSdkVersion: Swift.String
-  @objc public static let iabTcf2PolicyVersion: Swift.String
-  @objc public static let iabTcf2GdprApplies: Swift.String
-  @objc public static let iabTcf2PublisherCC: Swift.String
-  @objc public static let iabTcf2PurposeOneTreatment: Swift.String
-  @objc public static let iabTcf2UseNonStandardStacks: Swift.String
-  @objc public static let iabTcf2TCString: Swift.String
-  @objc public static let iabTcf2VendorConsents: Swift.String
-  @objc public static let iabTcf2VendorLegitimateInterests: Swift.String
-  @objc public static let iabTcf2PurposeConsents: Swift.String
-  @objc public static let iabTcf2PurposeLegitimateInterests: Swift.String
-  @objc public static let iabTcf2SpecialFeaturesOptIns: Swift.String
-  @objc public static let iabTcf2PublisherRestrictions: Swift.String
-  @objc public static let iabTcf2PublisherConsent: Swift.String
-  @objc public static let iabTcf2PublisherLegitimateInterests: Swift.String
-  @objc public static let iabTcf2PublisherCustomPurposesConsents: Swift.String
-  @objc public static let iabTcf2PublisherCustomPurposesLegitimateInterests: Swift.String
+  @objc public static var iabTcf2CmpSdkId: Swift.String {
+    @objc get
+  }
+  @objc public static var iabTcf2CmpSdkVersion: Swift.String {
+    @objc get
+  }
+  @objc public static var iabTcf2PolicyVersion: Swift.String {
+    @objc get
+  }
+  @objc public static var iabTcf2GdprApplies: Swift.String {
+    @objc get
+  }
+  @objc public static var iabTcf2PublisherCC: Swift.String {
+    @objc get
+  }
+  @objc public static var iabTcf2PurposeOneTreatment: Swift.String {
+    @objc get
+  }
+  @objc public static var iabTcf2UseNonStandardStacks: Swift.String {
+    @objc get
+  }
+  @objc public static var iabTcf2TCString: Swift.String {
+    @objc get
+  }
+  @objc public static var iabTcf2VendorConsents: Swift.String {
+    @objc get
+  }
+  @objc public static var iabTcf2VendorLegitimateInterests: Swift.String {
+    @objc get
+  }
+  @objc public static var iabTcf2PurposeConsents: Swift.String {
+    @objc get
+  }
+  @objc public static var iabTcf2PurposeLegitimateInterests: Swift.String {
+    @objc get
+  }
+  @objc public static var iabTcf2SpecialFeaturesOptIns: Swift.String {
+    @objc get
+  }
+  @objc public static var iabTcf2PublisherRestrictions: Swift.String {
+    @objc get
+  }
+  @objc public static var iabTcf2PublisherConsent: Swift.String {
+    @objc get
+  }
+  @objc public static var iabTcf2PublisherLegitimateInterests: Swift.String {
+    @objc get
+  }
+  @objc public static var iabTcf2PublisherCustomPurposesConsents: Swift.String {
+    @objc get
+  }
+  @objc public static var iabTcf2PublisherCustomPurposesLegitimateInterests: Swift.String {
+    @objc get
+  }
   @objc public static var iabTcf2AddtlConsent: Swift.String {
     @objc get
   }

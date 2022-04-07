@@ -268,6 +268,7 @@ typedef SWIFT_ENUM_NAMED(NSInteger, OTConsentInteractionType, "ConsentInteractio
   OTConsentInteractionTypeVendorListClose = 16,
 };
 
+
 /// Enum for IAB CCPA expected values
 typedef SWIFT_ENUM(NSInteger, IabCcpaConsent, open) {
   IabCcpaConsentNotApplicable = 0,
@@ -460,6 +461,8 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) OTPublishers
 
 
 
+
+
 @class UIViewController;
 enum OTUIType : NSInteger;
 
@@ -593,10 +596,10 @@ enum OTUIType : NSInteger;
 /// returns:
 /// GeolocationModel containing country, state.
 - (OTGeolocationModel * _Nullable)getLastUserConsentedLocation SWIFT_WARN_UNUSED_RESULT;
-/// Function to override consent logging identifier
-/// \param identifier identifier with which current udid has to be overridden with
+/// Function to override the data subject identifier of the currently active profile.
+/// \param identifier This will be the new data subject/profile identifier for the active profile.
 ///
-- (void)overrideDataSubjectIdentifier:(NSString * _Nonnull)identifier;
+- (void)overrideDataSubjectIdentifier:(NSString * _Nonnull)identifier SWIFT_DEPRECATED_MSG("This API will be removed in a couple of releases (6.36.0). Please use OTPublisherHeadlessSDK.shared.renameProfile(from:to:) for overrding the data subject identifier.");
 /// Function to control logging level, pass .noLogs to disable the log.
 /// \param level Log level which has to be printed on console.
 /// Values: .noLogs, .error, .warning, .info, .debug, .verbose.
@@ -831,15 +834,17 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _No
 
 
 
-
 @interface OTUserDefaultKeys (SWIFT_EXTENSION(OTPublishersHeadlessSDKtvOS))
 /// Key for storing profile data.
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull profileData;)
 + (NSString * _Nonnull)profileData SWIFT_WARN_UNUSED_RESULT;
-/// key to check whether consent is given or not
+/// Key to check whether consent is given or not.
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull userConsentStatus;)
 + (NSString * _Nonnull)userConsentStatus SWIFT_WARN_UNUSED_RESULT;
 @end
+
+
+
 
 
 
