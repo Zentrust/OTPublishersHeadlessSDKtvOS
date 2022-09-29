@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.3.2 (swiftlang-1200.0.45 clang-1200.0.32.28)
+// swift-compiler-version: Apple Swift version 5.5.2 (swiftlang-1300.0.47.5 clang-1300.0.29.30)
 // swift-module-flags: -target arm64-apple-tvos11.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name OTPublishersHeadlessSDKtvOS
 import AppTrackingTransparency
 import Foundation
@@ -7,6 +7,7 @@ import Foundation
 import Swift
 import SystemConfiguration
 import UIKit
+import _Concurrency
 public protocol TextTheme : Swift.Decodable, Swift.Encodable {
   var fontName: Swift.String { get }
   var fontSize: Swift.Int { get }
@@ -20,8 +21,8 @@ public struct LabelTheme : TextTheme {
   public let fontTextStyle: Swift.String
   public let textAlignment: Swift.String
   public let textColor: Swift.String
-  public init(from decoder: Swift.Decoder) throws
   public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
 }
 public struct LinkTheme : TextTheme {
   public let fontName: Swift.String
@@ -29,8 +30,8 @@ public struct LinkTheme : TextTheme {
   public let fontTextStyle: Swift.String
   public let textAlignment: Swift.String
   public let textColor: Swift.String
-  public init(from decoder: Swift.Decoder) throws
   public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
 }
 public struct PageHeaderTheme : TextTheme {
   public let backgroundColor: Swift.String
@@ -42,16 +43,16 @@ public struct PageHeaderTheme : TextTheme {
   public var textAlignment: Swift.String {
     get
   }
-  public init(from decoder: Swift.Decoder) throws
   public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
 }
 @objc public enum OTBannerHeightRatio : Swift.Int {
   case full = 1
   case two_third
   case one_half
   case one_third
-  public typealias RawValue = Swift.Int
   public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
   }
@@ -69,17 +70,14 @@ extension OTPublishersHeadlessSDK {
   @objc public func setSDKVersion(_ sdkVersion: Swift.String)
   @objc public func setProfileSyncParams(_ crossDeviceParams: OTProfileSyncParams)
   @objc public func setShouldCreateProfile(_ shouldCreateProfile: Swift.String)
-  @available(*, deprecated, message: "This API will be removed completely in a couple of releases (6.29). Please configure this at the template level on the OneTrust server.")
-  @objc public func setBannerHeightRatio(_ heightRatio: OTBannerHeightRatio)
   @objc deinit
-  @objc override dynamic public init()
 }
 public enum AgeGateAuthorizationStatus : Swift.Int {
   case notGiven
   case denied
   case authorized
-  public typealias RawValue = Swift.Int
   public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
   }
@@ -93,11 +91,11 @@ public struct UITextData {
   public var url: Swift.String
   public var showAsLink: Swift.Bool
 }
-extension UILabel {
-  public func setup(using modelData: UITextData)
+extension UIKit.UILabel {
+  @_Concurrency.MainActor(unsafe) public func setup(using modelData: UITextData)
 }
-extension UITextView {
-  public func setupTextView(using modelData: UITextData, customText: Swift.String? = nil)
+extension UIKit.UITextView {
+  @_Concurrency.MainActor(unsafe) public func setupTextView(using modelData: UITextData, customText: Swift.String? = nil)
 }
 @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class RejectAllButtonData : AcceptAllButtonData {
   @objc deinit
@@ -118,8 +116,8 @@ public struct OTCoreConstants {
   @objc public static var domainData: Swift.String {
     @objc get
   }
-  @objc deinit
   @objc override dynamic public init()
+  @objc deinit
 }
 extension OTUserDefaultKeys {
   @objc public static var profileData: Swift.String {
@@ -152,7 +150,7 @@ extension OTCoreConstants {
   public init(lightHex: Swift.String, darkHex: Swift.String, isClear: Swift.Bool = false)
   public mutating func update(themeHex: Swift.String?, lightModeHex: Swift.String? = nil, defaultLightHex: Swift.String? = nil, darkModeHex: Swift.String? = nil, defaultDarkHex: Swift.String? = nil)
 }
-extension UIColor {
+extension UIKit.UIColor {
   @DynamicColor public static var dynamicGray: UIKit.UIColor {
     get
   }
@@ -191,10 +189,10 @@ public enum SDKViewMode {
   case idfa
   case ucpurposes
   public static func == (a: SDKViewMode, b: SDKViewMode) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
   public var hashValue: Swift.Int {
     get
   }
-  public func hash(into hasher: inout Swift.Hasher)
 }
 @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc public class OTGeolocationModel : ObjectiveC.NSObject, Swift.Codable {
   @objc public var country: Swift.String {
@@ -205,8 +203,8 @@ public enum SDKViewMode {
   }
   @objc override dynamic public func isEqual(_ object: Any?) -> Swift.Bool
   @objc deinit
-  required public init(from decoder: Swift.Decoder) throws
   public func encode(to encoder: Swift.Encoder) throws
+  required public init(from decoder: Swift.Decoder) throws
 }
 @objc public protocol OTEventListener {
   @objc optional func onShowBanner()
@@ -224,6 +222,9 @@ public enum SDKViewMode {
   @objc optional func onVendorConfirmChoices()
   @objc optional func onVendorAcceptAll()
   @objc optional func onVendorRejectAll()
+  @objc optional func onShowSDKList()
+  @objc optional func onHideSDKList()
+  @objc optional func onSDKListSDKConsentChanged(sdkId: Swift.String, consentStatus: Swift.Int8)
   @objc optional func onHideVendorList()
   @objc optional func onPreferenceCenterPurposeConsentChanged(purposeId: Swift.String, consentStatus: Swift.Int8)
   @objc optional func onPreferenceCenterPurposeLegitimateInterestChanged(purposeId: Swift.String, legitInterest: Swift.Int8)
@@ -242,11 +243,11 @@ public enum SDKViewMode {
   @objc deinit
 }
 @objc extension OTPublishersHeadlessSDK {
-  @objc dynamic public func startSDK(storageLocation: Swift.String, domainIdentifier: Swift.String, languageCode: Swift.String, params: OTSdkParams? = nil, completionHandler: @escaping ((OTResponse) -> Swift.Void))
+  @objc dynamic public func startSDK(storageLocation: Swift.String, domainIdentifier: Swift.String, languageCode: Swift.String, params: OTSdkParams? = nil, loadOffline: Swift.Bool = false, completionHandler: @escaping ((OTResponse) -> Swift.Void))
   @objc dynamic public func shouldShowBanner() -> Swift.Bool
   @objc dynamic public func getDomainGroupData() -> [Swift.String : Any]?
-  @objc dynamic public func getDomainInfo() -> [Swift.String : Any]?
   @objc dynamic public func getCommonData() -> [Swift.String : Any]?
+  @objc dynamic public func getDomainInfo() -> [Swift.String : Any]?
   @objc dynamic public func updatePurposeConsent(forGroup groupId: Swift.String, consentValue: Swift.Bool, updateHierarchy: Swift.Bool = false)
   @objc dynamic public func updatePurposeLegitInterest(forGroup groupId: Swift.String, legIntValue: Swift.Bool)
   @objc dynamic public func getPurposeLegitInterestLocal(forCustomGroupId customGroupId: Swift.String) -> Swift.Int8
@@ -255,7 +256,7 @@ public enum SDKViewMode {
   @objc dynamic public func getConsentStatus(forSDKId sdkId: Swift.String) -> Swift.Int8
   @objc dynamic public func getLastDataDownloadedLocation() -> OTGeolocationModel
   @objc dynamic public func getLastUserConsentedLocation() -> OTGeolocationModel?
-  @objc @available(*, deprecated, message: "This API will be removed in a couple of releases (6.36.0). Please use OTPublisherHeadlessSDK.shared.renameProfile(from:to:) for overrding the data subject identifier.")
+  @objc @available(*, deprecated, message: "This API will be removed in a couple of releases (6.37.0). Please use OTPublisherHeadlessSDK.shared.renameProfile(from:to:) for overrding the data subject identifier.")
   dynamic public func overrideDataSubjectIdentifier(_ identifier: Swift.String)
   @objc dynamic public func enableOTSDKLog(_ level: OTLoggerConstant)
   @objc dynamic public func clearOTSDKData()
@@ -295,8 +296,8 @@ public enum SDKViewMode {
   @objc public var status: Swift.Bool {
     @objc get
   }
-  @objc deinit
   @objc override dynamic public init()
+  @objc deinit
 }
 extension BannerUIDataModel {
   public struct LogoDetails {
@@ -320,6 +321,7 @@ extension BannerUIDataModel {
   case preferenceCenterRejectAll
   case preferenceCenterConfirm
   case preferenceCenterClose
+  @available(*, deprecated, message: "This will be removed in a couple of releases (6.40.0). Instead please use `ucPreferenceCenterConfirm`.")
   case consentPurposesConfim
   case consentPurposesClose
   case vendorListConfirm
@@ -327,12 +329,14 @@ extension BannerUIDataModel {
   case appTrackingOptOut
   case vendorListAllowAll
   case vendorListRejectAll
-  case vendorListClose
+  case sdkListAllowAll
+  case sdkListRejectAll
+  case sdkListConfirm
   public var description: Swift.String? {
     get
   }
-  public typealias RawValue = Swift.Int
   public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
   }
@@ -351,15 +355,15 @@ extension BannerUIDataModel {
   }
 }
 @_inheritsConvenienceInitializers @objc public class Cache : ObjectiveC.NSObject {
-  @available(*, deprecated, message: "This variable will be removed in a couple of releases (6.36.0). Please use OTPublisherHeadlessSDK.shared.renameProfile(from:to:) for overrding the data subject identifier and use OTPublisherHeadlessSDK.shared.currentActiveProfile for retrieving the current active data subject/profile identifier.")
+  @available(*, deprecated, message: "This variable will be removed in a couple of releases (6.37.0). Please use OTPublisherHeadlessSDK.shared.renameProfile(from:to:) for overrding the data subject identifier and use OTPublisherHeadlessSDK.shared.currentActiveProfile for retrieving the current active data subject/profile identifier.")
   public var dataSubjectIdentifier: Swift.String? {
     get
     set
   }
-  @objc deinit
   @objc override dynamic public init()
+  @objc deinit
 }
-extension FileManager {
+extension Foundation.FileManager {
   public var preferencesDirectory: Foundation.URL {
     get
   }
@@ -425,8 +429,8 @@ extension FileManager {
   @objc public static var iabTcf2AddtlConsent: Swift.String {
     @objc get
   }
-  @objc deinit
   @objc override dynamic public init()
+  @objc deinit
 }
 @objc public enum VendorListMode : Swift.Int {
   case google
@@ -435,19 +439,46 @@ extension FileManager {
   public var description: Swift.String {
     get
   }
-  public typealias RawValue = Swift.Int
   public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
   }
+}
+extension OTPublishersHeadlessSDK {
+  public func setOTOfflineData(_ data: OTOfflineData)
+}
+public struct OTOfflineData {
+  public struct VendorListData {
+    public var iabData: Foundation.Data?
+    public var googleData: Foundation.Data?
+    public init(iab: Foundation.Data?, google: Foundation.Data?)
+  }
+  public struct LogoData {
+    public var banner: UIKit.UIImage?
+    public var preferenceCenter: UIKit.UIImage?
+    public var ageGate: UIKit.UIImage?
+    public var att: UIKit.UIImage?
+    public init(bannerLogo: UIKit.UIImage?, pcLogo: UIKit.UIImage?, ageGateLogo: UIKit.UIImage?, attLogo: UIKit.UIImage?)
+  }
+  public var otData: Foundation.Data? {
+    get
+  }
+  public var vendorListData: OTOfflineData.VendorListData? {
+    get
+  }
+  public var logoData: OTOfflineData.LogoData? {
+    get
+  }
+  public init(otData: Foundation.Data, vendorListData: OTOfflineData.VendorListData, logoData: OTOfflineData.LogoData)
 }
 @objc public enum OTCCPAGeolocation : Swift.Int {
   case ALL
   case US
   case CA
   public init?(value: Swift.String)
-  public typealias RawValue = Swift.Int
   public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
   }
@@ -456,8 +487,8 @@ extension FileManager {
   case notApplicable
   case no
   case yes
-  public typealias RawValue = Swift.Int
   public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
   }
@@ -465,8 +496,8 @@ extension FileManager {
 @objc public enum VendorListJourneyType : Swift.Int {
   case showConfirmMyChoices
   case hideConfirmMyChoices
-  public typealias RawValue = Swift.Int
   public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
   }
@@ -477,8 +508,8 @@ extension FileManager {
   @objc public func setSyncGroupId(_ groupId: Swift.String)
   @objc public func setIdentifier(_ dsid: Swift.String)
   @objc public func setTenantId(_ tenantId: Swift.String)
-  @objc deinit
   @objc override dynamic public init()
+  @objc deinit
 }
 public enum AppPermissionType {
   case idfa
@@ -486,12 +517,10 @@ public enum AppPermissionType {
   public func showConsentUI(from presenter: UIKit.UIViewController, completion: (() -> Swift.Void)? = nil)
   public func checkAndLogConsent()
   public static func == (a: AppPermissionType, b: AppPermissionType) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
   public var hashValue: Swift.Int {
     get
   }
-  public func hash(into hasher: inout Swift.Hasher)
-}
-extension UIImage {
 }
 public struct UIButtonData {
   public var backgroundColor: DynamicColor
@@ -507,13 +536,13 @@ public struct UIButtonData {
   public var url: Swift.String
   public var showAsLink: Swift.Bool
 }
-extension UIButton {
-  public func setup(buttonData: UIButtonData)
+extension UIKit.UIButton {
+  @_Concurrency.MainActor(unsafe) public func setup(buttonData: UIButtonData)
 }
-extension UILabel {
-  public func setup(using buttonData: UIButtonData)
+extension UIKit.UILabel {
+  @_Concurrency.MainActor(unsafe) public func setup(using buttonData: UIButtonData)
 }
-@objc(OTUIConfigurator) public protocol UIConfigurator : AnyObject {
+@objc(OTUIConfigurator) public protocol UIConfigurator {
   @objc func shouldUseCustomUIConfig() -> Swift.Bool
   @objc optional func customUIConfigFilePath() -> Swift.String?
   @objc optional func getVendorListJourney() -> VendorListJourneyType
@@ -531,7 +560,7 @@ extension UILabel {
   }
   @objc deinit
 }
-extension Thread {
+extension Foundation.Thread {
   public static func runOnMain(forceAsync: Swift.Bool = false, _ completion: @escaping () -> Swift.Void)
 }
 @objc public enum OTLoggerConstant : Swift.Int {
@@ -541,8 +570,8 @@ extension Thread {
   case info = 3
   case debug = 4
   case verbose = 5
-  public typealias RawValue = Swift.Int
   public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
   }
@@ -659,6 +688,8 @@ public struct OTUIKeys {
     public static let groups: Swift.String
     public static let legIntSettings: Swift.String
     public static let pCenterVendorListLifespan: Swift.String
+    public static let pCenterVendorListDomainsUsed: Swift.String
+    public static let pCenterVendorListDomainUse: Swift.String
     public static let pCenterVendorListStorageIdentifier: Swift.String
     public static let pCenterVendorListStorageType: Swift.String
     public static let pCenterVendorListStoragePurposes: Swift.String
@@ -683,7 +714,7 @@ public struct OTUIKeys {
     }
   }
 }
-extension String {
+extension Swift.String {
   public var asUTCDate: Foundation.Date? {
     get
   }
@@ -708,6 +739,7 @@ extension String {
   public mutating func encodeString() -> Swift.String?
   public func decodeUrl() -> Swift.String?
   public func dynamicText(font: UIKit.UIFont? = nil, textStyle: UIKit.UIFont.TextStyle) -> Foundation.NSAttributedString
+  public mutating func removeWhiteSpaceAndCheckIfEmpty()
 }
 extension BannerUIDataModel {
   public struct SummaryData {
@@ -722,12 +754,6 @@ extension BannerUIDataModel {
       get
     }
   }
-}
-extension BannerUIDataModel.SummaryData {
-}
-extension BannerUIDataModel.SummaryData {
-}
-extension BannerUIDataModel.SummaryData {
 }
 public struct BannerUIDataModel {
   public var backgroundColor: DynamicColor {
@@ -755,8 +781,8 @@ public struct BannerUIDataModel {
   case none = -1
   case banner = 0
   case preferenceCenter = 1
-  public typealias RawValue = Swift.Int
   public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
   }
@@ -770,14 +796,12 @@ public struct BannerUIDataModel {
   @objc dynamic public func getOTConsentJSForWebView() -> Swift.String?
   @objc dynamic public func dismissUI()
 }
-extension UIColor {
+extension UIKit.UIColor {
   convenience public init(hexString: Swift.String, alpha: CoreGraphics.CGFloat = 1.0)
   public func toHex() -> Swift.String
 }
 @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class ConfirmChoicesButtonData : CommonTextButtonData {
   @objc deinit
-}
-extension UIButtonData {
 }
 @_hasMissingDesignatedInitializers public class CommonTextButtonData {
   public var buttonData: UIButtonData {
@@ -785,7 +809,7 @@ extension UIButtonData {
   }
   @objc deinit
 }
-extension UIFont {
+extension UIKit.UIFont {
   public struct FontDetails {
     public var name: Swift.String
     public var size: CoreGraphics.CGFloat
