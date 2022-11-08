@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.5.2 (swiftlang-1300.0.47.5 clang-1300.0.29.30)
+// swift-compiler-version: Apple Swift version 5.6.1 (swiftlang-5.6.0.323.66 clang-1316.0.20.12)
 // swift-module-flags: -target x86_64-apple-tvos11.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name OTPublishersHeadlessSDKtvOS
 import AppTrackingTransparency
 import Foundation
@@ -232,6 +232,9 @@ public enum SDKViewMode {
   @objc optional func onVendorListVendorConsentChanged(vendorId: Swift.String, consentStatus: Swift.Int8)
   @objc optional func onVendorListVendorLegitimateInterestChanged(vendorId: Swift.String, legitInterest: Swift.Int8)
   @objc optional func onVendorListVendorConsentChanged(vendorID: Swift.String, consentStatus: Swift.Int8, for mode: OTPublishersHeadlessSDKtvOS.VendorListMode)
+}
+public struct NtfyUIDataModel {
+  public init()
 }
 @_hasMissingDesignatedInitializers public class CloseButtonData {
   public var buttonData: OTPublishersHeadlessSDKtvOS.UIButtonData {
@@ -562,6 +565,34 @@ extension UIKit.UILabel {
 }
 extension Foundation.Thread {
   public static func runOnMain(forceAsync: Swift.Bool = false, _ completion: @escaping () -> Swift.Void)
+}
+extension OTPublishersHeadlessSDKtvOS.NtfyUIDataModel {
+  public struct DisplayData {
+    public var backgroundColor: OTPublishersHeadlessSDKtvOS.DynamicColor {
+      get
+    }
+    public var borderColor: OTPublishersHeadlessSDKtvOS.DynamicColor {
+      get
+    }
+    public var iconBgColor: OTPublishersHeadlessSDKtvOS.DynamicColor {
+      get
+    }
+    public var showClose: Swift.Bool {
+      get
+    }
+    public var showIcon: Swift.Bool {
+      get
+    }
+    public var titleData: OTPublishersHeadlessSDKtvOS.UITextData {
+      get
+    }
+    public var descriptionData: OTPublishersHeadlessSDKtvOS.UITextData {
+      get
+    }
+    public var cookieSettingsBtbData: OTPublishersHeadlessSDKtvOS.UIButtonData? {
+      get
+    }
+  }
 }
 @objc public enum OTLoggerConstant : Swift.Int {
   case noLogs = -1

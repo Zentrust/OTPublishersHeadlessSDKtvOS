@@ -6,7 +6,7 @@
 	<dict>
 		<key>Assets.car</key>
 		<data>
-		hYoyz+2+KZzivUz6qJ4yz6hFVtg=
+		ZUhhiAYuCnZJh0Cbu9vQOcg+WN8=
 		</data>
 		<key>ConsentUINative.storyboardc/5Sx-JP-gU6-view-LVY-le-27N.nib</key>
 		<data>
@@ -118,7 +118,7 @@
 		</data>
 		<key>Headers/OTPublishersHeadlessSDKtvOS-Swift.h</key>
 		<data>
-		eG5hdaU4DP3PV0CaFR1AXIsyfUY=
+		EadGv/bUwwPANb9+HU5QW0OboK4=
 		</data>
 		<key>Headers/OTPublishersHeadlessSDKtvOS.h</key>
 		<data>
@@ -130,55 +130,31 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		1mvNQIrW7Xl1oSkOMeO/Dza9mrw=
+		w1YZd4V/zXqcS464FefvCwnNPw0=
 		</data>
 		<key>Modules/OTPublishersHeadlessSDKtvOS.swiftmodule/arm64-apple-tvos-simulator.swiftdoc</key>
 		<data>
-		GU0RTv/F8W9uNal+gc9OOju8Yqg=
+		nhpZYg3tZrxGgiIsSQdEdQCMNt8=
 		</data>
 		<key>Modules/OTPublishersHeadlessSDKtvOS.swiftmodule/arm64-apple-tvos-simulator.swiftinterface</key>
 		<data>
-		k3N4dAwwy692gNMdaQS3nuJQT/c=
+		e/pA8cSwYo+wLy/S7f7qwQ3b8Hg=
 		</data>
 		<key>Modules/OTPublishersHeadlessSDKtvOS.swiftmodule/arm64-apple-tvos-simulator.swiftmodule</key>
 		<data>
-		oDkulmRBCtbfFCMituHpfLL5/lM=
-		</data>
-		<key>Modules/OTPublishersHeadlessSDKtvOS.swiftmodule/arm64.swiftdoc</key>
-		<data>
-		GU0RTv/F8W9uNal+gc9OOju8Yqg=
-		</data>
-		<key>Modules/OTPublishersHeadlessSDKtvOS.swiftmodule/arm64.swiftinterface</key>
-		<data>
-		k3N4dAwwy692gNMdaQS3nuJQT/c=
-		</data>
-		<key>Modules/OTPublishersHeadlessSDKtvOS.swiftmodule/arm64.swiftmodule</key>
-		<data>
-		oDkulmRBCtbfFCMituHpfLL5/lM=
+		FywD4hHvXB7VzaCq4NOvyKAjUgc=
 		</data>
 		<key>Modules/OTPublishersHeadlessSDKtvOS.swiftmodule/x86_64-apple-tvos-simulator.swiftdoc</key>
 		<data>
-		5bCozoLcSqZpwXEQhO+Zm/MRkUQ=
+		fXDCE2NbGKKJ6DtLFZod5pLsLjY=
 		</data>
 		<key>Modules/OTPublishersHeadlessSDKtvOS.swiftmodule/x86_64-apple-tvos-simulator.swiftinterface</key>
 		<data>
-		7q+8HJHRc/igLl+HId6PkV3JCwo=
+		Ak4XEPs8o8RsQSBPmCRog4slOsg=
 		</data>
 		<key>Modules/OTPublishersHeadlessSDKtvOS.swiftmodule/x86_64-apple-tvos-simulator.swiftmodule</key>
 		<data>
-		P5oH+TqKaEHRVolICM/f1m+anm4=
-		</data>
-		<key>Modules/OTPublishersHeadlessSDKtvOS.swiftmodule/x86_64.swiftdoc</key>
-		<data>
-		5bCozoLcSqZpwXEQhO+Zm/MRkUQ=
-		</data>
-		<key>Modules/OTPublishersHeadlessSDKtvOS.swiftmodule/x86_64.swiftinterface</key>
-		<data>
-		7q+8HJHRc/igLl+HId6PkV3JCwo=
-		</data>
-		<key>Modules/OTPublishersHeadlessSDKtvOS.swiftmodule/x86_64.swiftmodule</key>
-		<data>
-		P5oH+TqKaEHRVolICM/f1m+anm4=
+		42XYyTZ1yvj7VHLJtu856SJfvlk=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -188,6 +164,10 @@
 		<data>
 		1rplznhEwydt2GOlWKFDXAUjQN8=
 		</data>
+		<key>SnackBarView.nib</key>
+		<data>
+		78u1Sllqx58cZLgDQBmU1yjMYqU=
+		</data>
 	</dict>
 	<key>files2</key>
 	<dict>
@@ -195,7 +175,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			c8PAnV6pzfPXsrysu3PzQ329TiTRigX9l/4XE9H42f0=
+			+H0+Bx1uctsh+gQn83W0cvnrPkXkO/JMUnXtzxv/kc0=
 			</data>
 		</dict>
 		<key>ConsentUINative.storyboardc/5Sx-JP-gU6-view-LVY-le-27N.nib</key>
@@ -391,7 +371,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			DYqiWbVKeEPCN2yTIwAMcyf+shpPA2+zKMxxUGhsWHU=
+			uM9e/MVtI/y41wmlwLL4+l7JiXjdKjQ+SS7qjp3CfA4=
 			</data>
 		</dict>
 		<key>Headers/OTPublishersHeadlessSDKtvOS.h</key>
@@ -412,84 +392,42 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			UeikScmotHdXbJpRn9ClQD5ISaJUI0fReO5Hb8hkNkw=
+			iVNxp/121mS+joILwtVgAnNxhjKKQ+mWA+LeYwXlDJQ=
 			</data>
 		</dict>
 		<key>Modules/OTPublishersHeadlessSDKtvOS.swiftmodule/arm64-apple-tvos-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			NFKgu/PguavGwMwsnqkYQMhYMeTSDaPMC1JkHzp6zF8=
+			TP4lFAYceR0NI1Bg5ppzLNrYjiZOBTQuxmr0v7736d4=
 			</data>
 		</dict>
 		<key>Modules/OTPublishersHeadlessSDKtvOS.swiftmodule/arm64-apple-tvos-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			4Sop6u/IpFYXmXbawONOufbHHP7b0ry5ilnHJzV+1Uw=
-			</data>
-		</dict>
-		<key>Modules/OTPublishersHeadlessSDKtvOS.swiftmodule/arm64.swiftdoc</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			UeikScmotHdXbJpRn9ClQD5ISaJUI0fReO5Hb8hkNkw=
-			</data>
-		</dict>
-		<key>Modules/OTPublishersHeadlessSDKtvOS.swiftmodule/arm64.swiftinterface</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			NFKgu/PguavGwMwsnqkYQMhYMeTSDaPMC1JkHzp6zF8=
-			</data>
-		</dict>
-		<key>Modules/OTPublishersHeadlessSDKtvOS.swiftmodule/arm64.swiftmodule</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			4Sop6u/IpFYXmXbawONOufbHHP7b0ry5ilnHJzV+1Uw=
+			wmYcHV4NrWzxVPPvhWXk5T1K0T3ahDchS3O8evzQgCo=
 			</data>
 		</dict>
 		<key>Modules/OTPublishersHeadlessSDKtvOS.swiftmodule/x86_64-apple-tvos-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			PjIDSzfNVNhkh9nmYP3b0x4ghkf4oG7Xg/3dUMuaeeA=
+			GVTeKR3++oaSXIFiaUJ03G9Fq3fl+Q7q8yUJMy4bNo0=
 			</data>
 		</dict>
 		<key>Modules/OTPublishersHeadlessSDKtvOS.swiftmodule/x86_64-apple-tvos-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			BXWxesYZrRHDfJxr7irW1+HhtT2T0zRYZNs10NvjizU=
+			hXsvccpngbS+QaK8jTvdNYX0iLkMOzKSIp2bBSFtoWg=
 			</data>
 		</dict>
 		<key>Modules/OTPublishersHeadlessSDKtvOS.swiftmodule/x86_64-apple-tvos-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			VIzG63GRo1p+s04EiQya7++RAUM/I4SWoxObb6UXpcs=
-			</data>
-		</dict>
-		<key>Modules/OTPublishersHeadlessSDKtvOS.swiftmodule/x86_64.swiftdoc</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			PjIDSzfNVNhkh9nmYP3b0x4ghkf4oG7Xg/3dUMuaeeA=
-			</data>
-		</dict>
-		<key>Modules/OTPublishersHeadlessSDKtvOS.swiftmodule/x86_64.swiftinterface</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			BXWxesYZrRHDfJxr7irW1+HhtT2T0zRYZNs10NvjizU=
-			</data>
-		</dict>
-		<key>Modules/OTPublishersHeadlessSDKtvOS.swiftmodule/x86_64.swiftmodule</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			VIzG63GRo1p+s04EiQya7++RAUM/I4SWoxObb6UXpcs=
+			xmQAt/higJtnG40luzQApZubPRZlAaCWn8FTlBElQ6g=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
@@ -504,6 +442,13 @@
 			<key>hash2</key>
 			<data>
 			vJdgfk7nJq1ykqeKPhvyFqGTebPbtzttL1glgxyvSe4=
+			</data>
+		</dict>
+		<key>SnackBarView.nib</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			dYrafziFukF3cqVFweGTrohHrRbqkdITSzaB8Rn875A=
 			</data>
 		</dict>
 	</dict>
