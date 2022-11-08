@@ -481,6 +481,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) OTPublishers
 
 
 
+
 @class UIViewController;
 enum OTUIType : NSInteger;
 
@@ -728,9 +729,13 @@ enum OTUIType : NSInteger;
 /// Retrieves all the data needed to construct the OT SDK Preference Center UI.
 - (NSDictionary<NSString *, id> * _Nullable)getPreferenceCenterData SWIFT_WARN_UNUSED_RESULT;
 /// This API will opt-out of sale of data if the CCPA value is already initialized.
-- (void)optOutOfSaleOfData;
+/// \param completion The completion handler that gets called once the opt-out for sale of data is complete.
+///
+- (void)optOutOfSaleOfDataWithCompletion:(void (^ _Nonnull)(void))completion;
 /// This API will opt-in for sale of data if the CCPA value is already initialized.
-- (void)optIntoSaleOfData;
+/// \param completion The completion handler that gets called once the opt-in for sale of data is complete.
+///
+- (void)optIntoSaleOfDataWithCompletion:(void (^ _Nonnull)(void))completion;
 /// This API will write logs to the log file created and maintained by OT SDK.
 /// \param enable enable write logs to file.
 ///
@@ -755,10 +760,21 @@ enum OTUIType : NSInteger;
 /// Consent will not be logged to server when interaction type is preference center close.
 /// note:
 /// consent will not logged to server when there are ATT linked categories and ATT permission is not determined.
-/// \param type The interaction type associated with the consent.
-///
-- (void)saveConsentWithType:(enum OTConsentInteractionType)type;
-/// Returns a boolean indicating if OT SDK is current displaying its views in the current view hierarchy.
+/// <ul>
+///   <li>
+///     :
+///     <ul>
+///       <li>
+///         type: The interaction type associated with the consent.
+///       </li>
+///       <li>
+///         completion: The completion handler that gets called once the saving is complete.
+///       </li>
+///     </ul>
+///   </li>
+/// </ul>
+- (void)saveConsentWithType:(enum OTConsentInteractionType)type completion:(void (^ _Nonnull)(void))completion;
+/// Returns a boolean indicating if OT SDK is currently displaying its view in the current view hierarchy.
 - (BOOL)sdkViewsCurrentlyPresented SWIFT_WARN_UNUSED_RESULT;
 /// Returns the value stored in OT SDK that is associated with the passed in key.
 /// \param key The key for which the value has to be returned.
