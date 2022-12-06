@@ -6,6 +6,6 @@ framework module OTPublishersHeadlessSDKtvOS {
 }
 
 module OTPublishersHeadlessSDKtvOS.Swift {
-    header "OTPublishersHeadlessSDKtvOS-Swift.h"
-    requires objc
+  header "OTPublishersHeadlessSDKtvOS-Swift.h"
+  requires objc
 }

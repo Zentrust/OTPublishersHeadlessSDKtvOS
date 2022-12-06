@@ -1,6 +1,7 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.6.1 (swiftlang-5.6.0.323.66 clang-1316.0.20.12)
+// swift-compiler-version: Apple Swift version 5.7.1 (swiftlang-5.7.1.135.3 clang-1400.0.29.51)
 // swift-module-flags: -target arm64-apple-tvos11.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name OTPublishersHeadlessSDKtvOS
+// swift-module-flags-ignorable: -enable-bare-slash-regex
 import AppTrackingTransparency
 import Foundation
 @_exported import OTPublishersHeadlessSDKtvOS
@@ -8,6 +9,7 @@ import Swift
 import SystemConfiguration
 import UIKit
 import _Concurrency
+import _StringProcessing
 public protocol TextTheme : Swift.Decodable, Swift.Encodable {
   var fontName: Swift.String { get }
   var fontSize: Swift.Int { get }
@@ -528,8 +530,8 @@ public enum AppPermissionType {
 public struct UIButtonData {
   public var backgroundColor: OTPublishersHeadlessSDKtvOS.DynamicColor
   public var borderColor: OTPublishersHeadlessSDKtvOS.DynamicColor
-  public var borderRadius: CoreGraphics.CGFloat
-  public var borderWidth: CoreGraphics.CGFloat
+  public var borderRadius: CoreFoundation.CGFloat
+  public var borderWidth: CoreFoundation.CGFloat
   public var contentAlignment: UIKit.UIControl.ContentHorizontalAlignment
   public var font: UIKit.UIFont
   public var show: Swift.Bool
@@ -752,7 +754,7 @@ extension Swift.String {
   public var booleanValue: Swift.Bool? {
     get
   }
-  public var asCGFloat: CoreGraphics.CGFloat? {
+  public var asCGFloat: CoreFoundation.CGFloat? {
     get
   }
   public var underlined: Foundation.NSAttributedString {
@@ -828,7 +830,7 @@ public struct BannerUIDataModel {
   @objc dynamic public func dismissUI()
 }
 extension UIKit.UIColor {
-  convenience public init(hexString: Swift.String, alpha: CoreGraphics.CGFloat = 1.0)
+  convenience public init(hexString: Swift.String, alpha: CoreFoundation.CGFloat = 1.0)
   public func toHex() -> Swift.String
 }
 @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class ConfirmChoicesButtonData : OTPublishersHeadlessSDKtvOS.CommonTextButtonData {
@@ -843,11 +845,11 @@ extension UIKit.UIColor {
 extension UIKit.UIFont {
   public struct FontDetails {
     public var name: Swift.String
-    public var size: CoreGraphics.CGFloat
+    public var size: CoreFoundation.CGFloat
     public var textStyle: UIKit.UIFont.TextStyle?
     public var weight: UIKit.UIFont.Weight
     public func asFont() -> UIKit.UIFont?
-    public init(name: Swift.String = "", size: CoreGraphics.CGFloat = 0, textStyle: UIKit.UIFont.TextStyle? = nil, weight: UIKit.UIFont.Weight = .regular)
+    public init(name: Swift.String = "", size: CoreFoundation.CGFloat = 0, textStyle: UIKit.UIFont.TextStyle? = nil, weight: UIKit.UIFont.Weight = .regular)
     public mutating func update(using theme: OTPublishersHeadlessSDKtvOS.TextTheme)
   }
 }
