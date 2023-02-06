@@ -326,6 +326,7 @@ typedef SWIFT_ENUM(NSInteger, IabCcpaConsent, open) {
 };
 
 
+
 /// Enum for OneTrust banner height
 typedef SWIFT_ENUM(NSInteger, OTBannerHeightRatio, open) {
 /// Show banner in full screen.
@@ -1345,6 +1346,7 @@ typedef SWIFT_ENUM(NSInteger, IabCcpaConsent, open) {
   IabCcpaConsentNo = 1,
   IabCcpaConsentYes = 2,
 };
+
 
 
 /// Enum for OneTrust banner height

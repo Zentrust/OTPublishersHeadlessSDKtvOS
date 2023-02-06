@@ -840,6 +840,14 @@ extension UIKit.UIColor {
   }
   @objc deinit
 }
+public enum IABGPPKeys : Swift.String {
+  case gppString
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
 extension UIKit.UIFont {
   public struct FontDetails {
     public var name: Swift.String
@@ -882,3 +890,6 @@ extension OTPublishersHeadlessSDKtvOS.OTLoggerConstant : Swift.RawRepresentable 
 extension OTPublishersHeadlessSDKtvOS.OTUIType : Swift.Equatable {}
 extension OTPublishersHeadlessSDKtvOS.OTUIType : Swift.Hashable {}
 extension OTPublishersHeadlessSDKtvOS.OTUIType : Swift.RawRepresentable {}
+extension OTPublishersHeadlessSDKtvOS.IABGPPKeys : Swift.Equatable {}
+extension OTPublishersHeadlessSDKtvOS.IABGPPKeys : Swift.Hashable {}
+extension OTPublishersHeadlessSDKtvOS.IABGPPKeys : Swift.RawRepresentable {}

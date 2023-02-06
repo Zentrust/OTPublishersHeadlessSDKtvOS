@@ -118,7 +118,7 @@
 		</data>
 		<key>Headers/OTPublishersHeadlessSDKtvOS-Swift.h</key>
 		<data>
-		8hGt7dHvxDw0e4KVYlrz/o4kN8A=
+		Lu8ki0OP4QHPLOaC6y6wTZvVCqc=
 		</data>
 		<key>Headers/OTPublishersHeadlessSDKtvOS.h</key>
 		<data>
@@ -130,47 +130,47 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		r4e1m2Dsud5++4CJ45ZdW0VUX0c=
+		UVOA2CmBFjAytTMSh1MfxknVgCE=
 		</data>
 		<key>Modules/OTPublishersHeadlessSDKtvOS.swiftmodule/arm64-apple-tvos-simulator.abi.json</key>
 		<data>
-		8jA5KPug2PuuCxAC6GshmfiUT1w=
+		+FBe/kgPZRdf8pr6tiXZHytPUwU=
 		</data>
 		<key>Modules/OTPublishersHeadlessSDKtvOS.swiftmodule/arm64-apple-tvos-simulator.private.swiftinterface</key>
 		<data>
-		gxB16EMC+tzEc0CzfbdYxy5ll1U=
+		XqjTLORIlWbhxFQQ5d1fApz3cAo=
 		</data>
 		<key>Modules/OTPublishersHeadlessSDKtvOS.swiftmodule/arm64-apple-tvos-simulator.swiftdoc</key>
 		<data>
-		ylP0+H3wcsw+38DIoqc2gXr+jJo=
+		6jtKyvbAp0IE/8279XlZS3GW1Gg=
 		</data>
 		<key>Modules/OTPublishersHeadlessSDKtvOS.swiftmodule/arm64-apple-tvos-simulator.swiftinterface</key>
 		<data>
-		gxB16EMC+tzEc0CzfbdYxy5ll1U=
+		XqjTLORIlWbhxFQQ5d1fApz3cAo=
 		</data>
 		<key>Modules/OTPublishersHeadlessSDKtvOS.swiftmodule/arm64-apple-tvos-simulator.swiftmodule</key>
 		<data>
-		+pLXbKf2Zifuvz3MX7PX0/a7tiQ=
+		oon7GRWmNTNXIv9iknBMnfIY/Ns=
 		</data>
 		<key>Modules/OTPublishersHeadlessSDKtvOS.swiftmodule/x86_64-apple-tvos-simulator.abi.json</key>
 		<data>
-		8jA5KPug2PuuCxAC6GshmfiUT1w=
+		+FBe/kgPZRdf8pr6tiXZHytPUwU=
 		</data>
 		<key>Modules/OTPublishersHeadlessSDKtvOS.swiftmodule/x86_64-apple-tvos-simulator.private.swiftinterface</key>
 		<data>
-		IuaHpMJ+cbIXJgpM1QeAzB5gc7c=
+		29nH7m0LX11fN7HTZQ11/rLU2bU=
 		</data>
 		<key>Modules/OTPublishersHeadlessSDKtvOS.swiftmodule/x86_64-apple-tvos-simulator.swiftdoc</key>
 		<data>
-		4cTNzEA5B9Juw/c4z/B+kfHsmbk=
+		gTewArV9HQEnJf4hJQsPD0l6vuE=
 		</data>
 		<key>Modules/OTPublishersHeadlessSDKtvOS.swiftmodule/x86_64-apple-tvos-simulator.swiftinterface</key>
 		<data>
-		IuaHpMJ+cbIXJgpM1QeAzB5gc7c=
+		29nH7m0LX11fN7HTZQ11/rLU2bU=
 		</data>
 		<key>Modules/OTPublishersHeadlessSDKtvOS.swiftmodule/x86_64-apple-tvos-simulator.swiftmodule</key>
 		<data>
-		ME1ToJKLGeeei9vHlY6SfAdJ/8A=
+		dfyIrVHGi9kGr9ulVrTHUcO5eUI=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -387,7 +387,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			Jdt8qa0w0Ujx87l3aT4Y14JqG0W+pccHu11RVZRQKGs=
+			NrIusUBpuOCrVzCmueSyyCvss8bK+dZaDibixTu43ZQ=
 			</data>
 		</dict>
 		<key>Headers/OTPublishersHeadlessSDKtvOS.h</key>
@@ -408,70 +408,70 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			HImgmBc/lPBmVJQC1gPMsDE5my4QUCR8OCDIESupf+0=
+			eDlc5NgGIX39l+fE3Y5lApJTPkOtZlLSjL+t5YEPyt8=
 			</data>
 		</dict>
 		<key>Modules/OTPublishersHeadlessSDKtvOS.swiftmodule/arm64-apple-tvos-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			m6IwmLYO+VkN2CJB1Plmq5HoYAlMpbaFjw+vTmlMT94=
+			S0vSVb8HqHlvWfRtnTuOh+L7V0/Gdid6XxhXyxlQOc4=
 			</data>
 		</dict>
 		<key>Modules/OTPublishersHeadlessSDKtvOS.swiftmodule/arm64-apple-tvos-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			ywKI24n87QsLHKLP1o3z3i9CyghHe0BYuHLiwieQ/h0=
+			FNpZwTqdGCDE39t3i7/k0/i1t7lrHY1Y8QcxdlCzulk=
 			</data>
 		</dict>
 		<key>Modules/OTPublishersHeadlessSDKtvOS.swiftmodule/arm64-apple-tvos-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			m6IwmLYO+VkN2CJB1Plmq5HoYAlMpbaFjw+vTmlMT94=
+			S0vSVb8HqHlvWfRtnTuOh+L7V0/Gdid6XxhXyxlQOc4=
 			</data>
 		</dict>
 		<key>Modules/OTPublishersHeadlessSDKtvOS.swiftmodule/arm64-apple-tvos-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			lfPiQOaAnNYcTwS9Ql1a+nNCnTmRHh4rksiUQTjxyrs=
+			F3VuT/U2Q9IMAoQGPYJ8XdpXzJFR7BjVNfkO7Z9lp1k=
 			</data>
 		</dict>
 		<key>Modules/OTPublishersHeadlessSDKtvOS.swiftmodule/x86_64-apple-tvos-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			HImgmBc/lPBmVJQC1gPMsDE5my4QUCR8OCDIESupf+0=
+			eDlc5NgGIX39l+fE3Y5lApJTPkOtZlLSjL+t5YEPyt8=
 			</data>
 		</dict>
 		<key>Modules/OTPublishersHeadlessSDKtvOS.swiftmodule/x86_64-apple-tvos-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			2Gruo65m9XApM9O26JRSNMsQ2ErmH7LjnPFwSaMdVLM=
+			mpUej7ky30bjbNJRpqRhKqlkmLLVtqsLvKsFeK/gteY=
 			</data>
 		</dict>
 		<key>Modules/OTPublishersHeadlessSDKtvOS.swiftmodule/x86_64-apple-tvos-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Rvsw6o9/j89EuDb20m3PxEQ27ZJBZs9ah73NtiCbaYw=
+			hezqW5OQDsbjYGgfwOfUPgAD5MDg1bnGvvYfP1iJyQk=
 			</data>
 		</dict>
 		<key>Modules/OTPublishersHeadlessSDKtvOS.swiftmodule/x86_64-apple-tvos-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			2Gruo65m9XApM9O26JRSNMsQ2ErmH7LjnPFwSaMdVLM=
+			mpUej7ky30bjbNJRpqRhKqlkmLLVtqsLvKsFeK/gteY=
 			</data>
 		</dict>
 		<key>Modules/OTPublishersHeadlessSDKtvOS.swiftmodule/x86_64-apple-tvos-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			GEK4aup26T0pk10NO1tJ8oSXrWRlsOLtTO44hLpukOo=
+			iAmAuM/HCP5IP9PHjYuVXCxWe97TGu/MHd7W2U6gKi0=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
