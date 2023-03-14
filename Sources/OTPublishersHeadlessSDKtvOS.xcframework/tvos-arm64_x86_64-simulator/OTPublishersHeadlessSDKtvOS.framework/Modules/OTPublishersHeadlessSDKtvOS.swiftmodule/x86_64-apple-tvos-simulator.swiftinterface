@@ -304,6 +304,22 @@ public struct NtfyUIDataModel {
   @objc override dynamic public init()
   @objc deinit
 }
+public enum IABGPPUSPKeys : Swift.String, Swift.CaseIterable {
+  case string
+  case version
+  case notice
+  case optOut
+  case lspaCovered
+  public init?(rawValue: Swift.String)
+  public typealias AllCases = [IABGPPUSPKeys]
+  public typealias RawValue = Swift.String
+  public static var allCases: [IABGPPUSPKeys] {
+    get
+  }
+  public var rawValue: Swift.String {
+    get
+  }
+}
 extension BannerUIDataModel {
   public struct LogoDetails {
     public var show: Swift.Bool {
@@ -567,6 +583,36 @@ extension UIKit.UILabel {
 }
 extension Foundation.Thread {
   public static func runOnMain(forceAsync: Swift.Bool = false, _ completion: @escaping () -> Swift.Void)
+}
+public enum IABGPPTCFKeys : Swift.String, Swift.CaseIterable {
+  case tcfTCString
+  case cmpId
+  case cmpVersion
+  case policyVersion
+  case gdprApplies
+  case publisherCC
+  case purposeOneTreatment
+  case useNonStandardStacks
+  case vendorConsents
+  case vendorLegitimateInterests
+  case purposeConsents
+  case purposeLegitimateInterests
+  case specialFeaturesOptIns
+  case publisherRestrictions
+  case publisherConsent
+  case publisherLegitimateInterests
+  case publisherCustomPurposesConsents
+  case publisherCustomPurposesLegitimateInterests
+  case addtlConsent
+  public init?(rawValue: Swift.String)
+  public typealias AllCases = [IABGPPTCFKeys]
+  public typealias RawValue = Swift.String
+  public static var allCases: [IABGPPTCFKeys] {
+    get
+  }
+  public var rawValue: Swift.String {
+    get
+  }
 }
 extension NtfyUIDataModel {
   public struct DisplayData {
@@ -845,6 +891,8 @@ public enum IABGPPKeys : Swift.String, Swift.CaseIterable {
   case headerVersion
   case headerSections
   case activeSections
+  case usnatString
+  case uscaString
   public init?(rawValue: Swift.String)
   public typealias AllCases = [IABGPPKeys]
   public typealias RawValue = Swift.String
@@ -874,6 +922,9 @@ extension AgeGateAuthorizationStatus : Swift.Hashable {}
 extension AgeGateAuthorizationStatus : Swift.RawRepresentable {}
 extension SDKViewMode : Swift.Equatable {}
 extension SDKViewMode : Swift.Hashable {}
+extension IABGPPUSPKeys : Swift.Equatable {}
+extension IABGPPUSPKeys : Swift.Hashable {}
+extension IABGPPUSPKeys : Swift.RawRepresentable {}
 extension ConsentInteractionType : Swift.Equatable {}
 extension ConsentInteractionType : Swift.Hashable {}
 extension ConsentInteractionType : Swift.RawRepresentable {}
@@ -891,6 +942,9 @@ extension VendorListJourneyType : Swift.Hashable {}
 extension VendorListJourneyType : Swift.RawRepresentable {}
 extension AppPermissionType : Swift.Equatable {}
 extension AppPermissionType : Swift.Hashable {}
+extension IABGPPTCFKeys : Swift.Equatable {}
+extension IABGPPTCFKeys : Swift.Hashable {}
+extension IABGPPTCFKeys : Swift.RawRepresentable {}
 extension OTLoggerConstant : Swift.Equatable {}
 extension OTLoggerConstant : Swift.Hashable {}
 extension OTLoggerConstant : Swift.RawRepresentable {}

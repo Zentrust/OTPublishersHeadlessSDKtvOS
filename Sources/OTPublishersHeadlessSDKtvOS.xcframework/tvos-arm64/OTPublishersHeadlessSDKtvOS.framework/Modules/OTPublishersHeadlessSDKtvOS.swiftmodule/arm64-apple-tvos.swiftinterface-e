@@ -304,6 +304,22 @@ public struct NtfyUIDataModel {
   @objc override dynamic public init()
   @objc deinit
 }
+public enum IABGPPUSPKeys : Swift.String, Swift.CaseIterable {
+  case string
+  case version
+  case notice
+  case optOut
+  case lspaCovered
+  public init?(rawValue: Swift.String)
+  public typealias AllCases = [OTPublishersHeadlessSDKtvOS.IABGPPUSPKeys]
+  public typealias RawValue = Swift.String
+  public static var allCases: [OTPublishersHeadlessSDKtvOS.IABGPPUSPKeys] {
+    get
+  }
+  public var rawValue: Swift.String {
+    get
+  }
+}
 extension OTPublishersHeadlessSDKtvOS.BannerUIDataModel {
   public struct LogoDetails {
     public var show: Swift.Bool {
@@ -567,6 +583,36 @@ extension UIKit.UILabel {
 }
 extension Foundation.Thread {
   public static func runOnMain(forceAsync: Swift.Bool = false, _ completion: @escaping () -> Swift.Void)
+}
+public enum IABGPPTCFKeys : Swift.String, Swift.CaseIterable {
+  case tcfTCString
+  case cmpId
+  case cmpVersion
+  case policyVersion
+  case gdprApplies
+  case publisherCC
+  case purposeOneTreatment
+  case useNonStandardStacks
+  case vendorConsents
+  case vendorLegitimateInterests
+  case purposeConsents
+  case purposeLegitimateInterests
+  case specialFeaturesOptIns
+  case publisherRestrictions
+  case publisherConsent
+  case publisherLegitimateInterests
+  case publisherCustomPurposesConsents
+  case publisherCustomPurposesLegitimateInterests
+  case addtlConsent
+  public init?(rawValue: Swift.String)
+  public typealias AllCases = [OTPublishersHeadlessSDKtvOS.IABGPPTCFKeys]
+  public typealias RawValue = Swift.String
+  public static var allCases: [OTPublishersHeadlessSDKtvOS.IABGPPTCFKeys] {
+    get
+  }
+  public var rawValue: Swift.String {
+    get
+  }
 }
 extension OTPublishersHeadlessSDKtvOS.NtfyUIDataModel {
   public struct DisplayData {
@@ -845,6 +891,8 @@ public enum IABGPPKeys : Swift.String, Swift.CaseIterable {
   case headerVersion
   case headerSections
   case activeSections
+  case usnatString
+  case uscaString
   public init?(rawValue: Swift.String)
   public typealias AllCases = [OTPublishersHeadlessSDKtvOS.IABGPPKeys]
   public typealias RawValue = Swift.String
@@ -874,6 +922,9 @@ extension OTPublishersHeadlessSDKtvOS.AgeGateAuthorizationStatus : Swift.Hashabl
 extension OTPublishersHeadlessSDKtvOS.AgeGateAuthorizationStatus : Swift.RawRepresentable {}
 extension OTPublishersHeadlessSDKtvOS.SDKViewMode : Swift.Equatable {}
 extension OTPublishersHeadlessSDKtvOS.SDKViewMode : Swift.Hashable {}
+extension OTPublishersHeadlessSDKtvOS.IABGPPUSPKeys : Swift.Equatable {}
+extension OTPublishersHeadlessSDKtvOS.IABGPPUSPKeys : Swift.Hashable {}
+extension OTPublishersHeadlessSDKtvOS.IABGPPUSPKeys : Swift.RawRepresentable {}
 extension OTPublishersHeadlessSDKtvOS.ConsentInteractionType : Swift.Equatable {}
 extension OTPublishersHeadlessSDKtvOS.ConsentInteractionType : Swift.Hashable {}
 extension OTPublishersHeadlessSDKtvOS.ConsentInteractionType : Swift.RawRepresentable {}
@@ -891,6 +942,9 @@ extension OTPublishersHeadlessSDKtvOS.VendorListJourneyType : Swift.Hashable {}
 extension OTPublishersHeadlessSDKtvOS.VendorListJourneyType : Swift.RawRepresentable {}
 extension OTPublishersHeadlessSDKtvOS.AppPermissionType : Swift.Equatable {}
 extension OTPublishersHeadlessSDKtvOS.AppPermissionType : Swift.Hashable {}
+extension OTPublishersHeadlessSDKtvOS.IABGPPTCFKeys : Swift.Equatable {}
+extension OTPublishersHeadlessSDKtvOS.IABGPPTCFKeys : Swift.Hashable {}
+extension OTPublishersHeadlessSDKtvOS.IABGPPTCFKeys : Swift.RawRepresentable {}
 extension OTPublishersHeadlessSDKtvOS.OTLoggerConstant : Swift.Equatable {}
 extension OTPublishersHeadlessSDKtvOS.OTLoggerConstant : Swift.Hashable {}
 extension OTPublishersHeadlessSDKtvOS.OTLoggerConstant : Swift.RawRepresentable {}
