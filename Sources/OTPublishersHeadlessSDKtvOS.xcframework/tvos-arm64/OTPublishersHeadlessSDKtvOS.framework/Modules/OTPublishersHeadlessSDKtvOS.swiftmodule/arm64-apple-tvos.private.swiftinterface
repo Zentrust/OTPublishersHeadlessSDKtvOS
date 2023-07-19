@@ -175,6 +175,18 @@ extension DynamicColor {
   public static let dynamicOTButton: DynamicColor
   public static let dynamicGreen: DynamicColor
 }
+public enum ProxyType {
+  case sdkDataDownload(Foundation.URL)
+  case logConsent(Foundation.URL)
+  case bannerLogo(Foundation.URL)
+  case pcLogo(Foundation.URL)
+  case attPrePromptLogo(Foundation.URL)
+  case attPostPromptLogo(Foundation.URL)
+  case ageGateLogo(Foundation.URL)
+  case generalVendors(Foundation.URL)
+  case iabVendors(Foundation.URL)
+  case googleVendors(Foundation.URL)
+}
 extension OTPublishersHeadlessSDK {
   public func showConsentUI(for permissionType: AppPermissionType, from presenter: UIKit.UIViewController, completion: (() -> Swift.Void)? = nil)
   public func checkAndLogConsent(for permissionType: AppPermissionType)
@@ -570,7 +582,11 @@ extension UIKit.UILabel {
   @available(iOS 13.0, tvOS 13.0, *)
   @objc optional func shouldEnableDarkMode() -> Swift.Bool
 }
+public protocol CustomConfigurator : AnyObject {
+  func getProxyDomain(for type: ProxyType) -> Foundation.URL?
+}
 @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc public class OTPublishersHeadlessSDK : ObjectiveC.NSObject {
+  weak public var customConfigurator: CustomConfigurator?
   @objc weak public var uiConfigurator: UIConfigurator?
   @objc public static var shared: OTPublishersHeadlessSDK {
     get
