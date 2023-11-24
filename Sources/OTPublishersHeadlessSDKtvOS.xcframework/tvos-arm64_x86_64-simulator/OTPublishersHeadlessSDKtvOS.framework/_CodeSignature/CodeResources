@@ -6,7 +6,7 @@
 	<dict>
 		<key>Assets.car</key>
 		<data>
-		kB0tT+t/azHVujVE7/nMHo+qyDs=
+		WQ4fBX8vKZsytWausbRIZO91I7g=
 		</data>
 		<key>ConsentUINative.storyboardc/5Sx-JP-gU6-view-LVY-le-27N.nib</key>
 		<data>
@@ -138,11 +138,11 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		q8Eb8OgKNShYAiNeTdD5wyzN3Dg=
+		+RNLmxY4S1w0jnw072EzTjfCBvk=
 		</data>
 		<key>Modules/OTPublishersHeadlessSDKtvOS.swiftmodule/arm64-apple-tvos-simulator.abi.json</key>
 		<data>
-		f8pPoy0RJ1HlLDa3/3oEygzsq0k=
+		ez+1g2/cDUtT4z9J6ncQIbkPa5Q=
 		</data>
 		<key>Modules/OTPublishersHeadlessSDKtvOS.swiftmodule/arm64-apple-tvos-simulator.private.swiftinterface</key>
 		<data>
@@ -158,11 +158,11 @@
 		</data>
 		<key>Modules/OTPublishersHeadlessSDKtvOS.swiftmodule/arm64-apple-tvos-simulator.swiftmodule</key>
 		<data>
-		EQJdcuhBJDABpgOyI2lyDDUFfUE=
+		SweU9q16CNUsKjxAo99M44pUNp8=
 		</data>
 		<key>Modules/OTPublishersHeadlessSDKtvOS.swiftmodule/x86_64-apple-tvos-simulator.abi.json</key>
 		<data>
-		f8pPoy0RJ1HlLDa3/3oEygzsq0k=
+		ez+1g2/cDUtT4z9J6ncQIbkPa5Q=
 		</data>
 		<key>Modules/OTPublishersHeadlessSDKtvOS.swiftmodule/x86_64-apple-tvos-simulator.private.swiftinterface</key>
 		<data>
@@ -178,7 +178,7 @@
 		</data>
 		<key>Modules/OTPublishersHeadlessSDKtvOS.swiftmodule/x86_64-apple-tvos-simulator.swiftmodule</key>
 		<data>
-		ZBMeWhTxtBXZ6neYcWTfSU3c6ts=
+		Pofda9FGKfOWiDBCM8p/4MoaJvg=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -187,10 +187,6 @@
 		<key>OTSDK-UIConfig-tvOS.plist</key>
 		<data>
 		1rplznhEwydt2GOlWKFDXAUjQN8=
-		</data>
-		<key>PrivacyInfo.xcprivacy</key>
-		<data>
-		AQDY9Kpe5v/EMeiQhSCk0TSIL2s=
 		</data>
 		<key>SnackBarView.nib</key>
 		<data>
@@ -203,7 +199,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			LuFcsC4I1NsR7EBeNmqkKaqt19xKeOlw3QTAFXQpEuA=
+			elq0huLSLXSkqiwFbK4qtlmgqsbhI3M0XJ18+l/21bE=
 			</data>
 		</dict>
 		<key>ConsentUINative.storyboardc/5Sx-JP-gU6-view-LVY-le-27N.nib</key>
@@ -434,7 +430,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			KSJCxoF1gWDS4TRJRXTJisZxi1auuDNGrWOBoqbo6uA=
+			fg3OqbEpS4RadtGDONDEE0faUcoQOq5FUj4WJsdG6cU=
 			</data>
 		</dict>
 		<key>Modules/OTPublishersHeadlessSDKtvOS.swiftmodule/arm64-apple-tvos-simulator.private.swiftinterface</key>
@@ -462,14 +458,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			ao3hGmcFcv04CBgZ7ujuuwE5O5gdzeRVWd0a4ueRaOU=
+			pvl8jQYcIYrsiGTSdgxquQzCUU8f5iVEwrmfWbSLEzE=
 			</data>
 		</dict>
 		<key>Modules/OTPublishersHeadlessSDKtvOS.swiftmodule/x86_64-apple-tvos-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			KSJCxoF1gWDS4TRJRXTJisZxi1auuDNGrWOBoqbo6uA=
+			fg3OqbEpS4RadtGDONDEE0faUcoQOq5FUj4WJsdG6cU=
 			</data>
 		</dict>
 		<key>Modules/OTPublishersHeadlessSDKtvOS.swiftmodule/x86_64-apple-tvos-simulator.private.swiftinterface</key>
@@ -497,7 +493,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			tqIuOo5ISmDh5lhfhXMCOSZC2OHt43MsWIQhQRyWb2g=
+			pxgjUvyMCCzixTTuhphXDlul/+pyd7afYbTiqA/4KTQ=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
@@ -512,13 +508,6 @@
 			<key>hash2</key>
 			<data>
 			vJdgfk7nJq1ykqeKPhvyFqGTebPbtzttL1glgxyvSe4=
-			</data>
-		</dict>
-		<key>PrivacyInfo.xcprivacy</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			rwdh6ntzN+m5X6nTHEZ+k3GlV/wqs3pF3Zs/XtlNqgs=
 			</data>
 		</dict>
 		<key>SnackBarView.nib</key>
