@@ -1003,6 +1003,7 @@ SWIFT_PROTOCOL_NAMED("UIConfigurator")
 
 
 
+
 /// Enum for Vendor list user journey
 typedef SWIFT_ENUM(NSInteger, VendorListJourneyType, open) {
 /// The showConfirmMyChoices vendor list journey type.

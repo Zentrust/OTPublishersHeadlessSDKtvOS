@@ -1003,6 +1003,7 @@ SWIFT_PROTOCOL_NAMED("UIConfigurator")
 
 
 
+
 /// Enum for Vendor list user journey
 typedef SWIFT_ENUM(NSInteger, VendorListJourneyType, open) {
 /// The showConfirmMyChoices vendor list journey type.
@@ -2016,6 +2017,7 @@ SWIFT_PROTOCOL_NAMED("UIConfigurator")
 /// return <code>true</code> to force the sdk to dark mode irrespective of the device’s <code>Dark Appearance</code> setting.
 - (BOOL)shouldEnableDarkMode SWIFT_WARN_UNUSED_RESULT SWIFT_AVAILABILITY(tvos,introduced=13.0) SWIFT_AVAILABILITY(ios,introduced=13.0);
 @end
+
 
 
 
