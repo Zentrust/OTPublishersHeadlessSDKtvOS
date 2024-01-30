@@ -131,7 +131,7 @@ extension OTPublishersHeadlessSDKtvOS.OTUserDefaultKeys {
 }
 extension OTPublishersHeadlessSDKtvOS.OTCoreConstants {
   public struct IAB_CCPA_Keys {
-    public static var consentString: Swift.String {
+    public static var consentString: [Swift.String] {
       get
     }
   }
