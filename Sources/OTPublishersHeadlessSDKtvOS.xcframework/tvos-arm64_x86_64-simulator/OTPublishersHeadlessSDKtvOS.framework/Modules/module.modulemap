@@ -1,7 +1,7 @@
 framework module OTPublishersHeadlessSDKtvOS {
   umbrella header "OTPublishersHeadlessSDKtvOS.h"
-
   export *
+
   module * { export * }
 }
 
