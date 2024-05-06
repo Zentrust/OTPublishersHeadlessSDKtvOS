@@ -1009,6 +1009,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _No
 
 
 
+
 enum VendorListJourneyType : NSInteger;
 
 /// Conform to this protocol to perform customizations on OT SDK UI.

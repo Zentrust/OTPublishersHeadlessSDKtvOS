@@ -564,6 +564,16 @@ public enum AppPermissionType {
     get
   }
 }
+public enum ButtonSection {
+  case none
+  case above
+  case below
+  public static func == (a: OTPublishersHeadlessSDKtvOS.ButtonSection, b: OTPublishersHeadlessSDKtvOS.ButtonSection) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
 public struct UIButtonData {
   public var backgroundColor: OTPublishersHeadlessSDKtvOS.DynamicColor
   public var borderColor: OTPublishersHeadlessSDKtvOS.DynamicColor
@@ -578,6 +588,7 @@ public struct UIButtonData {
   public var url: Swift.String
   public var showAsLink: Swift.Bool
   public var position: Swift.Int
+  public var section: OTPublishersHeadlessSDKtvOS.ButtonSection
 }
 extension UIKit.UIButton {
   @_Concurrency.MainActor(unsafe) public func setup(buttonData: OTPublishersHeadlessSDKtvOS.UIButtonData)
@@ -1032,6 +1043,8 @@ extension OTPublishersHeadlessSDKtvOS.VendorListJourneyType : Swift.Hashable {}
 extension OTPublishersHeadlessSDKtvOS.VendorListJourneyType : Swift.RawRepresentable {}
 extension OTPublishersHeadlessSDKtvOS.AppPermissionType : Swift.Equatable {}
 extension OTPublishersHeadlessSDKtvOS.AppPermissionType : Swift.Hashable {}
+extension OTPublishersHeadlessSDKtvOS.ButtonSection : Swift.Equatable {}
+extension OTPublishersHeadlessSDKtvOS.ButtonSection : Swift.Hashable {}
 extension OTPublishersHeadlessSDKtvOS.OTGoogleConsentMode : Swift.Equatable {}
 extension OTPublishersHeadlessSDKtvOS.OTGoogleConsentMode : Swift.Hashable {}
 extension OTPublishersHeadlessSDKtvOS.OTGoogleConsentMode : Swift.RawRepresentable {}
