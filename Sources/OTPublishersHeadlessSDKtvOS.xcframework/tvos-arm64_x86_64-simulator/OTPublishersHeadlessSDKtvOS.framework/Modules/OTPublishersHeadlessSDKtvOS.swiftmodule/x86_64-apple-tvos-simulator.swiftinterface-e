@@ -67,7 +67,7 @@ extension OTPublishersHeadlessSDKtvOS.OTPublishersHeadlessSDK {
     get
   }
   public func deleteProfile(_ profileID: Swift.String, completion: @escaping ((any Swift.Error)?) -> Swift.Void)
-  public func renameProfile(from currentProfileID: Swift.String? = nil, to newProfileID: Swift.String, withIdentifierType identifierType: Swift.String? = "", forceRename: Swift.Bool = false, completion: @escaping (Swift.Bool) -> Swift.Void)
+  public func renameProfile(from currentProfileID: Swift.String? = nil, to newProfileID: Swift.String, withIdentifierType identifierType: Swift.String? = "", completion: @escaping (Swift.Bool) -> Swift.Void)
   public func switchProfile(to profileID: Swift.String, completion: @escaping ((any Swift.Error)?) -> Swift.Void)
 }
 @objc public class OTSdkParams : ObjectiveC.NSObject {
@@ -564,6 +564,16 @@ public enum AppPermissionType {
     get
   }
 }
+public enum ButtonSection {
+  case none
+  case above
+  case below
+  public static func == (a: OTPublishersHeadlessSDKtvOS.ButtonSection, b: OTPublishersHeadlessSDKtvOS.ButtonSection) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
 public struct UIButtonData {
   public var backgroundColor: OTPublishersHeadlessSDKtvOS.DynamicColor
   public var borderColor: OTPublishersHeadlessSDKtvOS.DynamicColor
@@ -577,6 +587,8 @@ public struct UIButtonData {
   public var textColor: OTPublishersHeadlessSDKtvOS.DynamicColor
   public var url: Swift.String
   public var showAsLink: Swift.Bool
+  public var position: Swift.Int
+  public var section: OTPublishersHeadlessSDKtvOS.ButtonSection
 }
 extension UIKit.UIButton {
   @_Concurrency.MainActor(unsafe) public func setup(buttonData: OTPublishersHeadlessSDKtvOS.UIButtonData)
@@ -898,6 +910,7 @@ extension Swift.String {
   public func sliceAndReplace(sliceFrom: Swift.String, till: Swift.String, replaceWith: Swift.String) -> Swift.String?
   public func slice(from: Swift.String, to: Swift.String) -> Swift.String?
   public func encodeUrl() -> Swift.String?
+  public func byUpdatingVendorCount() -> Swift.String
   public mutating func encodeString() -> Swift.String?
   public func decodeUrl() -> Swift.String?
   public func dynamicText(font: UIKit.UIFont? = nil, textStyle: UIKit.UIFont.TextStyle) -> Foundation.NSAttributedString
@@ -1031,6 +1044,8 @@ extension OTPublishersHeadlessSDKtvOS.VendorListJourneyType : Swift.Hashable {}
 extension OTPublishersHeadlessSDKtvOS.VendorListJourneyType : Swift.RawRepresentable {}
 extension OTPublishersHeadlessSDKtvOS.AppPermissionType : Swift.Equatable {}
 extension OTPublishersHeadlessSDKtvOS.AppPermissionType : Swift.Hashable {}
+extension OTPublishersHeadlessSDKtvOS.ButtonSection : Swift.Equatable {}
+extension OTPublishersHeadlessSDKtvOS.ButtonSection : Swift.Hashable {}
 extension OTPublishersHeadlessSDKtvOS.OTGoogleConsentMode : Swift.Equatable {}
 extension OTPublishersHeadlessSDKtvOS.OTGoogleConsentMode : Swift.Hashable {}
 extension OTPublishersHeadlessSDKtvOS.OTGoogleConsentMode : Swift.RawRepresentable {}
