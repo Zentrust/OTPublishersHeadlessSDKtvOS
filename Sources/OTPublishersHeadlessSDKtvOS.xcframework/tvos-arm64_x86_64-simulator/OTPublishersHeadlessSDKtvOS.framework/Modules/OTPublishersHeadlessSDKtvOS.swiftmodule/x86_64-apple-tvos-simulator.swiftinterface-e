@@ -504,6 +504,9 @@ extension OTPublishersHeadlessSDKtvOS.VendorListUIData {
     public var toggleInactiveColor: Swift.String? {
       get
     }
+    public var toggleInactiveColorDark: Swift.String? {
+      get
+    }
     public var lineBreakColor: Swift.String? {
       get
     }
