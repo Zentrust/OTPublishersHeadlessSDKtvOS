@@ -1109,7 +1109,7 @@ extension UIKit.UIButton {
 extension UIKit.UILabel {
   @_Concurrency.MainActor(unsafe) public func setup(using buttonData: OTPublishersHeadlessSDKtvOS.UIButtonData)
 }
-public enum OTGoogleConsentMode : Swift.Int, Swift.Codable {
+@objc public enum OTGoogleConsentMode : Swift.Int, Swift.Codable {
   case undefined
   case unassigned
   case denied
@@ -1120,7 +1120,7 @@ public enum OTGoogleConsentMode : Swift.Int, Swift.Codable {
     get
   }
 }
-public enum OTSDKStatus : Swift.Int {
+@objc public enum OTSDKStatus : Swift.Int {
   case notInitialized
   case notConsented
   case consented
@@ -1130,39 +1130,40 @@ public enum OTSDKStatus : Swift.Int {
     get
   }
 }
-@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class OTGoogleConsentModeDataModel : ObjectiveC.NSObject {
-  public var otSDKStatus: OTPublishersHeadlessSDKtvOS.OTSDKStatus {
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc public class OTGoogleConsentModeDataModel : ObjectiveC.NSObject {
+  @objc public var otSDKStatus: OTPublishersHeadlessSDKtvOS.OTSDKStatus {
     get
   }
-  public var consentType: OTPublishersHeadlessSDKtvOS.OTGoogleConsentType {
+  @objc public var consentType: OTPublishersHeadlessSDKtvOS.OTGoogleConsentType {
     get
   }
   @objc deinit
 }
-public struct OTGoogleConsentType : Swift.Codable {
-  public var analyticsStorage: OTPublishersHeadlessSDKtvOS.OTGoogleConsentMode {
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc public class OTGoogleConsentType : ObjectiveC.NSObject, Swift.Codable {
+  @objc public var analyticsStorage: OTPublishersHeadlessSDKtvOS.OTGoogleConsentMode {
     get
   }
-  public var adStorage: OTPublishersHeadlessSDKtvOS.OTGoogleConsentMode {
+  @objc public var adStorage: OTPublishersHeadlessSDKtvOS.OTGoogleConsentMode {
     get
   }
-  public var adUserData: OTPublishersHeadlessSDKtvOS.OTGoogleConsentMode {
+  @objc public var adUserData: OTPublishersHeadlessSDKtvOS.OTGoogleConsentMode {
     get
   }
-  public var adPersonalization: OTPublishersHeadlessSDKtvOS.OTGoogleConsentMode {
+  @objc public var adPersonalization: OTPublishersHeadlessSDKtvOS.OTGoogleConsentMode {
     get
   }
-  public var functionalityStorage: OTPublishersHeadlessSDKtvOS.OTGoogleConsentMode {
+  @objc public var functionalityStorage: OTPublishersHeadlessSDKtvOS.OTGoogleConsentMode {
     get
   }
-  public var personalizationStorage: OTPublishersHeadlessSDKtvOS.OTGoogleConsentMode {
+  @objc public var personalizationStorage: OTPublishersHeadlessSDKtvOS.OTGoogleConsentMode {
     get
   }
-  public var securityStorage: OTPublishersHeadlessSDKtvOS.OTGoogleConsentMode {
+  @objc public var securityStorage: OTPublishersHeadlessSDKtvOS.OTGoogleConsentMode {
     get
   }
+  @objc deinit
   public func encode(to encoder: any Swift.Encoder) throws
-  public init(from decoder: any Swift.Decoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
 }
 @objc(OTUIConfigurator) public protocol UIConfigurator {
   @objc func shouldUseCustomUIConfig() -> Swift.Bool

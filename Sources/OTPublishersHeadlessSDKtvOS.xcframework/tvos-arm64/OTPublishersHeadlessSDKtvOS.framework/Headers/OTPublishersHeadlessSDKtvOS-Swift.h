@@ -466,10 +466,50 @@ SWIFT_CLASS("_TtC27OTPublishersHeadlessSDKtvOS18OTGeolocationModel")
 - (BOOL)isEqual:(id _Nullable)object SWIFT_WARN_UNUSED_RESULT;
 @end
 
+/// Enum for OneTrut google consent mode
+typedef SWIFT_ENUM(NSInteger, OTGoogleConsentMode, open) {
+/// Onetrust SDK is not not initialized or invalid category
+  OTGoogleConsentModeUndefined = 0,
+/// No any category assigned at admin UI
+  OTGoogleConsentModeUnassigned = 1,
+/// Consent denied for linked category
+  OTGoogleConsentModeDenied = 2,
+/// Consent granted for linked category
+  OTGoogleConsentModeGranted = 3,
+};
+
+enum OTSDKStatus : NSInteger;
+@class OTGoogleConsentType;
 
 /// Public class for OneTrust Google Consent Mode data
 SWIFT_CLASS("_TtC27OTPublishersHeadlessSDKtvOS28OTGoogleConsentModeDataModel")
 @interface OTGoogleConsentModeDataModel : NSObject
+/// Variable return OneTrust SDK status
+@property (nonatomic, readonly) enum OTSDKStatus otSDKStatus;
+/// Variable return Google Consent Mode consent type status
+@property (nonatomic, readonly, strong) OTGoogleConsentType * _Nonnull consentType;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+/// OneTrust Google Consent type
+SWIFT_CLASS("_TtC27OTPublishersHeadlessSDKtvOS19OTGoogleConsentType")
+@interface OTGoogleConsentType : NSObject
+/// GCM consent type analytics_storage status
+@property (nonatomic, readonly) enum OTGoogleConsentMode analyticsStorage;
+/// GCM consent type ad_storage status
+@property (nonatomic, readonly) enum OTGoogleConsentMode adStorage;
+/// GCM consent type ad_user_data status
+@property (nonatomic, readonly) enum OTGoogleConsentMode adUserData;
+/// GCM consent type ad_personalization status
+@property (nonatomic, readonly) enum OTGoogleConsentMode adPersonalization;
+/// GCM consent type functionality_storage status
+@property (nonatomic, readonly) enum OTGoogleConsentMode functionalityStorage;
+/// GCM consent type personalization_storage status
+@property (nonatomic, readonly) enum OTGoogleConsentMode personalizationStorage;
+/// GCM consent type security_storage status
+@property (nonatomic, readonly) enum OTGoogleConsentMode securityStorage;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -580,6 +620,8 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) OTPublishers
 
 
 
+
+
 @interface OTPublishersHeadlessSDK (SWIFT_EXTENSION(OTPublishersHeadlessSDKtvOS))
 /// Returns the last location where the data was last downloaded.
 /// note:
@@ -596,10 +638,6 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) OTPublishers
 /// GeolocationModel containing country, state.
 - (OTGeolocationModel * _Nullable)getLastUserConsentedLocation SWIFT_WARN_UNUSED_RESULT;
 @end
-
-
-
-
 
 
 
@@ -655,6 +693,8 @@ enum OTUIType : NSInteger;
 /// This API dismisses the OT SDK UI if the UI is already present in the view hierarchy.
 - (void)dismissUI;
 @end
+
+
 
 
 @interface OTPublishersHeadlessSDK (SWIFT_EXTENSION(OTPublishersHeadlessSDKtvOS))
@@ -876,6 +916,16 @@ SWIFT_CLASS("_TtC27OTPublishersHeadlessSDKtvOS10OTResponse")
 @property (nonatomic, readonly) BOOL status;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
+
+/// Enum for OneTrust SDK status
+typedef SWIFT_ENUM(NSInteger, OTSDKStatus, open) {
+/// OneTrust not initialized yet, data not available at persistent data storage
+  OTSDKStatusNotInitialized = 0,
+/// OneTrust initialized but user not consented yet
+  OTSDKStatusNotConsented = 1,
+/// OneTrust initialized and user given consent
+  OTSDKStatusConsented = 2,
+};
 
 
 /// Public class to handle OneTrust SDK’s additional parameters.
