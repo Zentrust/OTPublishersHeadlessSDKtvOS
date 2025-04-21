@@ -99,6 +99,7 @@ extension OTPublishersHeadlessSDKtvOS.OTPublishersHeadlessSDK {
   public var currentActiveProfile: Swift.String {
     get
   }
+  public func isDefaultProfile(_ profileId: Swift.String? = nil) -> Swift.Bool
   public func deleteProfile(_ profileID: Swift.String, completion: @escaping ((any Swift.Error)?) -> Swift.Void)
   public func renameProfile(from currentProfileID: Swift.String? = nil, to newProfileID: Swift.String, withIdentifierType identifierType: Swift.String? = "", completion: @escaping (Swift.Bool) -> Swift.Void)
   public func switchProfile(to profileID: Swift.String, completion: @escaping ((any Swift.Error)?) -> Swift.Void)
@@ -253,13 +254,13 @@ public enum ProxyType : Swift.Equatable {
   case attPrePromptLogo(Foundation.URL)
   case attPostPromptLogo(Foundation.URL)
   case ageGateLogo(Foundation.URL)
-  @available(*, deprecated, message: "This case will be removed in a couple of releases(202504.1.0, couple of releases after Cmp Api adoption in 202502.1.0). From 202502.1.0 onwards, please use individual Cmp Api proxy types to setup the SDK.")
+  @available(*, deprecated, message: "This case will be removed in a couple of releases(202507.1.0, couple of releases after Cmp Api adoption in 202504.1.0). From 202504.1.0 onwards, please use individual Cmp Api proxy types to setup the SDK.")
   case sdkDataDownload(Foundation.URL)
-  @available(*, deprecated, message: "This case will be removed in a couple of releases(202504.1.0, couple of releases after Cmp Api adoption in 202502.1.0). From 202502.1.0 onwards, please use `cmpVendors(_)` Cmp Api proxy type to setup general vendors.")
+  @available(*, deprecated, message: "This case will be removed in a couple of releases(202507.1.0, couple of releases after Cmp Api adoption in 202504.1.0). From 202504.1.0 onwards, please use `cmpVendors(_)` Cmp Api proxy type to setup general vendors.")
   case generalVendors(Foundation.URL)
-  @available(*, deprecated, message: "This case will be removed in a couple of releases(202504.1.0, couple of releases after Cmp Api adoption in 202502.1.0). From 202502.1.0 onwards, please use `cmpVendors(_)` Cmp Api proxy type to setup IAB vendors.")
+  @available(*, deprecated, message: "This case will be removed in a couple of releases(202507.1.0, couple of releases after Cmp Api adoption in 202504.1.0). From 202504.1.0 onwards, please use `cmpVendors(_)` Cmp Api proxy type to setup IAB vendors.")
   case iabVendors(Foundation.URL)
-  @available(*, deprecated, message: "This case will be removed in a couple of releases(202504.1.0, couple of releases after Cmp Api adoption in 202502.1.0). From 202502.1.0 onwards, please use `cmpVendors(_)` Cmp Api proxy type to setup google vendors.")
+  @available(*, deprecated, message: "This case will be removed in a couple of releases(202507.1.0, couple of releases after Cmp Api adoption in 202504.1.0). From 202504.1.0 onwards, please use `cmpVendors(_)` Cmp Api proxy type to setup google vendors.")
   case googleVendors(Foundation.URL)
   public static func == (lhs: OTPublishersHeadlessSDKtvOS.ProxyType, rhs: OTPublishersHeadlessSDKtvOS.ProxyType) -> Swift.Bool
 }
@@ -354,11 +355,11 @@ public enum SDKViewMode {
   }
 }
 extension OTPublishersHeadlessSDKtvOS.OTPublishersHeadlessSDK {
-  public func fetchBannerCmpApiData(completion: @escaping ((OTPublishersHeadlessSDKtvOS.OTResponse) -> Swift.Void))
-  public func fetchPreferencesCmpApiData(completion: @escaping ((OTPublishersHeadlessSDKtvOS.OTResponse) -> Swift.Void))
-  public func fetchVendorsCmpApiData(completion: @escaping ((OTPublishersHeadlessSDKtvOS.OTResponse) -> Swift.Void))
-  public func fetchUCPurposesCmpApiData(completion: @escaping ((OTPublishersHeadlessSDKtvOS.OTResponse) -> Swift.Void))
-  @available(*, deprecated, message: "This will be removed before going GA with Cmp Api flow. This API is only for OneTrust testing purposes only, DO NOT USE THIS IN PRODUCTION.")
+  public func fetchBannerCmpApiData(completion: @escaping ([Swift.String : Any]?) -> Swift.Void)
+  public func fetchPreferencesCmpApiData(completion: @escaping ([Swift.String : Any]?) -> Swift.Void)
+  public func fetchVendorsCmpApiData(completion: @escaping ([Swift.String : Any]?) -> Swift.Void)
+  public func fetchUCPurposesCmpApiData(completion: @escaping ([Swift.String : Any]?) -> Swift.Void)
+  @available(*, deprecated, message: "This API is only for testing purposes only, DO NOT USE THIS IN PRODUCTION.")
   public func setupUsingCmpApi(_ value: Swift.Bool)
 }
 extension OTPublishersHeadlessSDKtvOS.OTPublishersHeadlessSDK {
@@ -686,25 +687,23 @@ public struct FilterUIResponseData : Swift.Codable {
   @objc dynamic public func getLastUserConsentedLocation() -> OTPublishersHeadlessSDKtvOS.OTGeolocationModel?
 }
 @objc extension OTPublishersHeadlessSDKtvOS.OTPublishersHeadlessSDK {
-  @objc @available(*, deprecated, message: "This method will be removed in a couple of releases(202504.1.0, couple of releases after Cmp Api adoption in 202502.1.0). From 202502.1.0 onwards, please use getAllVendors(mode:) to get all the active vendors associated with the passed in mode.")
+  @objc @available(*, deprecated, message: "This method will be removed in a couple of releases(202507.1.0, couple of releases after Cmp Api adoption in 202504.1.0). From 202504.1.0 onwards, please use getAllVendors(mode:) to get all the active vendors associated with the passed in mode.")
   dynamic public func getVendorListData(for mode: OTPublishersHeadlessSDKtvOS.VendorListMode = .iab) -> [Swift.String : Any]?
-  @objc @available(*, deprecated, message: "This method will be removed in a couple of releases(202504.1.0, couple of releases after Cmp Api adoption in 202502.1.0). From 202502.1.0 onwards, please use getAllVendors(mode:) to get all the active vendors associated with the passed in mode.")
+  @objc @available(*, deprecated, message: "This method will be removed in a couple of releases(202507.1.0, couple of releases after Cmp Api adoption in 202504.1.0). From 202504.1.0 onwards, please use getAllVendors(mode:) to get all the active vendors associated with the passed in mode.")
   dynamic public func getVendorListUI(for mode: OTPublishersHeadlessSDKtvOS.VendorListMode = .iab) -> [Swift.String : Any]?
-  @objc @available(*, deprecated, message: "This method will be removed in a couple of releases(202504.1.0, couple of releases after Cmp Api adoption in 202502.1.0). From 202502.1.0 onwards, please use getVendorDetails(for:mode:) to get the vendor details assocaited with the passed in vendor identifier.")
+  @objc @available(*, deprecated, message: "This method will be removed in a couple of releases(202507.1.0, couple of releases after Cmp Api adoption in 202504.1.0). From 202504.1.0 onwards, please use getVendorDetails(for:mode:) to get the vendor details assocaited with the passed in vendor identifier.")
   dynamic public func getVendorDetails(vendorID: Swift.String, for mode: OTPublishersHeadlessSDKtvOS.VendorListMode = .iab) -> [Swift.String : Any]?
-  @objc @available(*, deprecated, message: "This method will be removed in a couple of releases(202504.1.0, couple of releases after Cmp Api adoption in 202502.1.0). Please use BannerUIDataModel to get all the styling configurations required for Banner UI.")
-  dynamic public func getBannerData() -> [Swift.String : Any]?
-  @objc @available(*, deprecated, message: "This method will be removed in a couple of releases(202504.1.0, couple of releases after Cmp Api adoption in 202502.1.0). Please use PreferenceCenterUIDataModel to get all the styling configurations required for Preference Center.")
-  dynamic public func getPreferenceCenterData() -> [Swift.String : Any]?
-  @objc @available(*, deprecated, message: "This method will be removed in a couple of releases(202504.1.0, couple of releases after Cmp Api adoption in 202502.1.0). Please refer to the new list of public methods exposed in 202502.1.0 as domain data will no longer be available directly. We will be exposing individual items that are necessary under domain data via new public methods.")
+  @objc dynamic public func getBannerData() -> [Swift.String : Any]?
+  @objc dynamic public func getPreferenceCenterData() -> [Swift.String : Any]?
+  @objc @available(*, deprecated, message: "This method will be removed in a couple of releases(202507.1.0, couple of releases after Cmp Api adoption in 202504.1.0). Please refer to the new list of public methods exposed in 202504.1.0 as domain data will no longer be available directly. We will be exposing individual items that are necessary under domain data via new public methods.")
   dynamic public func getDomainGroupData() -> [Swift.String : Any]?
-  @objc @available(*, deprecated, message: "This method will be removed in a couple of releases(202504.1.0, couple of releases after Cmp Api adoption in 202502.1.0). Please refer to the new list of public methods exposed in 202502.1.0 as common data will no longer be available directly. We will be exposing individual items that are necessary under common data via new public methods.")
+  @objc @available(*, deprecated, message: "This method will be removed in a couple of releases(202507.1.0, couple of releases after Cmp Api adoption in 202504.1.0). Please refer to the new list of public methods exposed in 202504.1.0 as common data will no longer be available directly. We will be exposing individual items that are necessary under common data via new public methods.")
   dynamic public func getCommonData() -> [Swift.String : Any]?
-  @objc @available(*, deprecated, message: "This method will be removed in a couple of releases(202504.1.0, couple of releases after Cmp Api adoption in 202502.1.0). Please refer to the new list of public methods exposed in 202502.1.0 as domain information will no longer be available directly. We will be exposing individual items that are necessary under domain information data via new public methods.")
+  @objc @available(*, deprecated, message: "This method will be removed in a couple of releases(202507.1.0, couple of releases after Cmp Api adoption in 202504.1.0). Please refer to the new list of public methods exposed in 202504.1.0 as domain information will no longer be available directly. We will be exposing individual items that are necessary under domain information data via new public methods.")
   dynamic public func getDomainInfo() -> [Swift.String : Any]?
-  @objc @available(*, deprecated, message: "This method will be removed in a couple of releases(202504.1.0, couple of releases after Cmp Api adoption in 202502.1.0). From 202502.1.0 onwards, we will no longer be supporting updating of CCPA string via public methods.")
+  @objc @available(*, deprecated, message: "This method will be removed in a couple of releases(202507.1.0, couple of releases after Cmp Api adoption in 202504.1.0). From 202504.1.0 onwards, we will no longer be supporting updating of CCPA string via public methods.")
   dynamic public func optOutOfSaleOfData(completion: @escaping () -> () = { /* Default empty block */ })
-  @objc @available(*, deprecated, message: "This method will be removed in a couple of releases(202504.1.0, couple of releases after Cmp Api adoption in 202502.1.0). From 202502.1.0 onwards, we will no longer be supporting updating of CCPA string via public methods.")
+  @objc @available(*, deprecated, message: "This method will be removed in a couple of releases(202507.1.0, couple of releases after Cmp Api adoption in 202504.1.0). From 202504.1.0 onwards, we will no longer be supporting updating of CCPA string via public methods.")
   dynamic public func optIntoSaleOfData(completion: @escaping () -> () = { /* Default empty block */ })
 }
 public enum IABGPPUSPKeys : Swift.String, Swift.CaseIterable {
@@ -980,15 +979,15 @@ public struct OTOfflineData {
   public var cmpApiData: OTPublishersHeadlessSDKtvOS.OTOfflineData.CmpApiData? {
     get
   }
-  @available(*, deprecated, message: "This variable will be removed in a couple of releases (202504.1.0, couple of releases after Cmp Api adoption in 202502.1.0). From 202502.1.0 onwards, please use `OTOfflineData.cmpApiData` instead.")
+  @available(*, deprecated, message: "This variable will be removed in a couple of releases (202507.1.0, couple of releases after Cmp Api adoption in 202504.1.0). From 202504.1.0 onwards, please use `OTOfflineData.cmpApiData` instead.")
   public var otData: Foundation.Data? {
     get
   }
-  @available(*, deprecated, message: "This variable will be removed in a couple of releases (202504.1.0, couple of releases after Cmp Api adoption in 202502.1.0). From 202502.1.0 onwards, please use `OTOfflineData.cmpApiData` instead.")
+  @available(*, deprecated, message: "This variable will be removed in a couple of releases (202507.1.0, couple of releases after Cmp Api adoption in 202504.1.0). From 202504.1.0 onwards, please use `OTOfflineData.cmpApiData` instead.")
   public var vendorListData: OTPublishersHeadlessSDKtvOS.OTOfflineData.VendorListData? {
     get
   }
-  @available(*, deprecated, message: "This method will be removed in a couple of releases (202504.1.0, couple of releases after Cmp Api adoption in 202502.1.0). From 202502.1.0 onwards, please use `OTOfflineData.init(cmpApiData:logoData:)` instead.")
+  @available(*, deprecated, message: "This method will be removed in a couple of releases (202507.1.0, couple of releases after Cmp Api adoption in 202504.1.0). From 202504.1.0 onwards, please use `OTOfflineData.init(cmpApiData:logoData:)` instead.")
   public init(otData: Foundation.Data, vendorListData: OTPublishersHeadlessSDKtvOS.OTOfflineData.VendorListData, logoData: OTPublishersHeadlessSDKtvOS.OTOfflineData.LogoData)
   public init(cmpApiData: OTPublishersHeadlessSDKtvOS.OTOfflineData.CmpApiData, logoData: OTPublishersHeadlessSDKtvOS.OTOfflineData.LogoData)
 }
