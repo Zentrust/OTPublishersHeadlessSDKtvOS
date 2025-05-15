@@ -333,7 +333,15 @@ typedef SWIFT_ENUM_NAMED(NSInteger, OTConsentInteractionType, "ConsentInteractio
   OTConsentInteractionTypePreferenceCenterConfirm = 7,
 /// The user has clicked on cancel  button in Preference Center.
 /// note:
-/// Consent will not be logged to server when this interaction type is passed.
+///
+/// <ul>
+///   <li>
+///     iOS: Consent will not be logged to server when this interaction type is passed.
+///   </li>
+///   <li>
+///     tvOS: Consent will only logged when user come to Preference Center UI from Banner UI.
+///   </li>
+/// </ul>
   OTConsentInteractionTypePreferenceCenterClose = 8,
 /// The user has clicked on cancel button in uc Purposes Preference Center.
 /// note:
@@ -350,21 +358,45 @@ typedef SWIFT_ENUM_NAMED(NSInteger, OTConsentInteractionType, "ConsentInteractio
   OTConsentInteractionTypeAppTrackingNotGiven = 13,
 /// Use this interaction type if the current profile needs to be synced.
   OTConsentInteractionTypeSyncProfile = 14,
+/// The user has clicked on Back button in Preference Center View.
+/// note:
+/// Consent will not be logged to server when this interaction type is passed.
+  OTConsentInteractionTypePreferenceCenterBack = 15,
+/// The user has consented by clicking on continue without accepting button in Preference Center view.
+/// If Preference Center UI comes after Banner UI then passing this implies continue without accepting and will set the default consent values.
+/// If someone open Preference Center UI directly then consent will not be logged to server when this interaction type is passed.
+  OTConsentInteractionTypePreferenceCenterContinueWithoutAccepting = 16,
+/// The user has clicked on cancel  button in Vendor List View.
+/// note:
+/// Consent will not be logged to server when this interaction type is passed.
+  OTConsentInteractionTypeVendorListClose = 17,
+/// The user has consented by clicking on continue without accepting button in Vendor List view.
+/// If Preference Center UI comes after Banner UI then passing this implies continue without accepting and will set the default consent values.
+/// If someone open Preference Center UI directly then consent will not be logged to server when this interaction type is passed.
+  OTConsentInteractionTypeVendorListContinueWithoutAccepting = 18,
 /// The user has consented by clicking allow all button from Vendor List View.
 /// Passing this will accept all consent values.
-  OTConsentInteractionTypeVendorListAllowAll = 15,
+  OTConsentInteractionTypeVendorListAllowAll = 19,
 /// The user has consented by clicking reject all button from Vendor List View.
 /// Passing this will reject all consent values.
-  OTConsentInteractionTypeVendorListRejectAll = 16,
+  OTConsentInteractionTypeVendorListRejectAll = 20,
+/// The user has clicked on cancel button in SDK List View.
+/// note:
+/// Consent will not be logged to server when this interaction type is passed.
+  OTConsentInteractionTypeSdkListClose = 21,
+/// The user has consented by clicking on continue without accepting button in SDK List view.
+/// If Preference Center UI comes after Banner UI then passing this implies continue without accepting and will set the default consent values.
+/// If someone open Preference Center UI directly then consent will not be logged to server when this interaction type is passed.
+  OTConsentInteractionTypeSdkListContinueWithoutAccepting = 22,
 /// The user has consented by clicking allow all button from SDK List View.
 /// Passing this will accept all consent values.
-  OTConsentInteractionTypeSdkListAllowAll = 17,
+  OTConsentInteractionTypeSdkListAllowAll = 23,
 /// The user has consented by clicking reject all button from SDK List View.
 /// Passing this will reject all consent values.
-  OTConsentInteractionTypeSdkListRejectAll = 18,
+  OTConsentInteractionTypeSdkListRejectAll = 24,
 /// The user has consented by clicking confirm button from SDK List View.
 /// Passing this will set the confirmed consent values.
-  OTConsentInteractionTypeSdkListConfirm = 19,
+  OTConsentInteractionTypeSdkListConfirm = 25,
 };
 
 
@@ -621,7 +653,6 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) OTPublishers
 
 
 
-
 @interface OTPublishersHeadlessSDK (SWIFT_EXTENSION(OTPublishersHeadlessSDKtvOS))
 /// Returns the last location where the data was last downloaded.
 /// note:
@@ -638,6 +669,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) OTPublishers
 /// GeolocationModel containing country, state.
 - (OTGeolocationModel * _Nullable)getLastUserConsentedLocation SWIFT_WARN_UNUSED_RESULT;
 @end
+
 
 
 
@@ -683,7 +715,7 @@ enum OTUIType : NSInteger;
 ///
 - (void)addEventListener:(id _Nonnull)eventListener;
 /// This API appends and stores the custom data elements which will be used while logging consent.
-/// \param dataElements The custom daata Elements which will be used while logging consent.
+/// \param dataElements The custom data elements which will be used while logging consent.
 ///
 - (void)appendCustomDataElementsWithDataElements:(NSDictionary<NSString *, id> * _Nonnull)dataElements;
 /// This API retrieves the OT SDK consent string that can be injected using javascript in a webview.
@@ -701,14 +733,6 @@ enum OTUIType : NSInteger;
 - (NSDictionary<NSString *, id> * _Nullable)getVendorListDataFor:(enum VendorListMode)mode SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_MSG("This method will be removed in a couple of releases(202507.1.0, couple of releases after Cmp Api adoption in 202504.1.0). From 202504.1.0 onwards, please use getAllVendors(mode:) to get all the active vendors associated with the passed in mode.");
 - (NSDictionary<NSString *, id> * _Nullable)getVendorListUIFor:(enum VendorListMode)mode SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_MSG("This method will be removed in a couple of releases(202507.1.0, couple of releases after Cmp Api adoption in 202504.1.0). From 202504.1.0 onwards, please use getAllVendors(mode:) to get all the active vendors associated with the passed in mode.");
 - (NSDictionary<NSString *, id> * _Nullable)getVendorDetailsWithVendorID:(NSString * _Nonnull)vendorID for:(enum VendorListMode)mode SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_MSG("This method will be removed in a couple of releases(202507.1.0, couple of releases after Cmp Api adoption in 202504.1.0). From 202504.1.0 onwards, please use getVendorDetails(for:mode:) to get the vendor details assocaited with the passed in vendor identifier.");
-/// Retrieves all the data needed to construct the OT SDK Banner UI.
-/// note:
-/// The keys will not be the same when Cmp Api is enabled vs disabled.
-- (NSDictionary<NSString *, id> * _Nullable)getBannerData SWIFT_WARN_UNUSED_RESULT;
-/// Retrieves all the data needed to construct the OT SDK Preference Center UI.
-/// note:
-/// The keys will not be the same when Cmp Api is enabled vs disabled.
-- (NSDictionary<NSString *, id> * _Nullable)getPreferenceCenterData SWIFT_WARN_UNUSED_RESULT;
 - (NSDictionary<NSString *, id> * _Nullable)getDomainGroupData SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_MSG("This method will be removed in a couple of releases(202507.1.0, couple of releases after Cmp Api adoption in 202504.1.0). Please refer to the new list of public methods exposed in 202504.1.0 as domain data will no longer be available directly. We will be exposing individual items that are necessary under domain data via new public methods.");
 - (NSDictionary<NSString *, id> * _Nullable)getCommonData SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_MSG("This method will be removed in a couple of releases(202507.1.0, couple of releases after Cmp Api adoption in 202504.1.0). Please refer to the new list of public methods exposed in 202504.1.0 as common data will no longer be available directly. We will be exposing individual items that are necessary under common data via new public methods.");
 - (NSDictionary<NSString *, id> * _Nullable)getDomainInfo SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_MSG("This method will be removed in a couple of releases(202507.1.0, couple of releases after Cmp Api adoption in 202504.1.0). Please refer to the new list of public methods exposed in 202504.1.0 as domain information will no longer be available directly. We will be exposing individual items that are necessary under domain information data via new public methods.");
@@ -909,6 +933,14 @@ enum OTUIType : NSInteger;
 /// -1 if SDK not initialized yet
 /// 2 if consent taken using profile syncing
 - (NSInteger)isBannerShown SWIFT_WARN_UNUSED_RESULT;
+/// Retrieves all the data needed to construct the OT SDK Banner UI.
+/// note:
+/// The keys will not be the same when Cmp Api is enabled vs disabled.
+- (NSDictionary<NSString *, id> * _Nullable)getBannerData SWIFT_WARN_UNUSED_RESULT;
+/// Retrieves all the data needed to construct the OT SDK Preference Center UI.
+/// note:
+/// The keys will not be the same when Cmp Api is enabled vs disabled.
+- (NSDictionary<NSString *, id> * _Nullable)getPreferenceCenterData SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
@@ -1035,6 +1067,7 @@ SWIFT_PROTOCOL_NAMED("UIConfigurator")
 /// return <code>true</code> to force the sdk to dark mode irrespective of the device’s <code>Dark Appearance</code> setting.
 - (BOOL)shouldEnableDarkMode SWIFT_WARN_UNUSED_RESULT SWIFT_AVAILABILITY(tvos,introduced=13.0) SWIFT_AVAILABILITY(ios,introduced=13.0);
 @end
+
 
 
 
@@ -1424,7 +1457,15 @@ typedef SWIFT_ENUM_NAMED(NSInteger, OTConsentInteractionType, "ConsentInteractio
   OTConsentInteractionTypePreferenceCenterConfirm = 7,
 /// The user has clicked on cancel  button in Preference Center.
 /// note:
-/// Consent will not be logged to server when this interaction type is passed.
+///
+/// <ul>
+///   <li>
+///     iOS: Consent will not be logged to server when this interaction type is passed.
+///   </li>
+///   <li>
+///     tvOS: Consent will only logged when user come to Preference Center UI from Banner UI.
+///   </li>
+/// </ul>
   OTConsentInteractionTypePreferenceCenterClose = 8,
 /// The user has clicked on cancel button in uc Purposes Preference Center.
 /// note:
@@ -1441,21 +1482,45 @@ typedef SWIFT_ENUM_NAMED(NSInteger, OTConsentInteractionType, "ConsentInteractio
   OTConsentInteractionTypeAppTrackingNotGiven = 13,
 /// Use this interaction type if the current profile needs to be synced.
   OTConsentInteractionTypeSyncProfile = 14,
+/// The user has clicked on Back button in Preference Center View.
+/// note:
+/// Consent will not be logged to server when this interaction type is passed.
+  OTConsentInteractionTypePreferenceCenterBack = 15,
+/// The user has consented by clicking on continue without accepting button in Preference Center view.
+/// If Preference Center UI comes after Banner UI then passing this implies continue without accepting and will set the default consent values.
+/// If someone open Preference Center UI directly then consent will not be logged to server when this interaction type is passed.
+  OTConsentInteractionTypePreferenceCenterContinueWithoutAccepting = 16,
+/// The user has clicked on cancel  button in Vendor List View.
+/// note:
+/// Consent will not be logged to server when this interaction type is passed.
+  OTConsentInteractionTypeVendorListClose = 17,
+/// The user has consented by clicking on continue without accepting button in Vendor List view.
+/// If Preference Center UI comes after Banner UI then passing this implies continue without accepting and will set the default consent values.
+/// If someone open Preference Center UI directly then consent will not be logged to server when this interaction type is passed.
+  OTConsentInteractionTypeVendorListContinueWithoutAccepting = 18,
 /// The user has consented by clicking allow all button from Vendor List View.
 /// Passing this will accept all consent values.
-  OTConsentInteractionTypeVendorListAllowAll = 15,
+  OTConsentInteractionTypeVendorListAllowAll = 19,
 /// The user has consented by clicking reject all button from Vendor List View.
 /// Passing this will reject all consent values.
-  OTConsentInteractionTypeVendorListRejectAll = 16,
+  OTConsentInteractionTypeVendorListRejectAll = 20,
+/// The user has clicked on cancel button in SDK List View.
+/// note:
+/// Consent will not be logged to server when this interaction type is passed.
+  OTConsentInteractionTypeSdkListClose = 21,
+/// The user has consented by clicking on continue without accepting button in SDK List view.
+/// If Preference Center UI comes after Banner UI then passing this implies continue without accepting and will set the default consent values.
+/// If someone open Preference Center UI directly then consent will not be logged to server when this interaction type is passed.
+  OTConsentInteractionTypeSdkListContinueWithoutAccepting = 22,
 /// The user has consented by clicking allow all button from SDK List View.
 /// Passing this will accept all consent values.
-  OTConsentInteractionTypeSdkListAllowAll = 17,
+  OTConsentInteractionTypeSdkListAllowAll = 23,
 /// The user has consented by clicking reject all button from SDK List View.
 /// Passing this will reject all consent values.
-  OTConsentInteractionTypeSdkListRejectAll = 18,
+  OTConsentInteractionTypeSdkListRejectAll = 24,
 /// The user has consented by clicking confirm button from SDK List View.
 /// Passing this will set the confirmed consent values.
-  OTConsentInteractionTypeSdkListConfirm = 19,
+  OTConsentInteractionTypeSdkListConfirm = 25,
 };
 
 
@@ -1712,7 +1777,6 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) OTPublishers
 
 
 
-
 @interface OTPublishersHeadlessSDK (SWIFT_EXTENSION(OTPublishersHeadlessSDKtvOS))
 /// Returns the last location where the data was last downloaded.
 /// note:
@@ -1729,6 +1793,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) OTPublishers
 /// GeolocationModel containing country, state.
 - (OTGeolocationModel * _Nullable)getLastUserConsentedLocation SWIFT_WARN_UNUSED_RESULT;
 @end
+
 
 
 
@@ -1774,7 +1839,7 @@ enum OTUIType : NSInteger;
 ///
 - (void)addEventListener:(id _Nonnull)eventListener;
 /// This API appends and stores the custom data elements which will be used while logging consent.
-/// \param dataElements The custom daata Elements which will be used while logging consent.
+/// \param dataElements The custom data elements which will be used while logging consent.
 ///
 - (void)appendCustomDataElementsWithDataElements:(NSDictionary<NSString *, id> * _Nonnull)dataElements;
 /// This API retrieves the OT SDK consent string that can be injected using javascript in a webview.
@@ -1792,14 +1857,6 @@ enum OTUIType : NSInteger;
 - (NSDictionary<NSString *, id> * _Nullable)getVendorListDataFor:(enum VendorListMode)mode SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_MSG("This method will be removed in a couple of releases(202507.1.0, couple of releases after Cmp Api adoption in 202504.1.0). From 202504.1.0 onwards, please use getAllVendors(mode:) to get all the active vendors associated with the passed in mode.");
 - (NSDictionary<NSString *, id> * _Nullable)getVendorListUIFor:(enum VendorListMode)mode SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_MSG("This method will be removed in a couple of releases(202507.1.0, couple of releases after Cmp Api adoption in 202504.1.0). From 202504.1.0 onwards, please use getAllVendors(mode:) to get all the active vendors associated with the passed in mode.");
 - (NSDictionary<NSString *, id> * _Nullable)getVendorDetailsWithVendorID:(NSString * _Nonnull)vendorID for:(enum VendorListMode)mode SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_MSG("This method will be removed in a couple of releases(202507.1.0, couple of releases after Cmp Api adoption in 202504.1.0). From 202504.1.0 onwards, please use getVendorDetails(for:mode:) to get the vendor details assocaited with the passed in vendor identifier.");
-/// Retrieves all the data needed to construct the OT SDK Banner UI.
-/// note:
-/// The keys will not be the same when Cmp Api is enabled vs disabled.
-- (NSDictionary<NSString *, id> * _Nullable)getBannerData SWIFT_WARN_UNUSED_RESULT;
-/// Retrieves all the data needed to construct the OT SDK Preference Center UI.
-/// note:
-/// The keys will not be the same when Cmp Api is enabled vs disabled.
-- (NSDictionary<NSString *, id> * _Nullable)getPreferenceCenterData SWIFT_WARN_UNUSED_RESULT;
 - (NSDictionary<NSString *, id> * _Nullable)getDomainGroupData SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_MSG("This method will be removed in a couple of releases(202507.1.0, couple of releases after Cmp Api adoption in 202504.1.0). Please refer to the new list of public methods exposed in 202504.1.0 as domain data will no longer be available directly. We will be exposing individual items that are necessary under domain data via new public methods.");
 - (NSDictionary<NSString *, id> * _Nullable)getCommonData SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_MSG("This method will be removed in a couple of releases(202507.1.0, couple of releases after Cmp Api adoption in 202504.1.0). Please refer to the new list of public methods exposed in 202504.1.0 as common data will no longer be available directly. We will be exposing individual items that are necessary under common data via new public methods.");
 - (NSDictionary<NSString *, id> * _Nullable)getDomainInfo SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_MSG("This method will be removed in a couple of releases(202507.1.0, couple of releases after Cmp Api adoption in 202504.1.0). Please refer to the new list of public methods exposed in 202504.1.0 as domain information will no longer be available directly. We will be exposing individual items that are necessary under domain information data via new public methods.");
@@ -2000,6 +2057,14 @@ enum OTUIType : NSInteger;
 /// -1 if SDK not initialized yet
 /// 2 if consent taken using profile syncing
 - (NSInteger)isBannerShown SWIFT_WARN_UNUSED_RESULT;
+/// Retrieves all the data needed to construct the OT SDK Banner UI.
+/// note:
+/// The keys will not be the same when Cmp Api is enabled vs disabled.
+- (NSDictionary<NSString *, id> * _Nullable)getBannerData SWIFT_WARN_UNUSED_RESULT;
+/// Retrieves all the data needed to construct the OT SDK Preference Center UI.
+/// note:
+/// The keys will not be the same when Cmp Api is enabled vs disabled.
+- (NSDictionary<NSString *, id> * _Nullable)getPreferenceCenterData SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
@@ -2126,6 +2191,7 @@ SWIFT_PROTOCOL_NAMED("UIConfigurator")
 /// return <code>true</code> to force the sdk to dark mode irrespective of the device’s <code>Dark Appearance</code> setting.
 - (BOOL)shouldEnableDarkMode SWIFT_WARN_UNUSED_RESULT SWIFT_AVAILABILITY(tvos,introduced=13.0) SWIFT_AVAILABILITY(ios,introduced=13.0);
 @end
+
 
 
 

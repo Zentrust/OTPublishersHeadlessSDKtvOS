@@ -359,7 +359,7 @@ extension OTPublishersHeadlessSDK {
   public func fetchPreferencesCmpApiData(completion: @escaping ([Swift.String : Any]?) -> Swift.Void)
   public func fetchVendorsCmpApiData(completion: @escaping ([Swift.String : Any]?) -> Swift.Void)
   public func fetchUCPurposesCmpApiData(completion: @escaping ([Swift.String : Any]?) -> Swift.Void)
-  @available(*, deprecated, message: "This API is only for testing purposes only, DO NOT USE THIS IN PRODUCTION.")
+  @available(*, deprecated, message: "This API is only for OneTrust testing purposes only, DO NOT USE THIS IN PRODUCTION.")
   public func setupUsingCmpApi(_ value: Swift.Bool)
 }
 extension OTPublishersHeadlessSDK {
@@ -557,6 +557,9 @@ extension VendorListUIData {
     public var generalVendorsTitle: Swift.String? {
       get
     }
+    public var filterVendorListTitle: Swift.String? {
+      get
+    }
     public var showTogglesForGeneralVendors: Swift.Bool {
       get
     }
@@ -681,6 +684,8 @@ public struct FilterUIResponseData : Swift.Codable {
   @objc dynamic public func getAgeGatePromptValue() -> Swift.Int
   @objc dynamic public func getOTGoogleConsentModeData() -> OTGoogleConsentModeDataModel
   @objc dynamic public func isBannerShown() -> Swift.Int
+  @objc dynamic public func getBannerData() -> [Swift.String : Any]?
+  @objc dynamic public func getPreferenceCenterData() -> [Swift.String : Any]?
 }
 @objc extension OTPublishersHeadlessSDK {
   @objc dynamic public func getLastDataDownloadedLocation() -> OTGeolocationModel
@@ -693,8 +698,6 @@ public struct FilterUIResponseData : Swift.Codable {
   dynamic public func getVendorListUI(for mode: VendorListMode = .iab) -> [Swift.String : Any]?
   @objc @available(*, deprecated, message: "This method will be removed in a couple of releases(202507.1.0, couple of releases after Cmp Api adoption in 202504.1.0). From 202504.1.0 onwards, please use getVendorDetails(for:mode:) to get the vendor details assocaited with the passed in vendor identifier.")
   dynamic public func getVendorDetails(vendorID: Swift.String, for mode: VendorListMode = .iab) -> [Swift.String : Any]?
-  @objc dynamic public func getBannerData() -> [Swift.String : Any]?
-  @objc dynamic public func getPreferenceCenterData() -> [Swift.String : Any]?
   @objc @available(*, deprecated, message: "This method will be removed in a couple of releases(202507.1.0, couple of releases after Cmp Api adoption in 202504.1.0). Please refer to the new list of public methods exposed in 202504.1.0 as domain data will no longer be available directly. We will be exposing individual items that are necessary under domain data via new public methods.")
   dynamic public func getDomainGroupData() -> [Swift.String : Any]?
   @objc @available(*, deprecated, message: "This method will be removed in a couple of releases(202507.1.0, couple of releases after Cmp Api adoption in 202504.1.0). Please refer to the new list of public methods exposed in 202504.1.0 as common data will no longer be available directly. We will be exposing individual items that are necessary under common data via new public methods.")
@@ -763,8 +766,14 @@ extension PreferenceCenterUIDataModel {
   case appTrackingOptOut
   case appTrackingNotGiven
   case syncProfile
+  case preferenceCenterBack
+  case preferenceCenterContinueWithoutAccepting
+  case vendorListClose
+  case vendorListContinueWithoutAccepting
   case vendorListAllowAll
   case vendorListRejectAll
+  case sdkListClose
+  case sdkListContinueWithoutAccepting
   case sdkListAllowAll
   case sdkListRejectAll
   case sdkListConfirm
@@ -1103,7 +1112,7 @@ public struct UIButtonData {
   public var voiceOverText: Swift.String
 }
 extension UIKit.UIButton {
-  @_Concurrency.MainActor(unsafe) public func setup(buttonData: UIButtonData)
+  @_Concurrency.MainActor(unsafe) public func setup(buttonData: UIButtonData, withTitle: Swift.Bool = true)
 }
 extension UIKit.UILabel {
   @_Concurrency.MainActor(unsafe) public func setup(using buttonData: UIButtonData)
@@ -1519,10 +1528,10 @@ extension Swift.Optional where Wrapped == Swift.String {
 extension BannerUIDataModel {
   public struct SummaryData {
     public var titleData: UITextData
-    public var descriptionData: UITextData {
+    public var additionalDescriptionData: UITextData {
       get
     }
-    public var additionalDescriptionData: UITextData {
+    public var descriptionData: UITextData {
       get
     }
     public var policyLinkData: UIButtonData {
