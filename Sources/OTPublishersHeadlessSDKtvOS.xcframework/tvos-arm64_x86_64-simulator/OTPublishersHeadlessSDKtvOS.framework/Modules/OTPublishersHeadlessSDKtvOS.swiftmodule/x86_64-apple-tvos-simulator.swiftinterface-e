@@ -770,10 +770,12 @@ extension OTPublishersHeadlessSDKtvOS.PreferenceCenterUIDataModel {
   case preferenceCenterContinueWithoutAccepting
   case vendorListClose
   case vendorListContinueWithoutAccepting
+  case vendorListBack
   case vendorListAllowAll
   case vendorListRejectAll
   case sdkListClose
   case sdkListContinueWithoutAccepting
+  case sdkListBack
   case sdkListAllowAll
   case sdkListRejectAll
   case sdkListConfirm

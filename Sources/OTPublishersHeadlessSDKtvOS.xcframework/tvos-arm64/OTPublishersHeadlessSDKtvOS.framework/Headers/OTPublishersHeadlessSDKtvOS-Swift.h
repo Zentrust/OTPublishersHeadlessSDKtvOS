@@ -367,36 +367,44 @@ typedef SWIFT_ENUM_NAMED(NSInteger, OTConsentInteractionType, "ConsentInteractio
 /// If someone open Preference Center UI directly then consent will not be logged to server when this interaction type is passed.
   OTConsentInteractionTypePreferenceCenterContinueWithoutAccepting = 16,
 /// The user has clicked on cancel  button in Vendor List View.
-/// note:
-/// Consent will not be logged to server when this interaction type is passed.
+/// If Preference Center UI comes after Banner UI then passing this implies continue without accepting and will set the default consent values.
+/// If someone open Preference Center UI directly then consent will not be logged to server when this interaction type is passed.
   OTConsentInteractionTypeVendorListClose = 17,
 /// The user has consented by clicking on continue without accepting button in Vendor List view.
 /// If Preference Center UI comes after Banner UI then passing this implies continue without accepting and will set the default consent values.
 /// If someone open Preference Center UI directly then consent will not be logged to server when this interaction type is passed.
   OTConsentInteractionTypeVendorListContinueWithoutAccepting = 18,
-/// The user has consented by clicking allow all button from Vendor List View.
-/// Passing this will accept all consent values.
-  OTConsentInteractionTypeVendorListAllowAll = 19,
-/// The user has consented by clicking reject all button from Vendor List View.
-/// Passing this will reject all consent values.
-  OTConsentInteractionTypeVendorListRejectAll = 20,
-/// The user has clicked on cancel button in SDK List View.
+/// The user has clicked on back  button in Vendor List View.
 /// note:
 /// Consent will not be logged to server when this interaction type is passed.
-  OTConsentInteractionTypeSdkListClose = 21,
+  OTConsentInteractionTypeVendorListBack = 19,
+/// The user has consented by clicking allow all button from Vendor List View.
+/// Passing this will accept all consent values.
+  OTConsentInteractionTypeVendorListAllowAll = 20,
+/// The user has consented by clicking reject all button from Vendor List View.
+/// Passing this will reject all consent values.
+  OTConsentInteractionTypeVendorListRejectAll = 21,
+/// The user has clicked on cancel button in SDK List View.
+/// If Preference Center UI comes after Banner UI then passing this implies continue without accepting and will set the default consent values.
+/// If someone open Preference Center UI directly then consent will not be logged to server when this interaction type is passed.
+  OTConsentInteractionTypeSdkListClose = 22,
 /// The user has consented by clicking on continue without accepting button in SDK List view.
 /// If Preference Center UI comes after Banner UI then passing this implies continue without accepting and will set the default consent values.
 /// If someone open Preference Center UI directly then consent will not be logged to server when this interaction type is passed.
-  OTConsentInteractionTypeSdkListContinueWithoutAccepting = 22,
+  OTConsentInteractionTypeSdkListContinueWithoutAccepting = 23,
+/// The user has clicked on back button in SDK List View.
+/// note:
+/// Consent will not be logged to server when this interaction type is passed.
+  OTConsentInteractionTypeSdkListBack = 24,
 /// The user has consented by clicking allow all button from SDK List View.
 /// Passing this will accept all consent values.
-  OTConsentInteractionTypeSdkListAllowAll = 23,
+  OTConsentInteractionTypeSdkListAllowAll = 25,
 /// The user has consented by clicking reject all button from SDK List View.
 /// Passing this will reject all consent values.
-  OTConsentInteractionTypeSdkListRejectAll = 24,
+  OTConsentInteractionTypeSdkListRejectAll = 26,
 /// The user has consented by clicking confirm button from SDK List View.
 /// Passing this will set the confirmed consent values.
-  OTConsentInteractionTypeSdkListConfirm = 25,
+  OTConsentInteractionTypeSdkListConfirm = 27,
 };
 
 
