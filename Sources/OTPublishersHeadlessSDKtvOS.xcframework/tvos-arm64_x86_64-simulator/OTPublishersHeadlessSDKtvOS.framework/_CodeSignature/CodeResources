@@ -138,11 +138,11 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		dcL3kDEFOso0xNRpfcIMaBdPH3s=
+		/NP7iutpgSQo655EAK2JmQ64wxE=
 		</data>
 		<key>Modules/OTPublishersHeadlessSDKtvOS.swiftmodule/arm64-apple-tvos-simulator.abi.json</key>
 		<data>
-		U8cQmM+3iIHkjEz6DQ8YAyZg9WU=
+		rPo71ASc3F5xOqFlzQSq8/r/dM0=
 		</data>
 		<key>Modules/OTPublishersHeadlessSDKtvOS.swiftmodule/arm64-apple-tvos-simulator.private.swiftinterface</key>
 		<data>
@@ -158,11 +158,11 @@
 		</data>
 		<key>Modules/OTPublishersHeadlessSDKtvOS.swiftmodule/arm64-apple-tvos-simulator.swiftmodule</key>
 		<data>
-		VGvtLIGrIbhgFDIplN1yuWkqvlg=
+		Bzcep9a5ohY2jB9sZYCdLYnlNms=
 		</data>
 		<key>Modules/OTPublishersHeadlessSDKtvOS.swiftmodule/x86_64-apple-tvos-simulator.abi.json</key>
 		<data>
-		U8cQmM+3iIHkjEz6DQ8YAyZg9WU=
+		rPo71ASc3F5xOqFlzQSq8/r/dM0=
 		</data>
 		<key>Modules/OTPublishersHeadlessSDKtvOS.swiftmodule/x86_64-apple-tvos-simulator.private.swiftinterface</key>
 		<data>
@@ -178,7 +178,7 @@
 		</data>
 		<key>Modules/OTPublishersHeadlessSDKtvOS.swiftmodule/x86_64-apple-tvos-simulator.swiftmodule</key>
 		<data>
-		aL7rT4v7QPfmMUmJdzExn8mqIYg=
+		nM7wX3Az7IqvSjkq9XGlMGFnWLA=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -434,7 +434,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			xYQ32p7mRWx47bAMsXfRL73ZKKTe3B0vEsEmwgNhVl4=
+			/IIaaQqtYEoTji10oV6V0DJr/R+MyXi2VVy+UsrF5+k=
 			</data>
 		</dict>
 		<key>Modules/OTPublishersHeadlessSDKtvOS.swiftmodule/arm64-apple-tvos-simulator.private.swiftinterface</key>
@@ -462,14 +462,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			/xwiRI8fTz3vBZgK3ZyYYiM2H1YJciq5xOJGfswnfXM=
+			NS+zPsKW/LpjxHdoHBNPMXQ5ZKytmlUoXNvA320HtFo=
 			</data>
 		</dict>
 		<key>Modules/OTPublishersHeadlessSDKtvOS.swiftmodule/x86_64-apple-tvos-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			xYQ32p7mRWx47bAMsXfRL73ZKKTe3B0vEsEmwgNhVl4=
+			/IIaaQqtYEoTji10oV6V0DJr/R+MyXi2VVy+UsrF5+k=
 			</data>
 		</dict>
 		<key>Modules/OTPublishersHeadlessSDKtvOS.swiftmodule/x86_64-apple-tvos-simulator.private.swiftinterface</key>
@@ -497,7 +497,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			+XDaBEZkMNrTgDnB4LWy2T94qJDBZjDGSoJbT2haGYg=
+			fpztBcjzZI0hvs23UvoceDLCdwdcRWS6qXwE2iGyMTs=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
