@@ -304,7 +304,8 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 /// Contains information related to the locally cached data of OT SDK.
 SWIFT_CLASS("_TtC27OTPublishersHeadlessSDKtvOS5Cache")
 @interface Cache : NSObject
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
 /// Represents the type of consent provided by the application.
@@ -332,36 +333,78 @@ typedef SWIFT_ENUM_NAMED(NSInteger, OTConsentInteractionType, "ConsentInteractio
   OTConsentInteractionTypePreferenceCenterConfirm = 7,
 /// The user has clicked on cancel  button in Preference Center.
 /// note:
-/// Consent will not be logged to server when this interaction type is passed.
+///
+/// <ul>
+///   <li>
+///     iOS: Consent will not be logged to server when this interaction type is passed.
+///   </li>
+///   <li>
+///     tvOS: Consent will only logged when user come to Preference Center UI from Banner UI.
+///   </li>
+/// </ul>
   OTConsentInteractionTypePreferenceCenterClose = 8,
-/// The user has clicked on save choices button in uc Purposes Preference Center.
-  OTConsentInteractionTypeConsentPurposesConfim = 9,
 /// The user has clicked on cancel button in uc Purposes Preference Center.
 /// note:
 /// Consent will not be logged to server when this interaction type is passed.
-  OTConsentInteractionTypeConsentPurposesClose = 10,
+  OTConsentInteractionTypeConsentPurposesClose = 9,
 /// The user has consented by clicking confirm button from Vendor List View.
 /// Passing this will set the confirmed consent values.
-  OTConsentInteractionTypeVendorListConfirm = 11,
+  OTConsentInteractionTypeVendorListConfirm = 10,
 /// The user has clicked on Allow  button in ATT View.
-  OTConsentInteractionTypeAppTrackingConfirm = 12,
+  OTConsentInteractionTypeAppTrackingConfirm = 11,
 /// The user has clicked on Ask app not to track  button in ATT View.
-  OTConsentInteractionTypeAppTrackingOptOut = 13,
+  OTConsentInteractionTypeAppTrackingOptOut = 12,
+/// The user has not given ATT permission yet.
+  OTConsentInteractionTypeAppTrackingNotGiven = 13,
+/// Use this interaction type if the current profile needs to be synced.
+  OTConsentInteractionTypeSyncProfile = 14,
+/// The user has clicked on Back button in Preference Center View.
+/// note:
+/// Consent will not be logged to server when this interaction type is passed.
+  OTConsentInteractionTypePreferenceCenterBack = 15,
+/// The user has consented by clicking on continue without accepting button in Preference Center view.
+/// If Preference Center UI comes after Banner UI then passing this implies continue without accepting and will set the default consent values.
+/// If someone open Preference Center UI directly then consent will not be logged to server when this interaction type is passed.
+  OTConsentInteractionTypePreferenceCenterContinueWithoutAccepting = 16,
+/// The user has clicked on cancel  button in Vendor List View.
+/// If Preference Center UI comes after Banner UI then passing this implies continue without accepting and will set the default consent values.
+/// If someone open Preference Center UI directly then consent will not be logged to server when this interaction type is passed.
+  OTConsentInteractionTypeVendorListClose = 17,
+/// The user has consented by clicking on continue without accepting button in Vendor List view.
+/// If Preference Center UI comes after Banner UI then passing this implies continue without accepting and will set the default consent values.
+/// If someone open Preference Center UI directly then consent will not be logged to server when this interaction type is passed.
+  OTConsentInteractionTypeVendorListContinueWithoutAccepting = 18,
+/// The user has clicked on back  button in Vendor List View.
+/// note:
+/// Consent will not be logged to server when this interaction type is passed.
+  OTConsentInteractionTypeVendorListBack = 19,
 /// The user has consented by clicking allow all button from Vendor List View.
 /// Passing this will accept all consent values.
-  OTConsentInteractionTypeVendorListAllowAll = 14,
+  OTConsentInteractionTypeVendorListAllowAll = 20,
 /// The user has consented by clicking reject all button from Vendor List View.
 /// Passing this will reject all consent values.
-  OTConsentInteractionTypeVendorListRejectAll = 15,
+  OTConsentInteractionTypeVendorListRejectAll = 21,
+/// The user has clicked on cancel button in SDK List View.
+/// If Preference Center UI comes after Banner UI then passing this implies continue without accepting and will set the default consent values.
+/// If someone open Preference Center UI directly then consent will not be logged to server when this interaction type is passed.
+  OTConsentInteractionTypeSdkListClose = 22,
+/// The user has consented by clicking on continue without accepting button in SDK List view.
+/// If Preference Center UI comes after Banner UI then passing this implies continue without accepting and will set the default consent values.
+/// If someone open Preference Center UI directly then consent will not be logged to server when this interaction type is passed.
+  OTConsentInteractionTypeSdkListContinueWithoutAccepting = 23,
+/// The user has clicked on back button in SDK List View.
+/// note:
+/// Consent will not be logged to server when this interaction type is passed.
+  OTConsentInteractionTypeSdkListBack = 24,
 /// The user has consented by clicking allow all button from SDK List View.
 /// Passing this will accept all consent values.
-  OTConsentInteractionTypeSdkListAllowAll = 16,
+  OTConsentInteractionTypeSdkListAllowAll = 25,
 /// The user has consented by clicking reject all button from SDK List View.
 /// Passing this will reject all consent values.
-  OTConsentInteractionTypeSdkListRejectAll = 17,
+  OTConsentInteractionTypeSdkListRejectAll = 26,
 /// The user has consented by clicking confirm button from SDK List View.
 /// Passing this will set the confirmed consent values.
-  OTConsentInteractionTypeSdkListConfirm = 18,
+  OTConsentInteractionTypeSdkListConfirm = 27,
 };
 
 
@@ -444,8 +487,6 @@ SWIFT_PROTOCOL("_TtP27OTPublishersHeadlessSDKtvOS15OTEventListener_")
 - (void)onPreferenceCenterPurposeConsentChangedWithPurposeId:(NSString * _Nonnull)purposeId consentStatus:(int8_t)consentStatus;
 /// Conform to this method to get notified when a purpose legitimate interest has changed from Preference Center.
 - (void)onPreferenceCenterPurposeLegitimateInterestChangedWithPurposeId:(NSString * _Nonnull)purposeId legitInterest:(int8_t)legitInterest;
-/// Conform to this method to get notified when a vendor consent has changed from Vendor List View.
-- (void)onVendorListVendorConsentChangedWithVendorId:(NSString * _Nonnull)vendorId consentStatus:(int8_t)consentStatus SWIFT_DEPRECATED_MSG("This API will be removed in a couple of releases. Please use the new onVendorListVendorConsentChanged(vendorID:consentStatus:for:) API where vendorId is a String argument.", "onVendorListVendorConsentChangedWithVendorID:consentStatus:for:");
 /// Conform to this method to get notified when a vendor legitimate interest has changed from Vendor List View.
 - (void)onVendorListVendorLegitimateInterestChangedWithVendorId:(NSString * _Nonnull)vendorId legitInterest:(int8_t)legitInterest;
 /// Conform to this method to get notified when a vendor consent has changed from Vendor List View.
@@ -465,10 +506,50 @@ SWIFT_CLASS("_TtC27OTPublishersHeadlessSDKtvOS18OTGeolocationModel")
 - (BOOL)isEqual:(id _Nullable)object SWIFT_WARN_UNUSED_RESULT;
 @end
 
+/// Enum for OneTrut google consent mode
+typedef SWIFT_ENUM(NSInteger, OTGoogleConsentMode, open) {
+/// Onetrust SDK is not not initialized or invalid category
+  OTGoogleConsentModeUndefined = 0,
+/// No any category assigned at admin UI
+  OTGoogleConsentModeUnassigned = 1,
+/// Consent denied for linked category
+  OTGoogleConsentModeDenied = 2,
+/// Consent granted for linked category
+  OTGoogleConsentModeGranted = 3,
+};
+
+enum OTSDKStatus : NSInteger;
+@class OTGoogleConsentType;
 
 /// Public class for OneTrust Google Consent Mode data
 SWIFT_CLASS("_TtC27OTPublishersHeadlessSDKtvOS28OTGoogleConsentModeDataModel")
 @interface OTGoogleConsentModeDataModel : NSObject
+/// Variable return OneTrust SDK status
+@property (nonatomic, readonly) enum OTSDKStatus otSDKStatus;
+/// Variable return Google Consent Mode consent type status
+@property (nonatomic, readonly, strong) OTGoogleConsentType * _Nonnull consentType;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+/// OneTrust Google Consent type
+SWIFT_CLASS("_TtC27OTPublishersHeadlessSDKtvOS19OTGoogleConsentType")
+@interface OTGoogleConsentType : NSObject
+/// GCM consent type analytics_storage status
+@property (nonatomic, readonly) enum OTGoogleConsentMode analyticsStorage;
+/// GCM consent type ad_storage status
+@property (nonatomic, readonly) enum OTGoogleConsentMode adStorage;
+/// GCM consent type ad_user_data status
+@property (nonatomic, readonly) enum OTGoogleConsentMode adUserData;
+/// GCM consent type ad_personalization status
+@property (nonatomic, readonly) enum OTGoogleConsentMode adPersonalization;
+/// GCM consent type functionality_storage status
+@property (nonatomic, readonly) enum OTGoogleConsentMode functionalityStorage;
+/// GCM consent type personalization_storage status
+@property (nonatomic, readonly) enum OTGoogleConsentMode personalizationStorage;
+/// GCM consent type security_storage status
+@property (nonatomic, readonly) enum OTGoogleConsentMode securityStorage;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -580,6 +661,27 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) OTPublishers
 
 
 
+@interface OTPublishersHeadlessSDK (SWIFT_EXTENSION(OTPublishersHeadlessSDKtvOS))
+/// Returns the last location where the data was last downloaded.
+/// note:
+/// If data is not downloaded yet, this method will return a default geo location.
+///
+/// returns:
+/// GeolocationModel containing country, state.
+- (OTGeolocationModel * _Nonnull)getLastDataDownloadedLocation SWIFT_WARN_UNUSED_RESULT;
+/// Returns the last location where the user has last provided consent.
+/// note:
+/// If the user has not consented yet, this method will return nil.
+///
+/// returns:
+/// GeolocationModel containing country, state.
+- (OTGeolocationModel * _Nullable)getLastUserConsentedLocation SWIFT_WARN_UNUSED_RESULT;
+@end
+
+
+
+
+
 
 
 
@@ -597,6 +699,8 @@ enum OTUIType : NSInteger;
 /// Call this method on application’s main view controller.
 /// note:
 /// This API uses the <code>shouldShowBanner</code> logic to determine if the OT SDK UI should be shown to the user.
+/// note:
+/// Starting 202504.1.0, if a valid UI Type is passed, OneTrust SDK will check if corresponding data already exists and if it does not exist, it will make a network call to Cmp Api to download that data and then display the corresponding UI.
 /// \param viewController The View Controller of the application on which the OT SDK UI will be presented.
 ///
 /// \param UIType Represents the various types of OT SDK UI that can be presented using this API. Whatever type is passed here, will be displayed if the conditions are satisfied. If the app does not want to show OT SDK UI, then skip this parameter or pass in <code>.none</code>.
@@ -607,12 +711,16 @@ enum OTUIType : NSInteger;
 /// Please make sure that the OT SDK Data is downloaded prior to calling this API.
 /// note:
 /// This method doesn’t consider value of <code>shouldShowBanner</code>.
+/// note:
+/// Starting 202504.1.0, OneTrust SDK will check if Banner data already exists and if it does not exist, it will make a network call to Banner Cmp Api to download that data and then display the UI.
 - (void)showBannerUI;
 /// This API will display the OT SDK Preference Center UI.
 /// Please call this method only after setupUI() method has been called atleast once in the current app launch.
 /// Please make sure that the OT SDK Data is downloaded prior to calling this API.
 /// note:
 /// This method doesn’t consider value of <code>shouldShowBanner</code>.
+/// note:
+/// Starting 202504.1.0, OneTrust SDK will check if Preference Center data already exists and if it does not exist, it will make a network call to Preferences Cmp Api to download that data and then display the UI.
 - (void)showPreferenceCenterUI;
 /// This API adds an event listener to OT SDK UI.
 /// note:
@@ -621,7 +729,7 @@ enum OTUIType : NSInteger;
 ///
 - (void)addEventListener:(id _Nonnull)eventListener;
 /// This API appends and stores the custom data elements which will be used while logging consent.
-/// \param dataElements The custom daata Elements which will be used while logging consent.
+/// \param dataElements The custom data elements which will be used while logging consent.
 ///
 - (void)appendCustomDataElementsWithDataElements:(NSDictionary<NSString *, id> * _Nonnull)dataElements;
 /// This API retrieves the OT SDK consent string that can be injected using javascript in a webview.
@@ -632,6 +740,20 @@ enum OTUIType : NSInteger;
 - (void)dismissUI;
 @end
 
+
+
+
+@interface OTPublishersHeadlessSDK (SWIFT_EXTENSION(OTPublishersHeadlessSDKtvOS))
+- (NSDictionary<NSString *, id> * _Nullable)getVendorListDataFor:(enum VendorListMode)mode SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_MSG("This method will be removed in a couple of releases(202507.1.0, couple of releases after Cmp Api adoption in 202504.1.0). From 202504.1.0 onwards, please use getAllVendors(mode:) to get all the active vendors associated with the passed in mode.");
+- (NSDictionary<NSString *, id> * _Nullable)getVendorListUIFor:(enum VendorListMode)mode SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_MSG("This method will be removed in a couple of releases(202507.1.0, couple of releases after Cmp Api adoption in 202504.1.0). From 202504.1.0 onwards, please use getAllVendors(mode:) to get all the active vendors associated with the passed in mode.");
+- (NSDictionary<NSString *, id> * _Nullable)getVendorDetailsWithVendorID:(NSString * _Nonnull)vendorID for:(enum VendorListMode)mode SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_MSG("This method will be removed in a couple of releases(202507.1.0, couple of releases after Cmp Api adoption in 202504.1.0). From 202504.1.0 onwards, please use getVendorDetails(for:mode:) to get the vendor details assocaited with the passed in vendor identifier.");
+- (NSDictionary<NSString *, id> * _Nullable)getDomainGroupData SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_MSG("This method will be removed in a couple of releases(202507.1.0, couple of releases after Cmp Api adoption in 202504.1.0). Please refer to the new list of public methods exposed in 202504.1.0 as domain data will no longer be available directly. We will be exposing individual items that are necessary under domain data via new public methods.");
+- (NSDictionary<NSString *, id> * _Nullable)getCommonData SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_MSG("This method will be removed in a couple of releases(202507.1.0, couple of releases after Cmp Api adoption in 202504.1.0). Please refer to the new list of public methods exposed in 202504.1.0 as common data will no longer be available directly. We will be exposing individual items that are necessary under common data via new public methods.");
+- (NSDictionary<NSString *, id> * _Nullable)getDomainInfo SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_MSG("This method will be removed in a couple of releases(202507.1.0, couple of releases after Cmp Api adoption in 202504.1.0). Please refer to the new list of public methods exposed in 202504.1.0 as domain information will no longer be available directly. We will be exposing individual items that are necessary under domain information data via new public methods.");
+- (void)optOutOfSaleOfDataWithCompletion:(void (^ _Nonnull)(void))completion SWIFT_DEPRECATED_MSG("This method will be removed in a couple of releases(202507.1.0, couple of releases after Cmp Api adoption in 202504.1.0). From 202504.1.0 onwards, we will no longer be supporting updating of CCPA string via public methods.");
+- (void)optIntoSaleOfDataWithCompletion:(void (^ _Nonnull)(void))completion SWIFT_DEPRECATED_MSG("This method will be removed in a couple of releases(202507.1.0, couple of releases after Cmp Api adoption in 202504.1.0). From 202504.1.0 onwards, we will no longer be supporting updating of CCPA string via public methods.");
+@end
+
 @class OTSdkParams;
 @class OTResponse;
 
@@ -639,6 +761,10 @@ enum OTUIType : NSInteger;
 /// Starts the OT SDK, downloads data and returns the response required to create OT SDK UI.
 /// note:
 /// This call would fail if there are internet connectivity issues, invalid storage url/domain-Identifier/language-code is passed.
+/// note:
+/// Starting 202504.1.0, this API will only download either Banner or Preference Center data. This depends on the <code>setupUI</code> method being called prior to <code>startSDK</code>. If <code>setupUI</code> is called with <code>.preferenceCenter</code>, it will download Preference Center data, else we will be downloading Banner data by default.
+/// note:
+/// Starting 202504.1.0, UCP data (if configured) will not be downloaded by default as part of <code>startSDK</code> call, applications will have to call <code>fetchUCPurposesCmpApiData(completion:)</code> API to fetch UCP data.
 /// \param storageLocation Contains the storage location from where data has to be fetched (ex: “cdn.cookielaw.org”).
 ///
 /// \param domainIdentifier Containins unique Domain Identifier to be passed (ex: “5376c4e0-8367-450c-8669-a0d41bed69ac”).
@@ -657,23 +783,24 @@ enum OTUIType : NSInteger;
 /// returns:
 /// Return boolean true if OT SDK UI should be shown, else returns false.
 - (BOOL)shouldShowBanner SWIFT_WARN_UNUSED_RESULT;
-/// Retrieves the domain data that is part of culture data in the form of a dictionary.
+/// Retrieves the Saved consent value for specified group (purpose/category) identifier.
 /// note:
-/// Please make sure that the OT SDK data is downloaded atleast once prior to making this API call.
-- (NSDictionary<NSString *, id> * _Nullable)getDomainGroupData SWIFT_WARN_UNUSED_RESULT;
-/// Retrieves the common data that is part of culture data in the form of a dictionary.
+/// This API will return -1 if the passed in group identifier is not valid.
 /// note:
-/// Please make sure that the OT SDK data is downloaded atleast once prior to making this API call.
-- (NSDictionary<NSString *, id> * _Nullable)getCommonData SWIFT_WARN_UNUSED_RESULT;
-/// Retrieves domain data in the form of a dictionary.
-/// note:
-/// Please make sure that the OT SDK data is downloaded atleast once prior to making this API call.
-- (NSDictionary<NSString *, id> * _Nullable)getDomainInfo SWIFT_WARN_UNUSED_RESULT;
+/// This status is not the most update status present in the OT SDK as the consent could be updated locally and not synced yet. Please use <code>getPurposeConsentLocal</code> for fetching the latest consent status.
+/// \param categoryId The group represented as a string, for which consent value has to be returned.
+///
+///
+/// returns:
+/// Integer value representing the consent status of the passed in category identifier.
+- (int8_t)getConsentStatusForCategory:(NSString * _Nonnull)categoryId SWIFT_WARN_UNUSED_RESULT;
 /// Updates the consent value for a specified group (purpose/category) identifier.
 /// note:
 /// If the purpose/category passed is linked with ATT and ATT permission is not granted, update of consent will not be permitted.
 /// note:
 /// Once this operation is complete, a notification will be posted with the updated legitimate interest value.
+/// note:
+/// Starting 202504.1.0, this API will update the consent status only if the Preference Center data is already downloaded by the OneTrust SDK locally. Applications can download Preference Center data by calling <code>fetchPreferencesCmpApiData(completion:)</code> public api and retry this public API.
 /// \param groupId The group represented as a string, for which consent value has to be updated.
 ///
 /// \param consentValue Boolean value specifying updated consent value.
@@ -682,6 +809,8 @@ enum OTUIType : NSInteger;
 ///
 - (void)updatePurposeConsentForGroup:(NSString * _Nonnull)groupId consentValue:(BOOL)consentValue updateHierarchy:(BOOL)updateHierarchy;
 /// Updates the legitimate interest value for a specified group (purpose/category) Identifier.
+/// note:
+/// Starting 202504.1.0, this API will update the legit interest status only if the Preference Center data is already downloaded by the OneTrust SDK locally. Applications can download Preference Center data by calling <code>fetchPreferencesCmpApiData(completion:)</code> public api and retry this public API.
 /// \param groupId The group represented as a string, for which legitimate interest value has to be updated.
 ///
 /// \param legIntValue Boolean value specifying updated legitimate interest value.
@@ -692,58 +821,38 @@ enum OTUIType : NSInteger;
 /// Retrieves the legitimate interest value for specified group (purpose/category) identifier.
 /// \param customGroupId The group represented as a string, for which legitimate interest value has to be retrieved.
 ///
+/// \param useCmpApi Retrieves the status from the CMP API data available.
+///
 ///
 /// returns:
 /// 1 if legitimate interest is given. 0 if legitimate interest not given. -1 invalid groupId passed.
 - (int8_t)getPurposeLegitInterestLocalForCustomGroupId:(NSString * _Nonnull)customGroupId SWIFT_WARN_UNUSED_RESULT;
 /// Retrieves the local (saved or unsaved) consent value for specified group identifier.
 /// note:
-/// Use this API to retrieve the most current consent value (this can be an unsaved value if save operation is not performed yet after toggling the status). Please use <code>getCosentStatus(forCategory:)</code> if you want to retrieve only the last saved value for a category/purpose.
+/// Use this API to retrieve the most current consent value (this can be an unsaved value if save operation is not performed yet after toggling the status). Please use <code>getConsentStatus(forCategory:)</code> if you want to retrieve only the last saved value for a category/purpose.
 /// \param customGroupId The group represented as a string, for which consent value has to be retrieved.
+///
+/// \param useCmpApi Retrieves the status from the CMP API data available.
 ///
 ///
 /// returns:
 /// 1 if consent given. 0 if consent not given. -1 invalid groupId passed.
 - (int8_t)getPurposeConsentLocalForCustomGroupId:(NSString * _Nonnull)customGroupId SWIFT_WARN_UNUSED_RESULT;
-/// Retrieves the saved consent value for specified group (purpose/category) identifier.
+/// Retrieves the latest consent value for specified SDK identifier.
 /// note:
-/// This API will return nil if the passed in group identifier is not valid.
-/// \param categoryId The group represented as a string, for which consent value has to be returned.
-///
-- (int8_t)getConsentStatusForCategory:(NSString * _Nonnull)categoryId SWIFT_WARN_UNUSED_RESULT;
-/// Retrieves the saved consent value for specified SDK identifier.
-/// note:
-/// This API will return nil if the passed in SDK identifier is not valid.
+/// This API will return -1 if the passed in SDK identifier is not valid.
 /// \param sdkId The SDK identifier represented as a string, for which value has to be return.
 ///
 - (int8_t)getConsentStatusForSDKId:(NSString * _Nonnull)sdkId SWIFT_WARN_UNUSED_RESULT;
 /// Method to get vendor count configured for a particular purpose.
+/// note:
+/// Starting 202504.1.0, this API will return vendor count only if Preference Center and Vendors data is already downloaded by the OneTrust SDK locally. Applications can download Preference Center data by calling <code>fetchPreferencesCmpApiData(completion:)</code>, Vendors data by calling <code>fetchVendorsCmpApiData(completion:)</code> and retry this public API.
 /// \param categoryId String, group id for which vendors have been assigned to. It can be a parent group id like Stack or an individual group like an IAB purpose.
 ///
 ///
 /// returns:
 /// Int, count from saved object, 0 (no vendors configured), -1(error cases) are the possible values.
 - (NSInteger)getVendorCountForCategory:(NSString * _Nonnull)categoryId SWIFT_WARN_UNUSED_RESULT;
-/// Returns the last location where the data was last downloaded.
-/// note:
-/// If data is not downloaded yet, this method will return a default geo location.
-///
-/// returns:
-/// GeolocationModel containing country, state.
-- (OTGeolocationModel * _Nonnull)getLastDataDownloadedLocation SWIFT_WARN_UNUSED_RESULT;
-/// Returns the last location where the user has last provided consent.
-/// note:
-/// If the user has not consented yet, this method will return nil.
-///
-/// returns:
-/// GeolocationModel containing country, state.
-- (OTGeolocationModel * _Nullable)getLastUserConsentedLocation SWIFT_WARN_UNUSED_RESULT;
-/// Overrides the data subject/profile identifier of the currently active profile.
-/// note:
-/// Once this operation is completed, the old profile ID of the currently active profile will no longer be valid and will be replaced with the new identifier passed as part of this method.
-/// \param identifier This will be the new data subject/profile identifier for the currently active profile.
-///
-- (void)overrideDataSubjectIdentifier:(NSString * _Nonnull)identifier SWIFT_DEPRECATED_MSG("This API will be removed in a couple of releases (6.37.0). Please use OTPublisherHeadlessSDK.shared.renameProfile(from:to:) for overrding the data subject identifier.");
 /// Use this API to set the logging level of OT SDK.
 /// note:
 /// For any valid logLevel passed SDK will log that level and above level. For instance: If level .info is passed, then error, warning and info logs will be printed.
@@ -760,30 +869,16 @@ enum OTUIType : NSInteger;
 /// By default, the environment is set to production.
 - (void)setEnviroment:(NSString * _Nonnull)environment;
 /// Updates consent status for all the vendors locally, based on the mode passed.
+/// note:
+/// Starting 202504.1.0, this API will update vendor consent only if Preference Center and Vendors data is already downloaded by the OneTrust SDK locally. Applications can download Preference Center data by calling <code>fetchPreferencesCmpApiData(completion:)</code>, Vendors data by calling <code>fetchVendorsCmpApiData(completion:)</code> public api and retry this public API.
 /// \param isSelected Pass true/false to update all vendor consent to 1/0 locally.
 ///
 /// \param mode The mode of the Vendor List. If no mode is passed, we will consider it as IAB by default.
 ///
 - (void)updateAllVendorsConsentLocal:(BOOL)isSelected for:(enum VendorListMode)mode;
-/// Public function to update consent status for a specific vendor.
-/// \param vendorId vendor ID.
-///
-/// \param consentStatus Updated consent status.
-///
-/// \param mode The mode of the Vendor List. If no mode is passed, we will consider it as IAB by default.
-///
-- (void)updateVendorConsentWithVendorId:(NSInteger)vendorId consentStatus:(BOOL)consentStatus for:(enum VendorListMode)mode SWIFT_DEPRECATED_MSG("This API will be removed in a couple of releases. Please use the new updateVendorConsent(vendorID:consentStatus:for:) API where vendorID is a String argument.", "updateVendorConsentWithVendorID:consentStatus:for:");
-/// Public function to update consent value for vendor LegitInterest.
-/// note:
-/// Legit interest is supported only for IAB vendors.
-/// \param vendorId vendor ID.
-///
-/// \param legIntStatus Updated legitimate interest status.
-///
-/// \param mode The mode of the Vendor List. If no mode is passed, we will consider it as IAB by default.
-///
-- (void)updateVendorLegitInterestWithVendorId:(NSInteger)vendorId legIntStatus:(BOOL)legIntStatus for:(enum VendorListMode)mode SWIFT_DEPRECATED_MSG("This API will be removed in a couple of releases. Please use the new updateVendorLegitInterest(vendorID:legIntStatus:for:) API where vendorId is a String argument.", "updateVendorLegitInterestWithVendorID:legIntStatus:for:");
 /// Updates the consent status for a specific vendor locally.
+/// note:
+/// Starting 202504.1.0, this API will update vendor consent only if Preference Center and Vendors data is already downloaded by the OneTrust SDK locally. Applications can download Preference Center data by calling <code>fetchPreferencesCmpApiData(completion:)</code>, Vendors data by calling <code>fetchVendorsCmpApiData(completion:)</code> public api and retry this public API.
 /// \param vendorID The vendor identifier for which the consent status needs to be updated.
 ///
 /// \param consentStatus Updated consent status.
@@ -794,6 +889,8 @@ enum OTUIType : NSInteger;
 /// Updates the legitimate interest status for the specified vendor.
 /// note:
 /// Legitimate interest is supported only for IAB vendors.
+/// note:
+/// Starting 202504.1.0, this API will update vendor legit interest only if Preference Center and Vendors data is already downloaded by the OneTrust SDK locally. Applications can download Preference Center data by calling <code>fetchPreferencesCmpApiData(completion:)</code>, Vendors data by calling <code>fetchVendorsCmpApiData(completion:)</code> public api and retry this public API.
 /// \param vendorID The vendor identifier for which the LI status needs to be updated.
 ///
 /// \param legIntStatus Updated legitimate interest status.
@@ -801,55 +898,6 @@ enum OTUIType : NSInteger;
 /// \param mode The mode of the Vendor List. If no mode is passed, we will consider it as IAB by default.
 ///
 - (void)updateVendorLegitInterestWithVendorID:(NSString * _Nonnull)vendorID legIntStatus:(BOOL)legIntStatus for:(enum VendorListMode)mode;
-/// Retrieves all the active vendors associated with the passed in mode.
-/// \param mode The mode of the Vendor List. If no mode is passed, we will consider it as IAB by default.
-///
-- (NSDictionary<NSString *, id> * _Nullable)getVendorListDataFor:(enum VendorListMode)mode SWIFT_WARN_UNUSED_RESULT;
-/// Retrieves the local state of all the active vendors belonging to the passed in mode.
-/// \param mode The mode of the Vendor List. If no mode is passed, we will consider it as IAB by default.
-///
-///
-/// returns:
-///
-/// <ul>
-///   <li>
-///     Dictionary containing local state of active Vendor List if values are updated without save using updateVendorConsent/updateVendorLegitInterest.
-///   </li>
-///   <li>
-///     Returns saved Vendor state stored if nothing changed.
-///   </li>
-///   <li>
-///     Nil if none found.
-///   </li>
-/// </ul>
-- (NSDictionary<NSString *, id> * _Nullable)getVendorListUIFor:(enum VendorListMode)mode SWIFT_WARN_UNUSED_RESULT;
-/// Public function to get vendor details for given vendor id
-/// \param vendorId vendor id as Int value
-///
-/// \param mode The mode of the Vendor List. If no mode is passed, we will consider it as IAB by default.
-///
-///
-/// returns:
-/// if vendor is available then this function will return a dictionary for given Vendor Id otherwise this function will return nil
-- (NSDictionary<NSString *, id> * _Nullable)getVendorDetailsWithVendorId:(NSInteger)vendorId for:(enum VendorListMode)mode SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_MSG("This API will be removed in a couple of releases. Please use the new getVendorDetails(vendorID:for:) API where vendorID is a String argument.", "getVendorDetailsWithVendorID:for:");
-/// Retrieves all the vendor details for given vendor id and given vendor mode.
-/// \param vendorID The vendor identifier for which the details needs to be retrieved.
-///
-/// \param mode The mode of the Vendor List. If no mode is passed, we will consider it as IAB by default.
-///
-- (NSDictionary<NSString *, id> * _Nullable)getVendorDetailsWithVendorID:(NSString * _Nonnull)vendorID for:(enum VendorListMode)mode SWIFT_WARN_UNUSED_RESULT;
-/// Retrieves all the data needed to construct the OT SDK Banner UI.
-- (NSDictionary<NSString *, id> * _Nullable)getBannerData SWIFT_WARN_UNUSED_RESULT;
-/// Retrieves all the data needed to construct the OT SDK Preference Center UI.
-- (NSDictionary<NSString *, id> * _Nullable)getPreferenceCenterData SWIFT_WARN_UNUSED_RESULT;
-/// This API will opt-out of sale of data if the CCPA value is already initialized.
-/// \param completion The completion handler that gets called once the opt-out for sale of data is complete.
-///
-- (void)optOutOfSaleOfDataWithCompletion:(void (^ _Nonnull)(void))completion;
-/// This API will opt-in for sale of data if the CCPA value is already initialized.
-/// \param completion The completion handler that gets called once the opt-in for sale of data is complete.
-///
-- (void)optIntoSaleOfDataWithCompletion:(void (^ _Nonnull)(void))completion;
 /// This API will write logs to the log file created and maintained by OT SDK.
 /// \param enable enable write logs to file.
 ///
@@ -860,15 +908,6 @@ enum OTUIType : NSInteger;
 /// \param urlString URL string value.
 ///
 - (void)setFetchDataURL:(NSString * _Nonnull)urlString;
-/// Determines if OT SDK Banner/Preference center was presented to user at least once.
-/// This method will support only if SDK UI methods are used.
-///
-/// returns:
-/// 1 if Banner/Preference Center shown
-/// 0 if Banner/Preference Center was not shown yet (implied consent)
-/// -1 if SDK not initialized yet
-/// 2 if consent taken using profile syncing
-- (NSInteger)isBannerShown SWIFT_WARN_UNUSED_RESULT;
 /// Saves the consent of the application based on the interaction type passed, and triggers notifications for the same.
 /// note:
 /// Consent will not be logged to server when interaction type is preference center close.
@@ -915,6 +954,27 @@ enum OTUIType : NSInteger;
 /// returns:
 /// Return OTGoogleConsentModeDataModel object. Variable otSDKStatus will retirn the OneTrust SDK status and variable consentType will return consent mode of GCM consent types
 - (OTGoogleConsentModeDataModel * _Nonnull)getOTGoogleConsentModeData SWIFT_WARN_UNUSED_RESULT;
+/// Determines if OT SDK Banner/Preference center was presented to user at least once.
+/// This method will support only if SDK UI methods are used.
+///
+/// returns:
+/// 1 if Banner/Preference Center shown
+/// 0 if Banner/Preference Center was not shown yet (implied consent)
+/// -1 if SDK not initialized yet
+/// 2 if consent taken using profile syncing
+- (NSInteger)isBannerShown SWIFT_WARN_UNUSED_RESULT;
+/// Retrieves all the data needed to construct the OT SDK Banner UI.
+/// note:
+/// The keys will not be the same when Cmp Api is enabled vs disabled.
+/// note:
+/// Starting 202504.1.0, this API will return banner data only if Banner data is already downloaded by the OneTrust SDK locally. Applications can download Banner data by calling <code>fetchBannerCmpApiData(completion:)</code> public api and retry this public API. It can also be downloaded by calling <code>setupUI(_:UIType:)</code>.
+- (NSDictionary<NSString *, id> * _Nullable)getBannerData SWIFT_WARN_UNUSED_RESULT;
+/// Retrieves all the data needed to construct the OT SDK Preference Center UI.
+/// note:
+/// The keys will not be the same when Cmp Api is enabled vs disabled.
+/// note:
+/// Starting 202504.1.0, this API will return preference center data only if Preference Center data is already downloaded by the OneTrust SDK locally. Applications can download Preference Center data by calling <code>fetchPreferencesCmpApiData(completion:)</code> public api and retry this public API. It can also be downloaded by calling <code>setupUI(_:UIType:)</code> with <code>.preferenceCenter</code>.
+- (NSDictionary<NSString *, id> * _Nullable)getPreferenceCenterData SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
@@ -931,6 +991,16 @@ SWIFT_CLASS("_TtC27OTPublishersHeadlessSDKtvOS10OTResponse")
 @property (nonatomic, readonly) BOOL status;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
+
+/// Enum for OneTrust SDK status
+typedef SWIFT_ENUM(NSInteger, OTSDKStatus, open) {
+/// OneTrust not initialized yet, data not available at persistent data storage
+  OTSDKStatusNotInitialized = 0,
+/// OneTrust initialized but user not consented yet
+  OTSDKStatusNotConsented = 1,
+/// OneTrust initialized and user given consent
+  OTSDKStatusConsented = 2,
+};
 
 
 /// Public class to handle OneTrust SDK’s additional parameters.
@@ -988,18 +1058,6 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _No
 
 
 
-@interface OTUserDefaultKeys (SWIFT_EXTENSION(OTPublishersHeadlessSDKtvOS))
-/// Key for storing profile data.
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull profileData;)
-+ (NSString * _Nonnull)profileData SWIFT_WARN_UNUSED_RESULT;
-/// Key to check whether consent is given or not.
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull userConsentStatus;)
-+ (NSString * _Nonnull)userConsentStatus SWIFT_WARN_UNUSED_RESULT;
-@end
-
-
-
-
 
 
 
@@ -1043,6 +1101,7 @@ SWIFT_PROTOCOL_NAMED("UIConfigurator")
 /// return <code>true</code> to force the sdk to dark mode irrespective of the device’s <code>Dark Appearance</code> setting.
 - (BOOL)shouldEnableDarkMode SWIFT_WARN_UNUSED_RESULT SWIFT_AVAILABILITY(tvos,introduced=13.0) SWIFT_AVAILABILITY(ios,introduced=13.0);
 @end
+
 
 
 
