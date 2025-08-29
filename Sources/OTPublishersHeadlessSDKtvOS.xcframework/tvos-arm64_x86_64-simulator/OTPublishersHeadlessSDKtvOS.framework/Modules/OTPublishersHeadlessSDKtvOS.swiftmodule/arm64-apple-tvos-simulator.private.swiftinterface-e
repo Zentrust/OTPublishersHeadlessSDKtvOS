@@ -369,7 +369,7 @@ extension OTPublishersHeadlessSDKtvOS.OTPublishersHeadlessSDK {
   public func getAllParentPurposes() -> [OTPublishersHeadlessSDKtvOS.PurposeTreeGroup]?
   public func getAllFirstPartyCookies() -> [OTPublishersHeadlessSDKtvOS.FirstPartyCookiesData]
 }
-@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc public class OTGeolocationModel : ObjectiveC.NSObject, Swift.Codable {
+@_hasMissingDesignatedInitializers @objc public class OTGeolocationModel : ObjectiveC.NSObject, Swift.Codable {
   @objc public var country: Swift.String {
     get
   }
@@ -1118,6 +1118,12 @@ extension UIKit.UIButton {
 }
 extension UIKit.UILabel {
   @_Concurrency.MainActor(unsafe) public func setup(using buttonData: OTPublishersHeadlessSDKtvOS.UIButtonData)
+}
+extension Swift.Array where Element : Swift.Decodable, Element : Swift.Encodable {
+  public func codableListAsListDictionariesList() -> [[Swift.String : Any]]?
+}
+extension Swift.Encodable {
+  public func asDictionary() -> [Swift.String : Any]?
 }
 @objc public enum OTGoogleConsentMode : Swift.Int, Swift.Codable {
   case undefined

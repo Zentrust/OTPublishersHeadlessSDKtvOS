@@ -501,9 +501,9 @@ SWIFT_CLASS("_TtC27OTPublishersHeadlessSDKtvOS18OTGeolocationModel")
 @property (nonatomic, readonly, copy) NSString * _Nonnull country;
 /// Represents the state code in the geo location model.
 @property (nonatomic, readonly, copy) NSString * _Nonnull state;
+- (BOOL)isEqual:(id _Nullable)object SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-- (BOOL)isEqual:(id _Nullable)object SWIFT_WARN_UNUSED_RESULT;
 @end
 
 /// Enum for OneTrut google consent mode
@@ -672,6 +672,8 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) OTPublishers
 /// Returns the last location where the user has last provided consent.
 /// note:
 /// If the user has not consented yet, this method will return nil.
+/// note:
+/// If the user has consented in offline mode and that is not synced yet, we will return the last synced consented location.
 ///
 /// returns:
 /// GeolocationModel containing country, state.
@@ -1659,9 +1661,9 @@ SWIFT_CLASS("_TtC27OTPublishersHeadlessSDKtvOS18OTGeolocationModel")
 @property (nonatomic, readonly, copy) NSString * _Nonnull country;
 /// Represents the state code in the geo location model.
 @property (nonatomic, readonly, copy) NSString * _Nonnull state;
+- (BOOL)isEqual:(id _Nullable)object SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-- (BOOL)isEqual:(id _Nullable)object SWIFT_WARN_UNUSED_RESULT;
 @end
 
 /// Enum for OneTrut google consent mode
@@ -1830,6 +1832,8 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) OTPublishers
 /// Returns the last location where the user has last provided consent.
 /// note:
 /// If the user has not consented yet, this method will return nil.
+/// note:
+/// If the user has consented in offline mode and that is not synced yet, we will return the last synced consented location.
 ///
 /// returns:
 /// GeolocationModel containing country, state.
