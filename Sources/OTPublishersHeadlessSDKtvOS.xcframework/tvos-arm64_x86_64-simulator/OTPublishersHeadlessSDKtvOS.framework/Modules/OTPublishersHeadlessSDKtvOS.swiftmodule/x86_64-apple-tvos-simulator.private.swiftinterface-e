@@ -1112,6 +1112,7 @@ public struct UIButtonData {
   public var position: Swift.Int
   public var section: OTPublishersHeadlessSDKtvOS.ButtonSection
   public var voiceOverText: Swift.String
+  public var accessibilityHint: Swift.String
 }
 extension UIKit.UIButton {
   @_Concurrency.MainActor(unsafe) public func setup(buttonData: OTPublishersHeadlessSDKtvOS.UIButtonData, withTitle: Swift.Bool = true)
