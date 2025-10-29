@@ -266,7 +266,7 @@ public enum ProxyType : Swift.Equatable {
 }
 extension OTPublishersHeadlessSDK {
   public func showConsentUI(for permissionType: AppPermissionType, from presenter: UIKit.UIViewController, completion: (() -> Swift.Void)? = nil)
-  public func checkAndLogConsent(for permissionType: AppPermissionType)
+  public func checkAndLogConsent(for permissionType: AppPermissionType, completion: ((Swift.Bool) -> Swift.Void)? = nil)
 }
 public typealias IABVendorsResponseData = [Swift.String : IABVendorsDetailsData]
 public struct IABVendorsDetailsData : VendorsInfoProtocol {
@@ -1070,7 +1070,7 @@ public enum AppPermissionType {
   case idfa
   case ageGate
   public func showConsentUI(from presenter: UIKit.UIViewController, completion: (() -> Swift.Void)? = nil)
-  public func checkAndLogConsent()
+  public func checkAndLogConsent(completion: ((Swift.Bool) -> Swift.Void)? = nil)
   public static func == (a: AppPermissionType, b: AppPermissionType) -> Swift.Bool
   public func hash(into hasher: inout Swift.Hasher)
   public var hashValue: Swift.Int {
@@ -1124,7 +1124,7 @@ extension Swift.Array where Element : Swift.Decodable, Element : Swift.Encodable
   public func codableListAsListDictionariesList() -> [[Swift.String : Any]]?
 }
 extension Swift.Encodable {
-  public func asDictionary() -> [Swift.String : Any]?
+  public func asDictionary(prefix: Swift.String? = nil) -> [Swift.String : Any]?
 }
 @objc public enum OTGoogleConsentMode : Swift.Int, Swift.Codable {
   case undefined
