@@ -358,53 +358,55 @@ typedef SWIFT_ENUM_NAMED(NSInteger, OTConsentInteractionType, "ConsentInteractio
   OTConsentInteractionTypeAppTrackingNotGiven = 13,
 /// Use this interaction type if the current profile needs to be synced.
   OTConsentInteractionTypeSyncProfile = 14,
+/// The user has clicked on confirm  button in Universal Consent Preference Center View.
+  OTConsentInteractionTypeUcPreferenceCenterConfirm = 15,
 /// The user has clicked on Back button in Preference Center View.
 /// note:
 /// Consent will not be logged to server when this interaction type is passed.
-  OTConsentInteractionTypePreferenceCenterBack = 15,
+  OTConsentInteractionTypePreferenceCenterBack = 16,
 /// The user has consented by clicking on continue without accepting button in Preference Center view.
 /// If Preference Center UI comes after Banner UI then passing this implies continue without accepting and will set the default consent values.
 /// If someone open Preference Center UI directly then consent will not be logged to server when this interaction type is passed.
-  OTConsentInteractionTypePreferenceCenterContinueWithoutAccepting = 16,
+  OTConsentInteractionTypePreferenceCenterContinueWithoutAccepting = 17,
 /// The user has clicked on cancel  button in Vendor List View.
 /// If Preference Center UI comes after Banner UI then passing this implies continue without accepting and will set the default consent values.
 /// If someone open Preference Center UI directly then consent will not be logged to server when this interaction type is passed.
-  OTConsentInteractionTypeVendorListClose = 17,
+  OTConsentInteractionTypeVendorListClose = 18,
 /// The user has consented by clicking on continue without accepting button in Vendor List view.
 /// If Preference Center UI comes after Banner UI then passing this implies continue without accepting and will set the default consent values.
 /// If someone open Preference Center UI directly then consent will not be logged to server when this interaction type is passed.
-  OTConsentInteractionTypeVendorListContinueWithoutAccepting = 18,
+  OTConsentInteractionTypeVendorListContinueWithoutAccepting = 19,
 /// The user has clicked on back  button in Vendor List View.
 /// note:
 /// Consent will not be logged to server when this interaction type is passed.
-  OTConsentInteractionTypeVendorListBack = 19,
+  OTConsentInteractionTypeVendorListBack = 20,
 /// The user has consented by clicking allow all button from Vendor List View.
 /// Passing this will accept all consent values.
-  OTConsentInteractionTypeVendorListAllowAll = 20,
+  OTConsentInteractionTypeVendorListAllowAll = 21,
 /// The user has consented by clicking reject all button from Vendor List View.
 /// Passing this will reject all consent values.
-  OTConsentInteractionTypeVendorListRejectAll = 21,
+  OTConsentInteractionTypeVendorListRejectAll = 22,
 /// The user has clicked on cancel button in SDK List View.
 /// If Preference Center UI comes after Banner UI then passing this implies continue without accepting and will set the default consent values.
 /// If someone open Preference Center UI directly then consent will not be logged to server when this interaction type is passed.
-  OTConsentInteractionTypeSdkListClose = 22,
+  OTConsentInteractionTypeSdkListClose = 23,
 /// The user has consented by clicking on continue without accepting button in SDK List view.
 /// If Preference Center UI comes after Banner UI then passing this implies continue without accepting and will set the default consent values.
 /// If someone open Preference Center UI directly then consent will not be logged to server when this interaction type is passed.
-  OTConsentInteractionTypeSdkListContinueWithoutAccepting = 23,
+  OTConsentInteractionTypeSdkListContinueWithoutAccepting = 24,
 /// The user has clicked on back button in SDK List View.
 /// note:
 /// Consent will not be logged to server when this interaction type is passed.
-  OTConsentInteractionTypeSdkListBack = 24,
+  OTConsentInteractionTypeSdkListBack = 25,
 /// The user has consented by clicking allow all button from SDK List View.
 /// Passing this will accept all consent values.
-  OTConsentInteractionTypeSdkListAllowAll = 25,
+  OTConsentInteractionTypeSdkListAllowAll = 26,
 /// The user has consented by clicking reject all button from SDK List View.
 /// Passing this will reject all consent values.
-  OTConsentInteractionTypeSdkListRejectAll = 26,
+  OTConsentInteractionTypeSdkListRejectAll = 27,
 /// The user has consented by clicking confirm button from SDK List View.
 /// Passing this will set the confirmed consent values.
-  OTConsentInteractionTypeSdkListConfirm = 27,
+  OTConsentInteractionTypeSdkListConfirm = 28,
 };
 
 
@@ -810,6 +812,31 @@ enum OTUIType : NSInteger;
 /// \param updateHierarchy If set to true, this will update the hierarchy of the group ID (parents/siblings/children). This value will be false by default.
 ///
 - (void)updatePurposeConsentForGroup:(NSString * _Nonnull)groupId consentValue:(BOOL)consentValue updateHierarchy:(BOOL)updateHierarchy;
+/// Updates the consent value for a specified sdk identifier.
+/// note:
+/// If the sdkId passed is linked with ATT associated purpose/category and ATT permission is not granted, update of consent will not be permitted.
+/// note:
+/// Once this operation is complete, a notification will be posted with the updated consent value.
+/// \param sdkId The sdkId represented as a string, for which consent value has to be updated.
+///
+/// \param consentValue Boolean value specifying updated consent value.
+///
+/// \param updateHierarchy If set to true, this will update the hierarchy of the sdk ID (parents/siblings/children) purpose id. This value will be false by default.
+///
+- (void)updateSDKConsentFor:(NSString * _Nonnull)sdkId consentValue:(BOOL)consentValue updateHierarchy:(BOOL)updateHierarchy;
+/// Updates consent status for all the sdk id locally.
+/// <ul>
+///   <li>
+///     Parameters :
+///   </li>
+///   <li>
+///     consentValue: Pass true/false to update all sdk consent to 1/0 locally.
+///   </li>
+///   <li>
+///     updateHierarchy: If set to true, this will update the hierarchy of the sdk ID (parents/siblings/children) purpose id. This value will be false by default.
+///   </li>
+/// </ul>
+- (void)updateAllSDKsConsentLocalWithConsentValue:(BOOL)consentValue updateHierarchy:(BOOL)updateHierarchy;
 /// Updates the legitimate interest value for a specified group (purpose/category) Identifier.
 /// note:
 /// Starting 202504.1.0, this API will update the legit interest status only if the Preference Center data is already downloaded by the OneTrust SDK locally. Applications can download Preference Center data by calling <code>fetchPreferencesCmpApiData(completion:)</code> public api and retry this public API.
@@ -951,11 +978,7 @@ enum OTUIType : NSInteger;
 ///   </li>
 /// </ul>
 - (NSInteger)getAgeGatePromptValue SWIFT_WARN_UNUSED_RESULT;
-/// Get google consent mode status.
-///
-/// returns:
-/// Return OTGoogleConsentModeDataModel object. Variable otSDKStatus will retirn the OneTrust SDK status and variable consentType will return consent mode of GCM consent types
-- (OTGoogleConsentModeDataModel * _Nonnull)getOTGoogleConsentModeData SWIFT_WARN_UNUSED_RESULT;
+- (OTGoogleConsentModeDataModel * _Nonnull)getOTGoogleConsentModeData SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_MSG("Google Consent Mode consent logging will be taken care by OneTrust SDK, avoid to log duplicate consent from App side. Please add -ObjC flag into the app target’s Other Linker Flags to make Firebase SDK accessible from OneTrust SDK.");
 /// Determines if OT SDK Banner/Preference center was presented to user at least once.
 /// This method will support only if SDK UI methods are used.
 ///
@@ -1518,53 +1541,55 @@ typedef SWIFT_ENUM_NAMED(NSInteger, OTConsentInteractionType, "ConsentInteractio
   OTConsentInteractionTypeAppTrackingNotGiven = 13,
 /// Use this interaction type if the current profile needs to be synced.
   OTConsentInteractionTypeSyncProfile = 14,
+/// The user has clicked on confirm  button in Universal Consent Preference Center View.
+  OTConsentInteractionTypeUcPreferenceCenterConfirm = 15,
 /// The user has clicked on Back button in Preference Center View.
 /// note:
 /// Consent will not be logged to server when this interaction type is passed.
-  OTConsentInteractionTypePreferenceCenterBack = 15,
+  OTConsentInteractionTypePreferenceCenterBack = 16,
 /// The user has consented by clicking on continue without accepting button in Preference Center view.
 /// If Preference Center UI comes after Banner UI then passing this implies continue without accepting and will set the default consent values.
 /// If someone open Preference Center UI directly then consent will not be logged to server when this interaction type is passed.
-  OTConsentInteractionTypePreferenceCenterContinueWithoutAccepting = 16,
+  OTConsentInteractionTypePreferenceCenterContinueWithoutAccepting = 17,
 /// The user has clicked on cancel  button in Vendor List View.
 /// If Preference Center UI comes after Banner UI then passing this implies continue without accepting and will set the default consent values.
 /// If someone open Preference Center UI directly then consent will not be logged to server when this interaction type is passed.
-  OTConsentInteractionTypeVendorListClose = 17,
+  OTConsentInteractionTypeVendorListClose = 18,
 /// The user has consented by clicking on continue without accepting button in Vendor List view.
 /// If Preference Center UI comes after Banner UI then passing this implies continue without accepting and will set the default consent values.
 /// If someone open Preference Center UI directly then consent will not be logged to server when this interaction type is passed.
-  OTConsentInteractionTypeVendorListContinueWithoutAccepting = 18,
+  OTConsentInteractionTypeVendorListContinueWithoutAccepting = 19,
 /// The user has clicked on back  button in Vendor List View.
 /// note:
 /// Consent will not be logged to server when this interaction type is passed.
-  OTConsentInteractionTypeVendorListBack = 19,
+  OTConsentInteractionTypeVendorListBack = 20,
 /// The user has consented by clicking allow all button from Vendor List View.
 /// Passing this will accept all consent values.
-  OTConsentInteractionTypeVendorListAllowAll = 20,
+  OTConsentInteractionTypeVendorListAllowAll = 21,
 /// The user has consented by clicking reject all button from Vendor List View.
 /// Passing this will reject all consent values.
-  OTConsentInteractionTypeVendorListRejectAll = 21,
+  OTConsentInteractionTypeVendorListRejectAll = 22,
 /// The user has clicked on cancel button in SDK List View.
 /// If Preference Center UI comes after Banner UI then passing this implies continue without accepting and will set the default consent values.
 /// If someone open Preference Center UI directly then consent will not be logged to server when this interaction type is passed.
-  OTConsentInteractionTypeSdkListClose = 22,
+  OTConsentInteractionTypeSdkListClose = 23,
 /// The user has consented by clicking on continue without accepting button in SDK List view.
 /// If Preference Center UI comes after Banner UI then passing this implies continue without accepting and will set the default consent values.
 /// If someone open Preference Center UI directly then consent will not be logged to server when this interaction type is passed.
-  OTConsentInteractionTypeSdkListContinueWithoutAccepting = 23,
+  OTConsentInteractionTypeSdkListContinueWithoutAccepting = 24,
 /// The user has clicked on back button in SDK List View.
 /// note:
 /// Consent will not be logged to server when this interaction type is passed.
-  OTConsentInteractionTypeSdkListBack = 24,
+  OTConsentInteractionTypeSdkListBack = 25,
 /// The user has consented by clicking allow all button from SDK List View.
 /// Passing this will accept all consent values.
-  OTConsentInteractionTypeSdkListAllowAll = 25,
+  OTConsentInteractionTypeSdkListAllowAll = 26,
 /// The user has consented by clicking reject all button from SDK List View.
 /// Passing this will reject all consent values.
-  OTConsentInteractionTypeSdkListRejectAll = 26,
+  OTConsentInteractionTypeSdkListRejectAll = 27,
 /// The user has consented by clicking confirm button from SDK List View.
 /// Passing this will set the confirmed consent values.
-  OTConsentInteractionTypeSdkListConfirm = 27,
+  OTConsentInteractionTypeSdkListConfirm = 28,
 };
 
 
@@ -1970,6 +1995,31 @@ enum OTUIType : NSInteger;
 /// \param updateHierarchy If set to true, this will update the hierarchy of the group ID (parents/siblings/children). This value will be false by default.
 ///
 - (void)updatePurposeConsentForGroup:(NSString * _Nonnull)groupId consentValue:(BOOL)consentValue updateHierarchy:(BOOL)updateHierarchy;
+/// Updates the consent value for a specified sdk identifier.
+/// note:
+/// If the sdkId passed is linked with ATT associated purpose/category and ATT permission is not granted, update of consent will not be permitted.
+/// note:
+/// Once this operation is complete, a notification will be posted with the updated consent value.
+/// \param sdkId The sdkId represented as a string, for which consent value has to be updated.
+///
+/// \param consentValue Boolean value specifying updated consent value.
+///
+/// \param updateHierarchy If set to true, this will update the hierarchy of the sdk ID (parents/siblings/children) purpose id. This value will be false by default.
+///
+- (void)updateSDKConsentFor:(NSString * _Nonnull)sdkId consentValue:(BOOL)consentValue updateHierarchy:(BOOL)updateHierarchy;
+/// Updates consent status for all the sdk id locally.
+/// <ul>
+///   <li>
+///     Parameters :
+///   </li>
+///   <li>
+///     consentValue: Pass true/false to update all sdk consent to 1/0 locally.
+///   </li>
+///   <li>
+///     updateHierarchy: If set to true, this will update the hierarchy of the sdk ID (parents/siblings/children) purpose id. This value will be false by default.
+///   </li>
+/// </ul>
+- (void)updateAllSDKsConsentLocalWithConsentValue:(BOOL)consentValue updateHierarchy:(BOOL)updateHierarchy;
 /// Updates the legitimate interest value for a specified group (purpose/category) Identifier.
 /// note:
 /// Starting 202504.1.0, this API will update the legit interest status only if the Preference Center data is already downloaded by the OneTrust SDK locally. Applications can download Preference Center data by calling <code>fetchPreferencesCmpApiData(completion:)</code> public api and retry this public API.
@@ -2111,11 +2161,7 @@ enum OTUIType : NSInteger;
 ///   </li>
 /// </ul>
 - (NSInteger)getAgeGatePromptValue SWIFT_WARN_UNUSED_RESULT;
-/// Get google consent mode status.
-///
-/// returns:
-/// Return OTGoogleConsentModeDataModel object. Variable otSDKStatus will retirn the OneTrust SDK status and variable consentType will return consent mode of GCM consent types
-- (OTGoogleConsentModeDataModel * _Nonnull)getOTGoogleConsentModeData SWIFT_WARN_UNUSED_RESULT;
+- (OTGoogleConsentModeDataModel * _Nonnull)getOTGoogleConsentModeData SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_MSG("Google Consent Mode consent logging will be taken care by OneTrust SDK, avoid to log duplicate consent from App side. Please add -ObjC flag into the app target’s Other Linker Flags to make Firebase SDK accessible from OneTrust SDK.");
 /// Determines if OT SDK Banner/Preference center was presented to user at least once.
 /// This method will support only if SDK UI methods are used.
 ///
