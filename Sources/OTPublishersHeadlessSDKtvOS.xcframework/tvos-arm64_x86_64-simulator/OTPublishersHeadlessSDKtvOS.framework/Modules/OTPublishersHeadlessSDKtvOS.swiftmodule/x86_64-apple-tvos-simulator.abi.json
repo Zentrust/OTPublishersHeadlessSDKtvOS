@@ -32212,7 +32212,7 @@
           {
             "kind": "Function",
             "name": "saveConsent",
-            "printedName": "saveConsent(type:completion:)",
+            "printedName": "saveConsent(type:explicitConsent:completion:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -32224,6 +32224,13 @@
                 "name": "ConsentInteractionType",
                 "printedName": "OTPublishersHeadlessSDKtvOS.ConsentInteractionType",
                 "usr": "c:@M@OTPublishersHeadlessSDKtvOS@E@OTConsentInteractionType"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "hasDefaultArg": true,
+                "usr": "s:Sb"
               },
               {
                 "kind": "TypeFunc",
@@ -32245,8 +32252,8 @@
               }
             ],
             "declKind": "Func",
-            "usr": "c:@CM@OTPublishersHeadlessSDKtvOS@objc(cs)OTPublishersHeadlessSDK(im)saveConsentWithType:completion:",
-            "mangledName": "$s27OTPublishersHeadlessSDKtvOS0aB3SDKC11saveConsent4type10completionyAA0G15InteractionTypeO_yyctF",
+            "usr": "c:@CM@OTPublishersHeadlessSDKtvOS@objc(cs)OTPublishersHeadlessSDK(im)saveConsentWithType:explicitConsent:completion:",
+            "mangledName": "$s27OTPublishersHeadlessSDKtvOS0aB3SDKC11saveConsent4type08explicitG010completionyAA0G15InteractionTypeO_SbyyctF",
             "moduleName": "OTPublishersHeadlessSDKtvOS",
             "declAttributes": [
               "Dynamic",
@@ -51002,28 +51009,28 @@
     {
       "filePath": "\/Users\/builduser\/gitlab-runner\/builds\/udzdSm4BC\/0\/onetrust\/sdk\/publishers-mobile-native-sdk-ios\/OTPublishersHeadlessSDK\/Source\/Native SDK Common\/DataModel\/CMP API\/CmpUCPInternalStorageKeys.swift",
       "kind": "StringLiteral",
-      "offset": 510,
+      "offset": 558,
       "length": 16,
       "value": "\"OT_UCPConsents\""
     },
     {
       "filePath": "\/Users\/builduser\/gitlab-runner\/builds\/udzdSm4BC\/0\/onetrust\/sdk\/publishers-mobile-native-sdk-ios\/OTPublishersHeadlessSDK\/Source\/Native SDK Common\/DataModel\/CMP API\/CmpUCPInternalStorageKeys.swift",
       "kind": "StringLiteral",
-      "offset": 1639,
+      "offset": 610,
+      "length": 25,
+      "value": "\"OT_LastUCPConsentedDate\""
+    },
+    {
+      "filePath": "\/Users\/builduser\/gitlab-runner\/builds\/udzdSm4BC\/0\/onetrust\/sdk\/publishers-mobile-native-sdk-ios\/OTPublishersHeadlessSDK\/Source\/Native SDK Common\/DataModel\/CMP API\/CmpUCPInternalStorageKeys.swift",
+      "kind": "StringLiteral",
+      "offset": 2013,
       "length": 4,
       "value": "\"id\""
     },
     {
       "filePath": "\/Users\/builduser\/gitlab-runner\/builds\/udzdSm4BC\/0\/onetrust\/sdk\/publishers-mobile-native-sdk-ios\/OTPublishersHeadlessSDK\/Source\/Native SDK Common\/DataModel\/CMP API\/CmpUCPInternalStorageKeys.swift",
       "kind": "StringLiteral",
-      "offset": 1673,
-      "length": 15,
-      "value": "\"consentStatus\""
-    },
-    {
-      "filePath": "\/Users\/builduser\/gitlab-runner\/builds\/udzdSm4BC\/0\/onetrust\/sdk\/publishers-mobile-native-sdk-ios\/OTPublishersHeadlessSDK\/Source\/Native SDK Common\/DataModel\/CMP API\/CmpUCPInternalStorageKeys.swift",
-      "kind": "StringLiteral",
-      "offset": 1719,
+      "offset": 2094,
       "length": 9,
       "value": "\"options\""
     },
@@ -51205,14 +51212,21 @@
     {
       "filePath": "\/Users\/builduser\/gitlab-runner\/builds\/udzdSm4BC\/0\/onetrust\/sdk\/publishers-mobile-native-sdk-ios\/OTPublishersHeadlessSDK\/Source\/Native SDK Common\/Commons\/OTNetworkConstants.swift",
       "kind": "StringLiteral",
-      "offset": 2547,
+      "offset": 2554,
+      "length": 21,
+      "value": "\"OT-Explicit-Consent\""
+    },
+    {
+      "filePath": "\/Users\/builduser\/gitlab-runner\/builds\/udzdSm4BC\/0\/onetrust\/sdk\/publishers-mobile-native-sdk-ios\/OTPublishersHeadlessSDK\/Source\/Native SDK Common\/Commons\/OTNetworkConstants.swift",
+      "kind": "StringLiteral",
+      "offset": 2606,
       "length": 13,
       "value": "\"OT-Platform\""
     },
     {
       "filePath": "\/Users\/builduser\/gitlab-runner\/builds\/udzdSm4BC\/0\/onetrust\/sdk\/publishers-mobile-native-sdk-ios\/OTPublishersHeadlessSDK\/Source\/Native SDK Common\/Commons\/OTNetworkConstants.swift",
       "kind": "StringLiteral",
-      "offset": 2600,
+      "offset": 2659,
       "length": 23,
       "value": "\"OT-SDK-Identification\""
     },
@@ -52104,6 +52118,13 @@
       "offset": 1437,
       "length": 4,
       "value": "true"
+    },
+    {
+      "filePath": "\/Users\/builduser\/gitlab-runner\/builds\/udzdSm4BC\/0\/onetrust\/sdk\/publishers-mobile-native-sdk-ios\/OTPublishersHeadlessSDK\/Source\/Native SDK Common\/DataModel\/Consent\/ConsentLoggingDataModel.swift",
+      "kind": "BooleanLiteral",
+      "offset": 736,
+      "length": 5,
+      "value": "false"
     },
     {
       "filePath": "\/Users\/builduser\/gitlab-runner\/builds\/udzdSm4BC\/0\/onetrust\/sdk\/publishers-mobile-native-sdk-ios\/OTPublishersHeadlessSDK\/Source\/Native SDK Common\/DataModel\/OTSdkParams.swift",
@@ -53284,49 +53305,56 @@
     {
       "filePath": "\/Users\/builduser\/gitlab-runner\/builds\/udzdSm4BC\/0\/onetrust\/sdk\/publishers-mobile-native-sdk-ios\/OTPublishersHeadlessSDK\/Source\/Native SDK Common\/DataModel\/CMP API\/Common\/CmpInternalStorageKeys.swift",
       "kind": "StringLiteral",
-      "offset": 1265,
+      "offset": 1372,
       "length": 20,
       "value": "\"OT_AlwaysActiveIds\""
     },
     {
       "filePath": "\/Users\/builduser\/gitlab-runner\/builds\/udzdSm4BC\/0\/onetrust\/sdk\/publishers-mobile-native-sdk-ios\/OTPublishersHeadlessSDK\/Source\/Native SDK Common\/DataModel\/CMP API\/Common\/CmpInternalStorageKeys.swift",
       "kind": "StringLiteral",
-      "offset": 1315,
+      "offset": 1422,
       "length": 18,
       "value": "\"OT_GroupConsents\""
     },
     {
       "filePath": "\/Users\/builduser\/gitlab-runner\/builds\/udzdSm4BC\/0\/onetrust\/sdk\/publishers-mobile-native-sdk-ios\/OTPublishersHeadlessSDK\/Source\/Native SDK Common\/DataModel\/CMP API\/Common\/CmpInternalStorageKeys.swift",
       "kind": "StringLiteral",
-      "offset": 1358,
+      "offset": 1465,
       "length": 20,
       "value": "\"OT_GroupLIConsents\""
     },
     {
       "filePath": "\/Users\/builduser\/gitlab-runner\/builds\/udzdSm4BC\/0\/onetrust\/sdk\/publishers-mobile-native-sdk-ios\/OTPublishersHeadlessSDK\/Source\/Native SDK Common\/DataModel\/CMP API\/Common\/CmpInternalStorageKeys.swift",
       "kind": "StringLiteral",
-      "offset": 1406,
+      "offset": 1513,
       "length": 16,
       "value": "\"OT_SdkConsents\""
     },
     {
       "filePath": "\/Users\/builduser\/gitlab-runner\/builds\/udzdSm4BC\/0\/onetrust\/sdk\/publishers-mobile-native-sdk-ios\/OTPublishersHeadlessSDK\/Source\/Native SDK Common\/DataModel\/CMP API\/Common\/CmpInternalStorageKeys.swift",
       "kind": "StringLiteral",
-      "offset": 1460,
+      "offset": 1567,
       "length": 27,
       "value": "\"OT_GeneralVendorsConsents\""
     },
     {
       "filePath": "\/Users\/builduser\/gitlab-runner\/builds\/udzdSm4BC\/0\/onetrust\/sdk\/publishers-mobile-native-sdk-ios\/OTPublishersHeadlessSDK\/Source\/Native SDK Common\/DataModel\/CMP API\/Common\/CmpInternalStorageKeys.swift",
       "kind": "StringLiteral",
-      "offset": 1530,
+      "offset": 1637,
       "length": 22,
       "value": "\"OT_LastConsentedDate\""
     },
     {
       "filePath": "\/Users\/builduser\/gitlab-runner\/builds\/udzdSm4BC\/0\/onetrust\/sdk\/publishers-mobile-native-sdk-ios\/OTPublishersHeadlessSDK\/Source\/Native SDK Common\/DataModel\/CMP API\/Common\/CmpInternalStorageKeys.swift",
       "kind": "StringLiteral",
-      "offset": 1576,
+      "offset": 1696,
+      "length": 25,
+      "value": "\"OT_UCPLastConsentedDate\""
+    },
+    {
+      "filePath": "\/Users\/builduser\/gitlab-runner\/builds\/udzdSm4BC\/0\/onetrust\/sdk\/publishers-mobile-native-sdk-ios\/OTPublishersHeadlessSDK\/Source\/Native SDK Common\/DataModel\/CMP API\/Common\/CmpInternalStorageKeys.swift",
+      "kind": "StringLiteral",
+      "offset": 1745,
       "length": 12,
       "value": "\"OT_AgeGate\""
     },
@@ -54145,9 +54173,30 @@
     {
       "filePath": "\/Users\/builduser\/gitlab-runner\/builds\/udzdSm4BC\/0\/onetrust\/sdk\/publishers-mobile-native-sdk-ios\/OTPublishersHeadlessSDK\/Source\/Native SDK Common\/DataModel\/CMP API\/Preference Center\/UCPResponseDataModel.swift",
       "kind": "StringLiteral",
-      "offset": 813,
+      "offset": 1287,
       "length": 16,
       "value": "\"ucPurposesData\""
+    },
+    {
+      "filePath": "\/Users\/builduser\/gitlab-runner\/builds\/udzdSm4BC\/0\/onetrust\/sdk\/publishers-mobile-native-sdk-ios\/OTPublishersHeadlessSDK\/Source\/Native SDK Common\/Helpers\/ConsentLoggingDataHandler.swift",
+      "kind": "BooleanLiteral",
+      "offset": 1041,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/builduser\/gitlab-runner\/builds\/udzdSm4BC\/0\/onetrust\/sdk\/publishers-mobile-native-sdk-ios\/OTPublishersHeadlessSDK\/Source\/Native SDK Common\/Helpers\/ConsentLoggingDataHandler.swift",
+      "kind": "BooleanLiteral",
+      "offset": 2345,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/builduser\/gitlab-runner\/builds\/udzdSm4BC\/0\/onetrust\/sdk\/publishers-mobile-native-sdk-ios\/OTPublishersHeadlessSDK\/Source\/Native SDK Common\/Helpers\/ConsentLoggingDataHandler.swift",
+      "kind": "BooleanLiteral",
+      "offset": 4119,
+      "length": 5,
+      "value": "false"
     },
     {
       "filePath": "\/Users\/builduser\/gitlab-runner\/builds\/udzdSm4BC\/0\/onetrust\/sdk\/publishers-mobile-native-sdk-ios\/OTPublishersHeadlessSDK\/Source\/Native SDK Common\/Theme Config\/Extensions\/UIButton+Theme.swift",
@@ -54503,6 +54552,20 @@
       "filePath": "\/Users\/builduser\/gitlab-runner\/builds\/udzdSm4BC\/0\/onetrust\/sdk\/publishers-mobile-native-sdk-ios\/OTPublishersHeadlessSDK\/Source\/Native SDK Common\/Headless SDK\/OTPublishersHeadlessSDK+PublicAPI.swift",
       "kind": "BooleanLiteral",
       "offset": 19854,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/builduser\/gitlab-runner\/builds\/udzdSm4BC\/0\/onetrust\/sdk\/publishers-mobile-native-sdk-ios\/OTPublishersHeadlessSDK\/Source\/Native SDK Common\/Headless SDK\/OTPublishersHeadlessSDK+PublicAPI.swift",
+      "kind": "BooleanLiteral",
+      "offset": 21151,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/builduser\/gitlab-runner\/builds\/udzdSm4BC\/0\/onetrust\/sdk\/publishers-mobile-native-sdk-ios\/OTPublishersHeadlessSDK\/Source\/Native SDK Common\/Headless SDK\/OTPublishersHeadlessSDK+PublicAPI.swift",
+      "kind": "BooleanLiteral",
+      "offset": 28515,
       "length": 5,
       "value": "false"
     },
@@ -54924,7 +54987,7 @@
       "kind": "StringLiteral",
       "offset": 403,
       "length": 12,
-      "value": "\"202605.1.0\""
+      "value": "\"202606.1.0\""
     },
     {
       "filePath": "\/Users\/builduser\/gitlab-runner\/builds\/udzdSm4BC\/0\/onetrust\/sdk\/publishers-mobile-native-sdk-ios\/OTPublishersHeadlessSDK\/Source\/Native SDK Common\/Native UI Helpers\/Main UI\/Preference Center\/UI Model\/PCUIDataModel+SummaryData.swift",
@@ -55951,21 +56014,21 @@
     {
       "filePath": "\/Users\/builduser\/gitlab-runner\/builds\/udzdSm4BC\/0\/onetrust\/sdk\/publishers-mobile-native-sdk-ios\/OTPublishersHeadlessSDK\/Source\/Native SDK Common\/DataModel\/CMP API\/Common\/Data Types\/UCPurposeTreeGroup.swift",
       "kind": "StringLiteral",
-      "offset": 1997,
+      "offset": 2087,
       "length": 4,
       "value": "\"id\""
     },
     {
       "filePath": "\/Users\/builduser\/gitlab-runner\/builds\/udzdSm4BC\/0\/onetrust\/sdk\/publishers-mobile-native-sdk-ios\/OTPublishersHeadlessSDK\/Source\/Native SDK Common\/DataModel\/CMP API\/Common\/Data Types\/UCPurposeTreeGroup.swift",
       "kind": "StringLiteral",
-      "offset": 5903,
+      "offset": 6242,
       "length": 4,
       "value": "\"id\""
     },
     {
       "filePath": "\/Users\/builduser\/gitlab-runner\/builds\/udzdSm4BC\/0\/onetrust\/sdk\/publishers-mobile-native-sdk-ios\/OTPublishersHeadlessSDK\/Source\/Native SDK Common\/DataModel\/CMP API\/Common\/Data Types\/UCPurposeTreeGroup.swift",
       "kind": "StringLiteral",
-      "offset": 7973,
+      "offset": 8312,
       "length": 4,
       "value": "\"id\""
     },
@@ -58030,7 +58093,7 @@
     {
       "filePath": "\/Users\/builduser\/gitlab-runner\/builds\/udzdSm4BC\/0\/onetrust\/sdk\/publishers-mobile-native-sdk-ios\/OTPublishersHeadlessSDK\/Source\/OTPublishersHeadlessSDKtvOS\/Native UI\/Main UI\/Purpose Details\/ParentCategoryDetailsViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 13766,
+      "offset": 14060,
       "length": 4,
       "value": "true"
     },
