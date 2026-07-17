@@ -562,6 +562,7 @@ typedef SWIFT_ENUM(NSInteger, OTLoggerConstant, open) {
   OTLoggerConstantInfo = 3,
   OTLoggerConstantDebug = 4,
   OTLoggerConstantVerbose = 5,
+  OTLoggerConstantAutomation = 6,
 };
 
 /// Public class to handle OneTrust SDK’s additional parameters.
@@ -1615,6 +1616,7 @@ typedef SWIFT_ENUM(NSInteger, OTLoggerConstant, open) {
   OTLoggerConstantInfo = 3,
   OTLoggerConstantDebug = 4,
   OTLoggerConstantVerbose = 5,
+  OTLoggerConstantAutomation = 6,
 };
 
 /// Public class to handle OneTrust SDK’s additional parameters.

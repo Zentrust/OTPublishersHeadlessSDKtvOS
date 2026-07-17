@@ -35548,6 +35548,13 @@
       },
       {
         "kind": "Import",
+        "name": "os",
+        "printedName": "os",
+        "declKind": "Import",
+        "moduleName": "OTPublishersHeadlessSDKtvOS"
+      },
+      {
+        "kind": "Import",
         "name": "Foundation",
         "printedName": "Foundation",
         "declKind": "Import",
@@ -35642,6 +35649,16 @@
         "printedName": "UIKit",
         "declKind": "Import",
         "moduleName": "OTPublishersHeadlessSDKtvOS"
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "OTPublishersHeadlessSDKtvOS",
+        "declAttributes": [
+          "RawDocComment"
+        ]
       },
       {
         "kind": "Import",
@@ -36033,6 +36050,47 @@
               "ObjC"
             ],
             "fixedbinaryorder": 5
+          },
+          {
+            "kind": "Var",
+            "name": "automation",
+            "printedName": "automation",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(OTPublishersHeadlessSDKtvOS.OTLoggerConstant.Type) -> OTPublishersHeadlessSDKtvOS.OTLoggerConstant",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "OTLoggerConstant",
+                    "printedName": "OTPublishersHeadlessSDKtvOS.OTLoggerConstant",
+                    "usr": "c:@M@OTPublishersHeadlessSDKtvOS@E@OTLoggerConstant"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "OTPublishersHeadlessSDKtvOS.OTLoggerConstant.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "OTLoggerConstant",
+                        "printedName": "OTPublishersHeadlessSDKtvOS.OTLoggerConstant",
+                        "usr": "c:@M@OTPublishersHeadlessSDKtvOS@E@OTLoggerConstant"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@OTPublishersHeadlessSDKtvOS@E@OTLoggerConstant@OTLoggerConstantAutomation",
+            "mangledName": "$s27OTPublishersHeadlessSDKtvOS16OTLoggerConstantO10automationyA2CmF",
+            "moduleName": "OTPublishersHeadlessSDKtvOS",
+            "declAttributes": [
+              "ObjC"
+            ],
+            "fixedbinaryorder": 6
           },
           {
             "kind": "Constructor",
@@ -49379,6 +49437,158 @@
       },
       {
         "kind": "TypeDecl",
+        "name": "ProcessInfo",
+        "printedName": "ProcessInfo",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "isRunningOnMac",
+            "printedName": "isRunningOnMac",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:So13NSProcessInfoC27OTPublishersHeadlessSDKtvOSE14isRunningOnMacSbvpZ",
+            "mangledName": "$sSo13NSProcessInfoC27OTPublishersHeadlessSDKtvOSE14isRunningOnMacSbvpZ",
+            "moduleName": "OTPublishersHeadlessSDKtvOS",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:So13NSProcessInfoC27OTPublishersHeadlessSDKtvOSE14isRunningOnMacSbvgZ",
+                "mangledName": "$sSo13NSProcessInfoC27OTPublishersHeadlessSDKtvOSE14isRunningOnMacSbvgZ",
+                "moduleName": "OTPublishersHeadlessSDKtvOS",
+                "static": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:objc(cs)NSProcessInfo",
+        "moduleName": "Foundation",
+        "isOpen": true,
+        "objc_name": "NSProcessInfo",
+        "declAttributes": [
+          "ObjC",
+          "SynthesizedProtocol",
+          "NonSendable",
+          "Sendable",
+          "Dynamic"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "isExternal": true,
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
         "name": "Optional",
         "printedName": "Optional",
         "children": [
@@ -50470,35 +50680,35 @@
     {
       "filePath": "\/Users\/builduser\/gitlab-runner\/builds\/udzdSm4BC\/0\/onetrust\/sdk\/publishers-mobile-native-sdk-ios\/OTPublishersHeadlessSDK\/Source\/Native SDK Common\/DataModel\/Consent\/CmpConsentData.swift",
       "kind": "BooleanLiteral",
-      "offset": 7318,
+      "offset": 7320,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/builduser\/gitlab-runner\/builds\/udzdSm4BC\/0\/onetrust\/sdk\/publishers-mobile-native-sdk-ios\/OTPublishersHeadlessSDK\/Source\/Native SDK Common\/DataModel\/Consent\/CmpConsentData.swift",
       "kind": "BooleanLiteral",
-      "offset": 8665,
+      "offset": 8669,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/builduser\/gitlab-runner\/builds\/udzdSm4BC\/0\/onetrust\/sdk\/publishers-mobile-native-sdk-ios\/OTPublishersHeadlessSDK\/Source\/Native SDK Common\/DataModel\/Consent\/CmpConsentData.swift",
       "kind": "BooleanLiteral",
-      "offset": 9520,
+      "offset": 9524,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/builduser\/gitlab-runner\/builds\/udzdSm4BC\/0\/onetrust\/sdk\/publishers-mobile-native-sdk-ios\/OTPublishersHeadlessSDK\/Source\/Native SDK Common\/DataModel\/Consent\/CmpConsentData.swift",
       "kind": "BooleanLiteral",
-      "offset": 10744,
+      "offset": 10748,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/builduser\/gitlab-runner\/builds\/udzdSm4BC\/0\/onetrust\/sdk\/publishers-mobile-native-sdk-ios\/OTPublishersHeadlessSDK\/Source\/Native SDK Common\/DataModel\/Consent\/CmpConsentData.swift",
       "kind": "BooleanLiteral",
-      "offset": 11465,
+      "offset": 11469,
       "length": 4,
       "value": "true"
     },
@@ -51443,21 +51653,21 @@
     {
       "filePath": "\/Users\/builduser\/gitlab-runner\/builds\/udzdSm4BC\/0\/onetrust\/sdk\/publishers-mobile-native-sdk-ios\/OTPublishersHeadlessSDK\/Source\/Native SDK Common\/NetworkHandler\/NetworkRequestService.swift",
       "kind": "IntegerLiteral",
-      "offset": 7318,
+      "offset": 7320,
       "length": 1,
       "value": "3"
     },
     {
       "filePath": "\/Users\/builduser\/gitlab-runner\/builds\/udzdSm4BC\/0\/onetrust\/sdk\/publishers-mobile-native-sdk-ios\/OTPublishersHeadlessSDK\/Source\/Native SDK Common\/NetworkHandler\/NetworkRequestService.swift",
       "kind": "IntegerLiteral",
-      "offset": 7798,
+      "offset": 7800,
       "length": 1,
       "value": "3"
     },
     {
       "filePath": "\/Users\/builduser\/gitlab-runner\/builds\/udzdSm4BC\/0\/onetrust\/sdk\/publishers-mobile-native-sdk-ios\/OTPublishersHeadlessSDK\/Source\/Native SDK Common\/NetworkHandler\/NetworkRequestService.swift",
       "kind": "IntegerLiteral",
-      "offset": 10349,
+      "offset": 10357,
       "length": 1,
       "value": "3"
     },
@@ -51667,14 +51877,14 @@
     {
       "filePath": "\/Users\/builduser\/gitlab-runner\/builds\/udzdSm4BC\/0\/onetrust\/sdk\/publishers-mobile-native-sdk-ios\/OTPublishersHeadlessSDK\/Source\/Native SDK Common\/Storage\/User Defaults\/UserDefaultsUtility.swift",
       "kind": "StringLiteral",
-      "offset": 987,
+      "offset": 989,
       "length": 64,
       "value": "\"Custom storage creation failed, switching to standard storage.\""
     },
     {
       "filePath": "\/Users\/builduser\/gitlab-runner\/builds\/udzdSm4BC\/0\/onetrust\/sdk\/publishers-mobile-native-sdk-ios\/OTPublishersHeadlessSDK\/Source\/Native SDK Common\/Storage\/User Defaults\/UserDefaultsUtility.swift",
       "kind": "BooleanLiteral",
-      "offset": 1950,
+      "offset": 1952,
       "length": 5,
       "value": "false"
     },
@@ -51737,28 +51947,28 @@
     {
       "filePath": "\/Users\/builduser\/gitlab-runner\/builds\/udzdSm4BC\/0\/onetrust\/sdk\/publishers-mobile-native-sdk-ios\/OTPublishersHeadlessSDK\/Source\/Native SDK Common\/Headless SDK\/OTPublisherHeadlessSDK+Profile.swift",
       "kind": "StringLiteral",
-      "offset": 3614,
+      "offset": 3616,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/builduser\/gitlab-runner\/builds\/udzdSm4BC\/0\/onetrust\/sdk\/publishers-mobile-native-sdk-ios\/OTPublishersHeadlessSDK\/Source\/Native SDK Common\/Headless SDK\/OTPublisherHeadlessSDK+Profile.swift",
       "kind": "StringLiteral",
-      "offset": 5645,
+      "offset": 5647,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/builduser\/gitlab-runner\/builds\/udzdSm4BC\/0\/onetrust\/sdk\/publishers-mobile-native-sdk-ios\/OTPublishersHeadlessSDK\/Source\/Native SDK Common\/Headless SDK\/OTPublisherHeadlessSDK+Profile.swift",
       "kind": "BooleanLiteral",
-      "offset": 7844,
+      "offset": 7858,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/builduser\/gitlab-runner\/builds\/udzdSm4BC\/0\/onetrust\/sdk\/publishers-mobile-native-sdk-ios\/OTPublishersHeadlessSDK\/Source\/Native SDK Common\/Headless SDK\/OTPublisherHeadlessSDK+Profile.swift",
       "kind": "BooleanLiteral",
-      "offset": 12518,
+      "offset": 12544,
       "length": 4,
       "value": "true"
     },
@@ -51814,21 +52024,21 @@
     {
       "filePath": "\/Users\/builduser\/gitlab-runner\/builds\/udzdSm4BC\/0\/onetrust\/sdk\/publishers-mobile-native-sdk-ios\/OTPublishersHeadlessSDK\/Source\/Native SDK Common\/DataModel\/CMP API\/Common\/Consent\/UCPurposesLocalConsent.swift",
       "kind": "StringLiteral",
-      "offset": 3614,
+      "offset": 3616,
       "length": 4,
       "value": "\"id\""
     },
     {
       "filePath": "\/Users\/builduser\/gitlab-runner\/builds\/udzdSm4BC\/0\/onetrust\/sdk\/publishers-mobile-native-sdk-ios\/OTPublishersHeadlessSDK\/Source\/Native SDK Common\/DataModel\/CMP API\/Common\/Consent\/UCPurposesLocalConsent.swift",
       "kind": "StringLiteral",
-      "offset": 5534,
+      "offset": 5536,
       "length": 4,
       "value": "\"id\""
     },
     {
       "filePath": "\/Users\/builduser\/gitlab-runner\/builds\/udzdSm4BC\/0\/onetrust\/sdk\/publishers-mobile-native-sdk-ios\/OTPublishersHeadlessSDK\/Source\/Native SDK Common\/DataModel\/CMP API\/Common\/Consent\/UCPurposesLocalConsent.swift",
       "kind": "StringLiteral",
-      "offset": 5568,
+      "offset": 5570,
       "length": 8,
       "value": "\"status\""
     },
@@ -52143,7 +52353,7 @@
     {
       "filePath": "\/Users\/builduser\/gitlab-runner\/builds\/udzdSm4BC\/0\/onetrust\/sdk\/publishers-mobile-native-sdk-ios\/OTPublishersHeadlessSDK\/Source\/Native SDK Common\/Extension\/UIViewController+Extension.swift",
       "kind": "BooleanLiteral",
-      "offset": 3240,
+      "offset": 3242,
       "length": 4,
       "value": "true"
     },
@@ -52486,21 +52696,21 @@
     {
       "filePath": "\/Users\/builduser\/gitlab-runner\/builds\/udzdSm4BC\/0\/onetrust\/sdk\/publishers-mobile-native-sdk-ios\/OTPublishersHeadlessSDK\/Source\/Native SDK Common\/Helpers\/OTStateManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 5669,
+      "offset": 5671,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/builduser\/gitlab-runner\/builds\/udzdSm4BC\/0\/onetrust\/sdk\/publishers-mobile-native-sdk-ios\/OTPublishersHeadlessSDK\/Source\/Native SDK Common\/Helpers\/OTStateManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 7083,
+      "offset": 7087,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/builduser\/gitlab-runner\/builds\/udzdSm4BC\/0\/onetrust\/sdk\/publishers-mobile-native-sdk-ios\/OTPublishersHeadlessSDK\/Source\/Native SDK Common\/Helpers\/OTStateManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 8836,
+      "offset": 8844,
       "length": 5,
       "value": "false"
     },
@@ -53515,14 +53725,14 @@
     {
       "filePath": "\/Users\/builduser\/gitlab-runner\/builds\/udzdSm4BC\/0\/onetrust\/sdk\/publishers-mobile-native-sdk-ios\/OTPublishersHeadlessSDK\/Source\/Native SDK Common\/Storage\/User Defaults\/UserDefaultsUtility+CMPAPI.swift",
       "kind": "IntegerLiteral",
-      "offset": 14759,
+      "offset": 14763,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/builduser\/gitlab-runner\/builds\/udzdSm4BC\/0\/onetrust\/sdk\/publishers-mobile-native-sdk-ios\/OTPublishersHeadlessSDK\/Source\/Native SDK Common\/Storage\/User Defaults\/UserDefaultsUtility+CMPAPI.swift",
       "kind": "StringLiteral",
-      "offset": 23670,
+      "offset": 23674,
       "length": 19,
       "value": "\"Rename-Identifier\""
     },
@@ -54194,14 +54404,14 @@
     {
       "filePath": "\/Users\/builduser\/gitlab-runner\/builds\/udzdSm4BC\/0\/onetrust\/sdk\/publishers-mobile-native-sdk-ios\/OTPublishersHeadlessSDK\/Source\/Native SDK Common\/Helpers\/ConsentLoggingDataHandler.swift",
       "kind": "BooleanLiteral",
-      "offset": 2345,
+      "offset": 2347,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/builduser\/gitlab-runner\/builds\/udzdSm4BC\/0\/onetrust\/sdk\/publishers-mobile-native-sdk-ios\/OTPublishersHeadlessSDK\/Source\/Native SDK Common\/Helpers\/ConsentLoggingDataHandler.swift",
       "kind": "BooleanLiteral",
-      "offset": 4119,
+      "offset": 4129,
       "length": 5,
       "value": "false"
     },
@@ -54453,28 +54663,28 @@
     {
       "filePath": "\/Users\/builduser\/gitlab-runner\/builds\/udzdSm4BC\/0\/onetrust\/sdk\/publishers-mobile-native-sdk-ios\/OTPublishersHeadlessSDK\/Source\/Native SDK Common\/NetworkHandler\/NetworkRequestHandler.swift",
       "kind": "IntegerLiteral",
-      "offset": 3730,
+      "offset": 3734,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/builduser\/gitlab-runner\/builds\/udzdSm4BC\/0\/onetrust\/sdk\/publishers-mobile-native-sdk-ios\/OTPublishersHeadlessSDK\/Source\/Native SDK Common\/NetworkHandler\/NetworkRequestHandler.swift",
       "kind": "IntegerLiteral",
-      "offset": 4751,
+      "offset": 4755,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/builduser\/gitlab-runner\/builds\/udzdSm4BC\/0\/onetrust\/sdk\/publishers-mobile-native-sdk-ios\/OTPublishersHeadlessSDK\/Source\/Native SDK Common\/NetworkHandler\/NetworkRequestHandler.swift",
       "kind": "IntegerLiteral",
-      "offset": 6872,
+      "offset": 6880,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/builduser\/gitlab-runner\/builds\/udzdSm4BC\/0\/onetrust\/sdk\/publishers-mobile-native-sdk-ios\/OTPublishersHeadlessSDK\/Source\/Native SDK Common\/NetworkHandler\/NetworkRequestHandler.swift",
       "kind": "IntegerLiteral",
-      "offset": 7840,
+      "offset": 7848,
       "length": 1,
       "value": "0"
     },
@@ -54537,42 +54747,42 @@
     {
       "filePath": "\/Users\/builduser\/gitlab-runner\/builds\/udzdSm4BC\/0\/onetrust\/sdk\/publishers-mobile-native-sdk-ios\/OTPublishersHeadlessSDK\/Source\/Native SDK Common\/Headless SDK\/OTPublishersHeadlessSDK+PublicAPI.swift",
       "kind": "BooleanLiteral",
-      "offset": 7160,
+      "offset": 7166,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/builduser\/gitlab-runner\/builds\/udzdSm4BC\/0\/onetrust\/sdk\/publishers-mobile-native-sdk-ios\/OTPublishersHeadlessSDK\/Source\/Native SDK Common\/Headless SDK\/OTPublishersHeadlessSDK+PublicAPI.swift",
       "kind": "BooleanLiteral",
-      "offset": 8697,
+      "offset": 8705,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/builduser\/gitlab-runner\/builds\/udzdSm4BC\/0\/onetrust\/sdk\/publishers-mobile-native-sdk-ios\/OTPublishersHeadlessSDK\/Source\/Native SDK Common\/Headless SDK\/OTPublishersHeadlessSDK+PublicAPI.swift",
       "kind": "BooleanLiteral",
-      "offset": 9537,
+      "offset": 9547,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/builduser\/gitlab-runner\/builds\/udzdSm4BC\/0\/onetrust\/sdk\/publishers-mobile-native-sdk-ios\/OTPublishersHeadlessSDK\/Source\/Native SDK Common\/Headless SDK\/OTPublishersHeadlessSDK+PublicAPI.swift",
       "kind": "BooleanLiteral",
-      "offset": 21327,
+      "offset": 21353,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/builduser\/gitlab-runner\/builds\/udzdSm4BC\/0\/onetrust\/sdk\/publishers-mobile-native-sdk-ios\/OTPublishersHeadlessSDK\/Source\/Native SDK Common\/Headless SDK\/OTPublishersHeadlessSDK+PublicAPI.swift",
       "kind": "BooleanLiteral",
-      "offset": 22624,
+      "offset": 22654,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/builduser\/gitlab-runner\/builds\/udzdSm4BC\/0\/onetrust\/sdk\/publishers-mobile-native-sdk-ios\/OTPublishersHeadlessSDK\/Source\/Native SDK Common\/Headless SDK\/OTPublishersHeadlessSDK+PublicAPI.swift",
       "kind": "BooleanLiteral",
-      "offset": 29988,
+      "offset": 30030,
       "length": 5,
       "value": "false"
     },
@@ -54994,7 +55204,7 @@
       "kind": "StringLiteral",
       "offset": 403,
       "length": 12,
-      "value": "\"202606.2.0\""
+      "value": "\"202607.1.0\""
     },
     {
       "filePath": "\/Users\/builduser\/gitlab-runner\/builds\/udzdSm4BC\/0\/onetrust\/sdk\/publishers-mobile-native-sdk-ios\/OTPublishersHeadlessSDK\/Source\/Native SDK Common\/Native UI Helpers\/Main UI\/Preference Center\/UI Model\/PCUIDataModel+SummaryData.swift",
@@ -55636,7 +55846,7 @@
     {
       "filePath": "\/Users\/builduser\/gitlab-runner\/builds\/udzdSm4BC\/0\/onetrust\/sdk\/publishers-mobile-native-sdk-ios\/OTPublishersHeadlessSDK\/Source\/Native SDK Common\/DataModel\/CMP API\/Common\/Consent\/GroupsLocalConsent.swift",
       "kind": "BooleanLiteral",
-      "offset": 6972,
+      "offset": 6976,
       "length": 5,
       "value": "false"
     },
@@ -56336,14 +56546,14 @@
     {
       "filePath": "\/Users\/builduser\/gitlab-runner\/builds\/udzdSm4BC\/0\/onetrust\/sdk\/publishers-mobile-native-sdk-ios\/OTPublishersHeadlessSDK\/Source\/Native SDK Common\/Storage\/User Defaults\/Profile Storage\/UserDefaultsUtility+ProfileHelpers.swift",
       "kind": "BooleanLiteral",
-      "offset": 4687,
+      "offset": 4689,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/builduser\/gitlab-runner\/builds\/udzdSm4BC\/0\/onetrust\/sdk\/publishers-mobile-native-sdk-ios\/OTPublishersHeadlessSDK\/Source\/Native SDK Common\/Storage\/User Defaults\/Profile Storage\/UserDefaultsUtility+ProfileHelpers.swift",
       "kind": "BooleanLiteral",
-      "offset": 16184,
+      "offset": 16196,
       "length": 4,
       "value": "true"
     },
@@ -56812,7 +57022,7 @@
     {
       "filePath": "\/Users\/builduser\/gitlab-runner\/builds\/udzdSm4BC\/0\/onetrust\/sdk\/publishers-mobile-native-sdk-ios\/OTPublishersHeadlessSDK\/Source\/Native SDK Common\/Headless SDK\/OTPublishersHeadlessSDK+OfflineMode.swift",
       "kind": "BooleanLiteral",
-      "offset": 3793,
+      "offset": 3795,
       "length": 4,
       "value": "true"
     },
@@ -57337,14 +57547,14 @@
     {
       "filePath": "\/Users\/builduser\/gitlab-runner\/builds\/udzdSm4BC\/0\/onetrust\/sdk\/publishers-mobile-native-sdk-ios\/OTPublishersHeadlessSDK\/Source\/Native SDK Common\/Helpers\/Encoders\/GPP\/FibonacciEncoding.swift",
       "kind": "IntegerLiteral",
-      "offset": 2045,
+      "offset": 2049,
       "length": 2,
       "value": "50"
     },
     {
       "filePath": "\/Users\/builduser\/gitlab-runner\/builds\/udzdSm4BC\/0\/onetrust\/sdk\/publishers-mobile-native-sdk-ios\/OTPublishersHeadlessSDK\/Source\/Native SDK Common\/Helpers\/Encoders\/GPP\/FibonacciEncoding.swift",
       "kind": "IntegerLiteral",
-      "offset": 2134,
+      "offset": 2138,
       "length": 1,
       "value": "0"
     },
@@ -57930,65 +58140,79 @@
       "value": "\"gpp\""
     },
     {
-      "filePath": "\/Users\/builduser\/gitlab-runner\/builds\/udzdSm4BC\/0\/onetrust\/sdk\/publishers-mobile-native-sdk-ios\/OTPublishersHeadlessSDK\/Source\/Native SDK Common\/Commons\/Logger.swift",
-      "kind": "IntegerLiteral",
-      "offset": 267,
-      "length": 4,
-      "value": "1024"
-    },
-    {
-      "filePath": "\/Users\/builduser\/gitlab-runner\/builds\/udzdSm4BC\/0\/onetrust\/sdk\/publishers-mobile-native-sdk-ios\/OTPublishersHeadlessSDK\/Source\/Native SDK Common\/Commons\/Logger.swift",
+      "filePath": "\/Users\/builduser\/gitlab-runner\/builds\/udzdSm4BC\/0\/onetrust\/sdk\/publishers-mobile-native-sdk-ios\/OTPublishersHeadlessSDK\/Source\/Native SDK Common\/Commons\/OTLogger.swift",
       "kind": "StringLiteral",
-      "offset": 522,
+      "offset": 415,
       "length": 19,
       "value": "\"[‼️] Error : \""
     },
     {
-      "filePath": "\/Users\/builduser\/gitlab-runner\/builds\/udzdSm4BC\/0\/onetrust\/sdk\/publishers-mobile-native-sdk-ios\/OTPublishersHeadlessSDK\/Source\/Native SDK Common\/Commons\/Logger.swift",
+      "filePath": "\/Users\/builduser\/gitlab-runner\/builds\/udzdSm4BC\/0\/onetrust\/sdk\/publishers-mobile-native-sdk-ios\/OTPublishersHeadlessSDK\/Source\/Native SDK Common\/Commons\/OTLogger.swift",
       "kind": "StringLiteral",
-      "offset": 561,
+      "offset": 454,
       "length": 21,
       "value": "\"[⚠️] Warning : \""
     },
     {
-      "filePath": "\/Users\/builduser\/gitlab-runner\/builds\/udzdSm4BC\/0\/onetrust\/sdk\/publishers-mobile-native-sdk-ios\/OTPublishersHeadlessSDK\/Source\/Native SDK Common\/Commons\/Logger.swift",
+      "filePath": "\/Users\/builduser\/gitlab-runner\/builds\/udzdSm4BC\/0\/onetrust\/sdk\/publishers-mobile-native-sdk-ios\/OTPublishersHeadlessSDK\/Source\/Native SDK Common\/Commons\/OTLogger.swift",
       "kind": "StringLiteral",
-      "offset": 599,
+      "offset": 492,
       "length": 9,
       "value": "\"Info : \""
     },
     {
-      "filePath": "\/Users\/builduser\/gitlab-runner\/builds\/udzdSm4BC\/0\/onetrust\/sdk\/publishers-mobile-native-sdk-ios\/OTPublishersHeadlessSDK\/Source\/Native SDK Common\/Commons\/Logger.swift",
+      "filePath": "\/Users\/builduser\/gitlab-runner\/builds\/udzdSm4BC\/0\/onetrust\/sdk\/publishers-mobile-native-sdk-ios\/OTPublishersHeadlessSDK\/Source\/Native SDK Common\/Commons\/OTLogger.swift",
       "kind": "StringLiteral",
-      "offset": 626,
+      "offset": 520,
+      "length": 11,
+      "value": "\"Notice : \""
+    },
+    {
+      "filePath": "\/Users\/builduser\/gitlab-runner\/builds\/udzdSm4BC\/0\/onetrust\/sdk\/publishers-mobile-native-sdk-ios\/OTPublishersHeadlessSDK\/Source\/Native SDK Common\/Commons\/OTLogger.swift",
+      "kind": "StringLiteral",
+      "offset": 549,
       "length": 10,
       "value": "\"Debug : \""
     },
     {
-      "filePath": "\/Users\/builduser\/gitlab-runner\/builds\/udzdSm4BC\/0\/onetrust\/sdk\/publishers-mobile-native-sdk-ios\/OTPublishersHeadlessSDK\/Source\/Native SDK Common\/Commons\/Logger.swift",
+      "filePath": "\/Users\/builduser\/gitlab-runner\/builds\/udzdSm4BC\/0\/onetrust\/sdk\/publishers-mobile-native-sdk-ios\/OTPublishersHeadlessSDK\/Source\/Native SDK Common\/Commons\/OTLogger.swift",
       "kind": "StringLiteral",
-      "offset": 656,
+      "offset": 579,
       "length": 12,
       "value": "\"Verbose : \""
     },
     {
-      "filePath": "\/Users\/builduser\/gitlab-runner\/builds\/udzdSm4BC\/0\/onetrust\/sdk\/publishers-mobile-native-sdk-ios\/OTPublishersHeadlessSDK\/Source\/Native SDK Common\/Commons\/Logger.swift",
+      "filePath": "\/Users\/builduser\/gitlab-runner\/builds\/udzdSm4BC\/0\/onetrust\/sdk\/publishers-mobile-native-sdk-ios\/OTPublishersHeadlessSDK\/Source\/Native SDK Common\/Commons\/OTLogger.swift",
+      "kind": "StringLiteral",
+      "offset": 1496,
+      "length": 26,
+      "value": "\"com.onetrust.headlessSDK\""
+    },
+    {
+      "filePath": "\/Users\/builduser\/gitlab-runner\/builds\/udzdSm4BC\/0\/onetrust\/sdk\/publishers-mobile-native-sdk-ios\/OTPublishersHeadlessSDK\/Source\/Native SDK Common\/Commons\/OTLogger.swift",
+      "kind": "StringLiteral",
+      "offset": 1534,
+      "length": 10,
+      "value": "\"OTLogger\""
+    },
+    {
+      "filePath": "\/Users\/builduser\/gitlab-runner\/builds\/udzdSm4BC\/0\/onetrust\/sdk\/publishers-mobile-native-sdk-ios\/OTPublishersHeadlessSDK\/Source\/Native SDK Common\/Commons\/OTLogger.swift",
       "kind": "BooleanLiteral",
-      "offset": 1547,
+      "offset": 1878,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/builduser\/gitlab-runner\/builds\/udzdSm4BC\/0\/onetrust\/sdk\/publishers-mobile-native-sdk-ios\/OTPublishersHeadlessSDK\/Source\/Native SDK Common\/Commons\/Logger.swift",
+      "filePath": "\/Users\/builduser\/gitlab-runner\/builds\/udzdSm4BC\/0\/onetrust\/sdk\/publishers-mobile-native-sdk-ios\/OTPublishersHeadlessSDK\/Source\/Native SDK Common\/Commons\/OTLogger.swift",
       "kind": "BooleanLiteral",
-      "offset": 1641,
+      "offset": 1972,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/builduser\/gitlab-runner\/builds\/udzdSm4BC\/0\/onetrust\/sdk\/publishers-mobile-native-sdk-ios\/OTPublishersHeadlessSDK\/Source\/Native SDK Common\/Commons\/Logger.swift",
+      "filePath": "\/Users\/builduser\/gitlab-runner\/builds\/udzdSm4BC\/0\/onetrust\/sdk\/publishers-mobile-native-sdk-ios\/OTPublishersHeadlessSDK\/Source\/Native SDK Common\/Commons\/OTLogger.swift",
       "kind": "BooleanLiteral",
-      "offset": 7775,
+      "offset": 8815,
       "length": 5,
       "value": "false"
     },
@@ -58257,6 +58481,13 @@
       "offset": 372,
       "length": 1,
       "value": "5"
+    },
+    {
+      "filePath": "\/Users\/builduser\/gitlab-runner\/builds\/udzdSm4BC\/0\/onetrust\/sdk\/publishers-mobile-native-sdk-ios\/OTPublishersHeadlessSDK\/Source\/Native SDK Common\/Commons\/OTLoggerConstant.swift",
+      "kind": "IntegerLiteral",
+      "offset": 396,
+      "length": 1,
+      "value": "6"
     },
     {
       "filePath": "\/Users\/builduser\/gitlab-runner\/builds\/udzdSm4BC\/0\/onetrust\/sdk\/publishers-mobile-native-sdk-ios\/OTPublishersHeadlessSDK\/Source\/Native SDK Common\/Commons\/OTUIKeys.swift",
@@ -59374,7 +59605,7 @@
     {
       "filePath": "\/Users\/builduser\/gitlab-runner\/builds\/udzdSm4BC\/0\/onetrust\/sdk\/publishers-mobile-native-sdk-ios\/OTPublishersHeadlessSDK\/Source\/Native SDK Common\/Extension\/String+Extensions.swift",
       "kind": "Array",
-      "offset": 2518,
+      "offset": 2520,
       "length": 2,
       "value": "[]"
     },
@@ -59486,21 +59717,21 @@
     {
       "filePath": "\/Users\/builduser\/gitlab-runner\/builds\/udzdSm4BC\/0\/onetrust\/sdk\/publishers-mobile-native-sdk-ios\/OTPublishersHeadlessSDK\/Source\/Native SDK Common\/Headless SDK\/OTPublishersHeadlessSDK+NativeUI.swift",
       "kind": "BooleanLiteral",
-      "offset": 7832,
+      "offset": 7842,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/builduser\/gitlab-runner\/builds\/udzdSm4BC\/0\/onetrust\/sdk\/publishers-mobile-native-sdk-ios\/OTPublishersHeadlessSDK\/Source\/Native SDK Common\/Headless SDK\/OTPublishersHeadlessSDK+NativeUI.swift",
       "kind": "BooleanLiteral",
-      "offset": 9741,
+      "offset": 9755,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/builduser\/gitlab-runner\/builds\/udzdSm4BC\/0\/onetrust\/sdk\/publishers-mobile-native-sdk-ios\/OTPublishersHeadlessSDK\/Source\/Native SDK Common\/Headless SDK\/OTPublishersHeadlessSDK+NativeUI.swift",
       "kind": "BooleanLiteral",
-      "offset": 12132,
+      "offset": 12150,
       "length": 4,
       "value": "true"
     },
@@ -60032,7 +60263,7 @@
     {
       "filePath": "\/Users\/builduser\/gitlab-runner\/builds\/udzdSm4BC\/0\/onetrust\/sdk\/publishers-mobile-native-sdk-ios\/OTPublishersHeadlessSDK\/Source\/Native SDK Common\/Storage\/GPP Storage\/GPPStorage.swift",
       "kind": "BooleanLiteral",
-      "offset": 5298,
+      "offset": 5300,
       "length": 4,
       "value": "true"
     },

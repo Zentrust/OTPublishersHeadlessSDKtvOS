@@ -1,6 +1,6 @@
 // swift-interface-format-version: 1.0
 // swift-compiler-version: Apple Swift version 6.2.4 effective-5.10 (swiftlang-6.2.4.1.4 clang-1700.6.4.2)
-// swift-module-flags: -target x86_64-apple-tvos12.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name OTPublishersHeadlessSDKtvOS
+// swift-module-flags: -target x86_64-apple-tvos15-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name OTPublishersHeadlessSDKtvOS
 // swift-module-flags-ignorable: -no-verify-emitted-module-interface -formal-cxx-interoperability-mode=off -interface-compiler-version 6.2.4
 import AppTrackingTransparency
 import DeveloperToolsSupport
@@ -13,6 +13,7 @@ import UIKit
 import _Concurrency
 import _StringProcessing
 import _SwiftConcurrencyShims
+import os
 public struct GeneralVendorsDetailsData : VendorsInfoProtocol {
   public var mode: VendorListMode {
     get
@@ -1384,6 +1385,11 @@ extension BannerUIDataModel {
     }
   }
 }
+extension Foundation.ProcessInfo {
+  public static var isRunningOnMac: Swift.Bool {
+    get
+  }
+}
 @objc public enum OTLoggerConstant : Swift.Int {
   case noLogs = -1
   case error = 1
@@ -1391,6 +1397,7 @@ extension BannerUIDataModel {
   case info = 3
   case debug = 4
   case verbose = 5
+  case automation = 6
   #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
   #endif
