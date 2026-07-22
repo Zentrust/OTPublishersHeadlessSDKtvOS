@@ -6,7 +6,7 @@
 	<dict>
 		<key>Assets.car</key>
 		<data>
-		aHmx9Al9dNvVnMcgpzhBkSObtMs=
+		V/mXNHDnWNPv31/3aF1BQVCvfN4=
 		</data>
 		<key>ConsentUINative.storyboardc/AB5-Ao-HDV-view-Otw-Lv-HNA.nib</key>
 		<data>
@@ -18,7 +18,7 @@
 		</data>
 		<key>ConsentUINative.storyboardc/IQY-mF-Se4-view-Eky-2L-KEy.nib</key>
 		<data>
-		Gr+i3/KsuC2/xOFykbfgr9bP4lU=
+		q4fRd0+ZCLfUtlh0R7Yt+7Tkq1M=
 		</data>
 		<key>ConsentUINative.storyboardc/Info.plist</key>
 		<data>
@@ -86,7 +86,7 @@
 		</data>
 		<key>ConsentUINative.storyboardc/eqJ-Gb-hzA-view-4cM-1D-M7U.nib</key>
 		<data>
-		Wkva0fsyEx/Vg6wVjPdIrNoSwUY=
+		b2Rz7rhRxdRmED+c1jd0G39i/k8=
 		</data>
 		<key>ConsentUINative.storyboardc/gk3-4r-9Zb-view-1TY-pR-8oi.nib</key>
 		<data>
@@ -98,11 +98,11 @@
 		</data>
 		<key>ConsentUINative.storyboardc/goG-fZ-3QE-view-feX-CY-MMf.nib</key>
 		<data>
-		aoMwf33G91lQbo9JyhT04EUPTCU=
+		Z6DGLTDoSBczcuTAikR/XYRvFw0=
 		</data>
 		<key>ConsentUINative.storyboardc/iQa-Wi-jQM-view-oU0-pe-Ot7.nib</key>
 		<data>
-		qp1MAhGDiQyhHPgTUN/Vo3vfdOA=
+		ZMybM9WynLm1+QacKhCG7jFNjPE=
 		</data>
 		<key>ConsentUINative.storyboardc/lkH-0Q-oi9-view-ZQi-Vp-cdn.nib</key>
 		<data>
@@ -122,59 +122,63 @@
 		</data>
 		<key>ConsentUINative.storyboardc/vDl-D8-gxi-view-Mjh-Pm-ne3.nib</key>
 		<data>
-		tR1fDzGubBBEClJkiCDxnRlMxgU=
+		YvKtoRjV5RrDyexZROYqkI6097U=
 		</data>
 		<key>Headers/OTPublishersHeadlessSDKtvOS-Swift.h</key>
 		<data>
-		Hvr08bETioDmwOeES8wPxDiuR9M=
+		+JMY72ZHdjNgrad+ata/obpGr28=
 		</data>
 		<key>Headers/OTPublishersHeadlessSDKtvOS.h</key>
 		<data>
-		HCk9y2cgK0clQCnlxgqLXpOJ/rA=
+		4v7a+MFpg/5/tIu/ddImp8S6oNI=
+		</data>
+		<key>Headers/TCF2Encoder.h</key>
+		<data>
+		ZgD0JLuO2ff8YmUYzYnTMnWGZHQ=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		oz61kfF1gdS/uk/7c1ZDvO1LHVY=
+		OSu7On+j90mwPDWxrK2CFHHVR+c=
 		</data>
 		<key>Modules/OTPublishersHeadlessSDKtvOS.swiftmodule/arm64-apple-tvos-simulator.abi.json</key>
 		<data>
-		5oOp6sbB3Zi0OluZMZkSOlcZMhE=
+		mk+M5sIuSHbFNwABQJRQXfXYuPk=
 		</data>
 		<key>Modules/OTPublishersHeadlessSDKtvOS.swiftmodule/arm64-apple-tvos-simulator.private.swiftinterface</key>
 		<data>
-		EuIV6+Q931TjCLFrf+2RSQotmIk=
+		R/8GwyqYUnefskEVQ858biEe6nc=
 		</data>
 		<key>Modules/OTPublishersHeadlessSDKtvOS.swiftmodule/arm64-apple-tvos-simulator.swiftdoc</key>
 		<data>
-		iBvtmmhreW4mNVNh/HKzYIXXCNQ=
+		X92A50nGvJldY2YDxtHIV3rRXu0=
 		</data>
 		<key>Modules/OTPublishersHeadlessSDKtvOS.swiftmodule/arm64-apple-tvos-simulator.swiftinterface</key>
 		<data>
-		EuIV6+Q931TjCLFrf+2RSQotmIk=
+		R/8GwyqYUnefskEVQ858biEe6nc=
 		</data>
 		<key>Modules/OTPublishersHeadlessSDKtvOS.swiftmodule/arm64-apple-tvos-simulator.swiftmodule</key>
 		<data>
-		4j/LN1/JzG31oYkvsrOpySKZpUI=
+		PIVdKSrBwrkMa2eNAmCMwEt/0pg=
 		</data>
 		<key>Modules/OTPublishersHeadlessSDKtvOS.swiftmodule/x86_64-apple-tvos-simulator.abi.json</key>
 		<data>
-		5oOp6sbB3Zi0OluZMZkSOlcZMhE=
+		mk+M5sIuSHbFNwABQJRQXfXYuPk=
 		</data>
 		<key>Modules/OTPublishersHeadlessSDKtvOS.swiftmodule/x86_64-apple-tvos-simulator.private.swiftinterface</key>
 		<data>
-		nXqiuLIC56hbyNueueoQTpjemQs=
+		OA2GN7xJ0klfSgqIJuQ/VVH/DGM=
 		</data>
 		<key>Modules/OTPublishersHeadlessSDKtvOS.swiftmodule/x86_64-apple-tvos-simulator.swiftdoc</key>
 		<data>
-		CKye8vdO6tWVDGweH3ZwPP54Rgg=
+		IMVuHgpegi7MBe9YTElnaS8mjZs=
 		</data>
 		<key>Modules/OTPublishersHeadlessSDKtvOS.swiftmodule/x86_64-apple-tvos-simulator.swiftinterface</key>
 		<data>
-		nXqiuLIC56hbyNueueoQTpjemQs=
+		OA2GN7xJ0klfSgqIJuQ/VVH/DGM=
 		</data>
 		<key>Modules/OTPublishersHeadlessSDKtvOS.swiftmodule/x86_64-apple-tvos-simulator.swiftmodule</key>
 		<data>
-		GMadIMwRHDQhbzQRP2wKUIHw/y8=
+		Liuy8ut6HsmL/z725jiyYA3NnUg=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -188,6 +192,10 @@
 		<data>
 		UJVvW7jpEm6ENQUP1qEMCSfSzNk=
 		</data>
+		<key>SnackBarView.nib</key>
+		<data>
+		+lVRXE5qGGdFLJsp5YvemiJ0z38=
+		</data>
 	</dict>
 	<key>files2</key>
 	<dict>
@@ -195,7 +203,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			fNrF3JUcVnPRw+eaOINBcGa3Qx3iuwHEpVgOJXPe+t8=
+			Gm1G4s4c4hd2N5wcydCc1ughyoYlCBW7OiJWfNCKg/0=
 			</data>
 		</dict>
 		<key>ConsentUINative.storyboardc/AB5-Ao-HDV-view-Otw-Lv-HNA.nib</key>
@@ -216,7 +224,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			eMEezR9OgMv7jkIkooBuydUz76Y5ADzk4jQY/kono2Q=
+			6tB1aWcKuNmVoOpRXV+Xw4xZfFtzDAsvLZCvZqtDcsQ=
 			</data>
 		</dict>
 		<key>ConsentUINative.storyboardc/Info.plist</key>
@@ -335,7 +343,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			bWzKxKGBPf6wUHcsjGpFxM9youfARTnXhABMTsaH93g=
+			cULzgSy8hzEW6txpet0dJB5+SrseHg6xnfpLjxTfdgA=
 			</data>
 		</dict>
 		<key>ConsentUINative.storyboardc/gk3-4r-9Zb-view-1TY-pR-8oi.nib</key>
@@ -356,14 +364,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			d5ZJzUr6dchL+YpBmmXQe6PMkzlQFGMS2yESjnV9xe0=
+			ykuN19RQE9A1doErE6s7EbsK4nGHUhKmtSmblAWrL3k=
 			</data>
 		</dict>
 		<key>ConsentUINative.storyboardc/iQa-Wi-jQM-view-oU0-pe-Ot7.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			j+ygb46kKggngqwuH8u0Qqq1Xr4kwnu2SaHvDkEpvUA=
+			b/BD2fIIz9X+8ATnAhfXsEOlyMpdDGX+4HFw1bnkv1A=
 			</data>
 		</dict>
 		<key>ConsentUINative.storyboardc/lkH-0Q-oi9-view-ZQi-Vp-cdn.nib</key>
@@ -398,91 +406,98 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			sQ+R0WXTGAzkLfV4BzwxLH+2I3AlvERhiZtxy90aNgs=
+			nvqX5dzrnUnMU/VoUm2Pa4x05o41MjXV20uk2W8T37E=
 			</data>
 		</dict>
 		<key>Headers/OTPublishersHeadlessSDKtvOS-Swift.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			MjPjc6o4xIx4q/FXEPlMEdjlojVHsvZ3k1shYTbOMj4=
+			alE7iz1EQs5OmkxPbu72r3L8B9qCTIKTtGh5SmPPjiM=
 			</data>
 		</dict>
 		<key>Headers/OTPublishersHeadlessSDKtvOS.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			PuRY7hnuMFwz+NYzApZE55GlhaA3fPxduaUMYnMOoo0=
+			42T3Pi6V6YDvxAgvkPmfFUiYd483Rgq3ORp8XCeiGW0=
+			</data>
+		</dict>
+		<key>Headers/TCF2Encoder.h</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			semvQpTPkXQJwDb3j1SgRUpPGFPA6VBaxACNuq1h4YQ=
 			</data>
 		</dict>
 		<key>Modules/OTPublishersHeadlessSDKtvOS.swiftmodule/arm64-apple-tvos-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			kURqhCf2dFfXMqc7PXqcBVnRn1rgKCb6L8ZTL5vIckc=
+			Nk1V5R0Ei0N9wrPGk51wK5zvCmyo/LNBXhr5N54XZhU=
 			</data>
 		</dict>
 		<key>Modules/OTPublishersHeadlessSDKtvOS.swiftmodule/arm64-apple-tvos-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			RDncmpRjnrqjQfq7MkYFkeQDhmejdpLPNJfrPc2Pe8M=
+			RxjGy5Jr2VkYVdA8Gt418msQWetpFI25lBIqcnX5C5g=
 			</data>
 		</dict>
 		<key>Modules/OTPublishersHeadlessSDKtvOS.swiftmodule/arm64-apple-tvos-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			wFx06XA5V848wTyJUBALpGST0RAG38OcN0cpLa0ue8E=
+			V2Sx1xIVgT1jg+t3xiH/O9eJ5tBZaniqfhZ2QdvfJwI=
 			</data>
 		</dict>
 		<key>Modules/OTPublishersHeadlessSDKtvOS.swiftmodule/arm64-apple-tvos-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			RDncmpRjnrqjQfq7MkYFkeQDhmejdpLPNJfrPc2Pe8M=
+			RxjGy5Jr2VkYVdA8Gt418msQWetpFI25lBIqcnX5C5g=
 			</data>
 		</dict>
 		<key>Modules/OTPublishersHeadlessSDKtvOS.swiftmodule/arm64-apple-tvos-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			lEjiem+WHYSg4gCQQci6hUTjPeOVVAbkzYgNoaj5eUg=
+			DB3gbaXzxsZkrP4JtboHHmIZ73wV4EUy6H2gMgUs1HI=
 			</data>
 		</dict>
 		<key>Modules/OTPublishersHeadlessSDKtvOS.swiftmodule/x86_64-apple-tvos-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			kURqhCf2dFfXMqc7PXqcBVnRn1rgKCb6L8ZTL5vIckc=
+			Nk1V5R0Ei0N9wrPGk51wK5zvCmyo/LNBXhr5N54XZhU=
 			</data>
 		</dict>
 		<key>Modules/OTPublishersHeadlessSDKtvOS.swiftmodule/x86_64-apple-tvos-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Ws6b9Zm3z4fm1VrTFvKWXNXYJrOAtdsZuiISw1+jmMQ=
+			i/tXhbqZ3kkvlLJBdjQ4SsrZip/IBQv/cfV2moou+/8=
 			</data>
 		</dict>
 		<key>Modules/OTPublishersHeadlessSDKtvOS.swiftmodule/x86_64-apple-tvos-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			b1k6EpfaqZoLd1gPDamEfurI0FUKkLiuK7lqbetTTVk=
+			iHD1CMyoqQnjNGMX2wpLk5e7u2Ppa6YojZFBHp9cYMY=
 			</data>
 		</dict>
 		<key>Modules/OTPublishersHeadlessSDKtvOS.swiftmodule/x86_64-apple-tvos-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Ws6b9Zm3z4fm1VrTFvKWXNXYJrOAtdsZuiISw1+jmMQ=
+			i/tXhbqZ3kkvlLJBdjQ4SsrZip/IBQv/cfV2moou+/8=
 			</data>
 		</dict>
 		<key>Modules/OTPublishersHeadlessSDKtvOS.swiftmodule/x86_64-apple-tvos-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			VdM1Mb0jiA2HVMZxRZmK0+5gXVqkEKiKNpe2xpOe26w=
+			mLkhlrp0e3u4oJdMLvOYBDjpWMyeJxL4uIxWKxmOEI4=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
@@ -504,6 +519,13 @@
 			<key>hash2</key>
 			<data>
 			NgfzGV2DI8NMjUUUCj3A9e5uVfY9H20fwQjXbJolkwI=
+			</data>
+		</dict>
+		<key>SnackBarView.nib</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			wm/Psjc8qXb5FwIeyyDl45jZMTw8aDvLk2CZq3pPvGc=
 			</data>
 		</dict>
 	</dict>
