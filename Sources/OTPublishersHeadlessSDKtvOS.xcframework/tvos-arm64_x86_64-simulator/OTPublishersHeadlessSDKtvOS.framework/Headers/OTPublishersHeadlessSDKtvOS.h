@@ -10,7 +10,6 @@
 
 #ifndef OTPublishersHeadlessSDKtvOS_h
 #define OTPublishersHeadlessSDKtvOS_h
-#include "TCF2Encoder.h"
 #endif /* OTPublishersHeadlessSDKtvOS_h */
 
 //! Project version number for OTPublishersHeadlessSDKtvOS.
