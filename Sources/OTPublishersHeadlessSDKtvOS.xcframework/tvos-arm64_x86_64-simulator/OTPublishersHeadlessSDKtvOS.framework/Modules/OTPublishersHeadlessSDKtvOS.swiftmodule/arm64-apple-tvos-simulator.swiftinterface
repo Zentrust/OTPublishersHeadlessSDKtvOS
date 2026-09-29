@@ -420,6 +420,12 @@ extension OTPublishersHeadlessSDK {
   #endif
   public func getAllFirstPartyCookies() -> [FirstPartyCookiesData]
 }
+public struct LogFileHandler {
+}
+extension LogFileHandler {
+  public static func readLogsFileContent() -> Swift.String
+  public static func clearLogsFile()
+}
 @_hasMissingDesignatedInitializers @objc public class OTGeolocationModel : ObjectiveC.NSObject, Swift.Codable {
   @objc public var country: Swift.String {
     get
@@ -1669,6 +1675,8 @@ extension FirstPartyCookiesData {
   public func getLatestConsent() -> Swift.Int8
   public func getToggleStatus() -> Swift.Int8
   public func canToggleStatus() -> Swift.Bool
+  public func hasDisabledConsentToggle() -> Swift.Bool
+  public func hasHiddenConsentToggle() -> Swift.Bool
 }
 @objc public enum OTUIType : Swift.Int {
   case none = -1
