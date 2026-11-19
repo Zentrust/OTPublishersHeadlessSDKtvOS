@@ -217,8 +217,6 @@ public struct PurposeTreeGroup : Swift.Codable {
   public let descriptionLegal: Swift.String
   public var iabIllustrations: [Swift.String]?
   public let consentToggleStatus: Swift.Int8
-  public let isConsentDisabled: Swift.Bool
-  public let isLegIntDisabled: Swift.Bool
   public var vendorsLinkedInfo: Swift.String? {
     get
   }
@@ -421,12 +419,6 @@ extension OTPublishersHeadlessSDKtvOS.OTPublishersHeadlessSDK {
   public func getAllParentPurposes() -> [OTPublishersHeadlessSDKtvOS.PurposeTreeGroup]?
   #endif
   public func getAllFirstPartyCookies() -> [OTPublishersHeadlessSDKtvOS.FirstPartyCookiesData]
-}
-public struct LogFileHandler {
-}
-extension OTPublishersHeadlessSDKtvOS.LogFileHandler {
-  public static func readLogsFileContent() -> Swift.String
-  public static func clearLogsFile()
 }
 @_hasMissingDesignatedInitializers @objc public class OTGeolocationModel : ObjectiveC.NSObject, Swift.Codable {
   @objc public var country: Swift.String {
@@ -1677,8 +1669,6 @@ extension OTPublishersHeadlessSDKtvOS.FirstPartyCookiesData {
   public func getLatestConsent() -> Swift.Int8
   public func getToggleStatus() -> Swift.Int8
   public func canToggleStatus() -> Swift.Bool
-  public func hasDisabledConsentToggle() -> Swift.Bool
-  public func hasHiddenConsentToggle() -> Swift.Bool
 }
 @objc public enum OTUIType : Swift.Int {
   case none = -1
